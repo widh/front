@@ -22,12 +22,12 @@ window.onload = function () {
   }
   const lightSwitch = document.getElementById('switch')
   lightSwitch.onclick = function () {
-    var isDark = document.body.classList.contains('dark')
+    var isDark = document.documentElement.classList.contains('dark')
     if (isDark) {
-      document.body.classList.remove('dark')
+      document.documentElement.classList.remove('dark')
       document.documentElement.style.setProperty('background-color', 'rgb(234, 234, 234)')
     } else {
-      document.body.classList.add('dark')
+      document.documentElement.classList.add('dark')
       document.documentElement.style.setProperty('background-color', 'rgb(34, 34, 34)')
     }
     setCookie(!isDark)
