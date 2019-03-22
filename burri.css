@@ -38,6 +38,11 @@ body, body * {
   --transition-property: var(--transition-duration) var(--transition-timing-function);
   --transition: color var(--transition-property), opacity var(--transition-property), fill var(--transition-property), background-color var(--transition-property);
   transition: var(--transition);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 h1, h2 {
