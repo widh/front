@@ -14,11 +14,12 @@
 })()
 
 window.onload = function () {
+  // Lightmode
   const setCookie = function (value) {
     var date = new Date()
     date.setTime(date.getTime() + 315360000000)
-    var expires = "expires=" + date.toUTCString()
-    document.cookie = "ptDark=" + value + ";" + expires + ";path=/;domain=widh.me"
+    var expires = 'expires=' + date.toUTCString()
+    document.cookie = 'ptDark=' + value + ';' + expires + ';path=/;domain=widh.me'
   }
   const lightSwitch = document.getElementById('switch')
   lightSwitch.onclick = function () {
@@ -35,4 +36,9 @@ window.onload = function () {
   lightSwitch.onmouseup = function (event) {
     event.target.blur()
   }
+  // Loader
+  lightSwitch.style.setProperty('animation', 'none')
+  window.addEventListener('beforeunload', function () {
+    lightSwitch.style.setProperty('animation', 'opa-wave 2s infinite')
+  })
 }

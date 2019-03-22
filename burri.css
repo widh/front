@@ -1,3 +1,19 @@
+@keyframes opa-wave {
+  0% { opacity: .8; }
+  14% { opacity: .6; }
+  27% { opacity: .8; }
+  32% { opacity: .8; }
+  41% { opacity: .4; }
+  50% { opacity: .8; }
+  56% { opacity: .8; }
+  68% { opacity: .5; }
+  74% { opacity: .8; }
+  80% { opacity: .8; }
+  88% { opacity: .4; }
+  96% { opacity: .8; }
+  100% { opacity: .8; }
+}
+
 html.dark body, html.dark body * {
   --color: var(--light);
   --background: var(--dark);
@@ -52,6 +68,7 @@ span, p, img {
   top: 15vh;
   left: calc(50% - 40px - 2vw);
   cursor: pointer;
+  animation: opa-wave 2s infinite;
   transition: var(--transition), transform var(--transition-property);
 }
 #switch:hover svg {
