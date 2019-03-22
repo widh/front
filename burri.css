@@ -1,0 +1,189 @@
+body {
+  margin: 0;
+  font-size: 0;
+  background-color: var(--background);
+}
+body, body * {
+  --wldh: #e34;
+  --dark: rgb(34, 34, 34);
+  --light: rgb(234, 234, 234);
+  --color: var(--dark);
+  --background: var(--light);
+  --transition-duration: .23s;
+  --transition-timing-function: ease;
+  --transition-property: var(--transition-duration) var(--transition-timing-function);
+  --transition: color var(--transition-property), opacity var(--transition-property), fill var(--transition-property), background-color var(--transition-property);
+  transition: var(--transition);
+}
+body.dark, body.dark * {
+  --color: var(--light);
+  --background: var(--dark);
+}
+body.dark svg rect, body.dark svg path {
+  fill: var(--color);
+}
+
+h1, h2 {
+  font-family: 'Noto Sans CJK KR Medium', 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1;
+  margin: 0;
+  color: var(--color);
+}
+
+span, p, img {
+  font-family: 'Noto Sans CJK KR Regular', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color);
+}
+
+#switch {
+  background: none;
+  outline: none;
+  border: none;
+  padding: 0;
+  display: block;
+  position: fixed;
+  top: 15vh;
+  left: calc(50% - 40px - 2vw);
+  cursor: pointer;
+  transition: var(--transition), transform var(--transition-property);
+}
+#switch:hover svg {
+  padding-top: 32px;
+}
+#switch:focus svg {
+  transition: var(--transition), padding-top var(--transition-property), transform .09s var(--transition-timing-function);
+  transform: scale(.9);
+}
+#switch::-moz-focus-inner { border: none; }
+#switch svg {
+  transition: var(--transition), padding-top var(--transition-property), transform var(--transition-property);
+  width: calc(80px + 4vw);
+  height: calc(80px + 4vw);
+}
+
+#brand {
+  position: fixed;
+  left: 5px;
+  bottom: 10px;
+}
+#brand h1 {
+  opacity: .4;
+}
+#brand h1, #brand h1 svg {
+  width: calc(120px + 4.19vw);
+  max-width: 360px;
+  height: auto;
+}
+#brand h1 svg {
+  background-color: var(--background);
+  z-index: 10;
+}
+#brand h1 svg, #brand h1 > div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+}
+#brand h2 {
+  opacity: .4;
+  margin-left: calc(126px + 4.19vw);
+}
+#brand h2 p {
+  font-size: calc(10px + .75vw);
+  line-height: calc(16px + 1.2vw);
+  cursor: default;
+  transition: var(--transition), margin-top var(--transition-property), margin-bottom var(--transition-property);
+}
+#brand h2 p:last-child {
+  margin-bottom: calc(-16px + -1.2vw);
+  opacity: 0;
+}
+#brand h2:hover {
+  opacity: 1;
+}
+#brand h2:hover p:first-child {
+  margin-top: calc(-16px -1.2vw);
+  opacity: 0;
+}
+#brand h2:hover p:last-child {
+  opacity: 1;
+  margin-bottom: 0;
+}
+
+#links {
+  display: table;
+  width: 100vw;
+  height: 100vh;
+}
+#links nav {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 10vh 19vw 0;
+}
+#links nav ul {
+  list-style: none;
+  padding: 0;
+  display: contents;
+}
+#links nav ul:hover li a:not(:hover) {
+  opacity: .4;
+}
+#links nav ul li {
+  display: inline-block;
+  padding: 5px 10px;
+}
+#links nav ul li a {
+  text-decoration: none;
+  line-height: calc(19.2px + 5.4vh);
+  outline: none;
+  display: block;
+  position: relative;
+}
+#links nav ul li a::before {
+  content: '';
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  z-index: -1;
+  background-color: var(--wldh);
+  transition: var(--transition), width var(--transition-property);
+}
+#links nav ul li a:hover::before {
+  width: 100%;
+  left: 0;
+}
+#links nav ul li a:hover span {
+  color: var(--light);
+}
+#links nav ul li a span {
+  display: block;
+  line-height: calc(19.2px + 5.4vh);
+  font-size: calc(12px + 4vh);
+  padding-left: 15px;
+  padding-right: 15px;
+  vertical-align: middle;
+  padding-bottom: 5px;
+}
+
+#author {
+  position: fixed;
+  right: calc(10px + .81vw);
+  bottom: 2vh;
+  opacity: .6;
+}
+
+@media only screen and (max-width: 479px) {
+  #brand h2 {
+    display: none;
+  }
+}
