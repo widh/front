@@ -21,8 +21,7 @@ window.onload = function () {
     var expires = 'expires=' + date.toUTCString()
     document.cookie = 'ptDark=' + value + ';' + expires + ';path=/;domain=widh.me'
   }
-  const lightSwitch = document.getElementById('switch')
-  lightSwitch.onclick = function () {
+  const toggleLight = function () {
     var isDark = document.documentElement.classList.contains('dark')
     if (isDark) {
       document.documentElement.classList.remove('dark')
@@ -33,11 +32,12 @@ window.onload = function () {
     }
     setCookie(!isDark)
   }
+  const lightSwitch = document.getElementById('switch')
+  lightSwitch.onclick = toggleLight
   lightSwitch.onmouseup = function (event) {
     event.target.blur()
   }
   lightSwitch.ontouchend = function (event) {
-    event.preventDefault()
     event.target.blur()
   }
   // Loader
