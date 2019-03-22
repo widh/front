@@ -214,4 +214,7 @@ span, p, img {
   #switch {
     display: none;
   }
+  #links nav {
+    padding-top: 0;
+  }
 }
