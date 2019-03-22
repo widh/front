@@ -38,6 +38,11 @@ window.onload = function () {
   }
   lightSwitch.ontouchend = function (event) {
     event.target.blur()
+    alert('touchend')
+  }
+  lightSwitch.ontouchcancel = function (event) {
+    event.target.blur()
+    alert('touchcancel')
   }
   // Loader
   lightSwitch.style.setProperty('animation', 'none')
