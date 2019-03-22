@@ -36,9 +36,6 @@ window.onload = function () {
   lightSwitch.onmouseup = function (event) {
     event.target.blur()
   }
-  lightSwitch.ontouchstart = function (event) {
-    event.preventDefault()
-  }
   lightSwitch.ontouchend = function (event) {
     event.preventDefault()
     event.target.blur()
