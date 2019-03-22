@@ -172,7 +172,6 @@ span, p, img {
   top: 0;
   right: 0;
   width: 0;
-  z-index: -1;
   background-color: var(--wldh);
   transition: var(--transition), width var(--transition-property);
 }
@@ -184,12 +183,12 @@ span, p, img {
   color: var(--light);
 }
 #links nav ul li a span {
+  position: relative;
   display: block;
   line-height: calc(19.2px + 5.4vh);
   font-size: calc(12px + 4vh);
   padding-left: 15px;
   padding-right: 15px;
-  vertical-align: middle;
   padding-bottom: 5px;
 }
 
