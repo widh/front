@@ -74,7 +74,7 @@ span, p, img {
 #switch:hover svg, #switch:active svg {
   padding-top: 32px;
 }
-#switch:focus svg {
+#switch:focus svg, #switch:active svg {
   transition: var(--transition), padding-top var(--transition-property), transform .09s var(--transition-timing-function);
   transform: scale(.9);
 }

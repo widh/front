@@ -36,13 +36,12 @@ window.onload = function () {
   lightSwitch.onmouseup = function (event) {
     event.target.blur()
   }
-  lightSwitch.ontouchend = function (event) {
-    event.target.blur()
-    alert('touchend')
+  lightSwitch.ontouchstart = function (event) {
+    event.preventDefault()
   }
-  lightSwitch.ontouchcancel = function (event) {
+  lightSwitch.ontouchend = function (event) {
+    event.preventDefault()
     event.target.blur()
-    alert('touchcancel')
   }
   // Loader
   lightSwitch.style.setProperty('animation', 'none')
