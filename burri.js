@@ -5,7 +5,7 @@
     if ('ptDark' === c[0].trim()) {
       if (c[1][0] === 't') {
         document.documentElement.style.setProperty('background-color', 'rgb(34, 34, 34)')
-        document.body.classList.add('dark')
+        document.documentElement.classList.add('dark')
       } else {
         document.documentElement.style.setProperty('background-color', 'rgb(234, 234, 234)')
       }
