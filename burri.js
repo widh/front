@@ -36,6 +36,9 @@ window.onload = function () {
   lightSwitch.onmouseup = function (event) {
     event.target.blur()
   }
+  lightSwitch.ontouchend = function (event) {
+    event.target.blur()
+  }
   // Loader
   lightSwitch.style.setProperty('animation', 'none')
   window.addEventListener('beforeunload', function () {

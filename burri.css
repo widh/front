@@ -71,7 +71,7 @@ span, p, img {
   animation: opa-wave 2s infinite;
   transition: var(--transition), transform var(--transition-property);
 }
-#switch:hover svg {
+#switch:hover svg, #switch:active svg {
   padding-top: 32px;
 }
 #switch:focus svg {
@@ -122,14 +122,14 @@ span, p, img {
   margin-bottom: calc(-16px + -1.2vw);
   opacity: 0;
 }
-#brand h2:hover {
+#brand h2:hover, #brand h2:active {
   opacity: 1;
 }
-#brand h2:hover p:first-child {
+#brand h2:hover p:first-child, #brand h2:active p:first-child {
   margin-top: calc(-16px -1.2vw);
   opacity: 0;
 }
-#brand h2:hover p:last-child {
+#brand h2:hover p:last-child, #brand h2:active p:last-child {
   opacity: 1;
   margin-bottom: 0;
 }
@@ -150,7 +150,7 @@ span, p, img {
   padding: 0;
   display: contents;
 }
-#links nav ul:hover li a:not(:hover) {
+#links nav ul:hover li a:not(:hover), #links nav ul:active li a:not(:active) {
   opacity: .4;
 }
 #links nav ul li {
@@ -175,11 +175,11 @@ span, p, img {
   background-color: var(--wldh);
   transition: var(--transition), width var(--transition-property);
 }
-#links nav ul li a:hover::before {
+#links nav ul li a:hover::before, #links nav ul li a:active::before {
   width: 100%;
   left: 0;
 }
-#links nav ul li a:hover span {
+#links nav ul li a:hover span, #links nav ul li a:active span {
   color: var(--light);
 }
 #links nav ul li a span {
