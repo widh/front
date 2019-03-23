@@ -102,6 +102,7 @@ span, p, img {
   width: calc(120px + 4.19vw);
   max-width: 360px;
   height: auto;
+  font-size: 5rem;
 }
 #brand h1 svg {
   background-color: var(--background);
