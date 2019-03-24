@@ -92,17 +92,17 @@ span, p, img {
 
 #brand {
   position: fixed;
-  left: 5px;
-  bottom: 10px;
+  left: calc(5px + .81vw);
+  bottom: calc(2vh - .075rem - .39vw);
 }
 #brand h1 {
   opacity: .4;
 }
 #brand h1, #brand h1 svg {
-  width: calc(120px + 4.19vw);
+  width: calc(60px + 3.19vw);
   max-width: 360px;
   height: auto;
-  font-size: 5rem;
+  font-size: calc(20px + 1.39vw);
 }
 #brand h1 svg {
   background-color: var(--background);
@@ -113,10 +113,11 @@ span, p, img {
   bottom: 0;
   left: 0;
   display: block;
+  margin-bottom: .075em;
 }
 #brand h2 {
   opacity: .4;
-  margin-left: calc(126px + 4.19vw);
+  margin-left: calc(66px + 3.19vw);
 }
 #brand h2 p {
   font-size: calc(10px + .75vw);
