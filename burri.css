@@ -71,7 +71,7 @@ span, p, img {
   display: block;
   position: fixed;
   top: 12vh;
-  left: calc(50% - 40px - 2vw);
+  left: calc(19px + .81vw);
   cursor: pointer;
   animation: opa-wave 2s infinite;
   transition: var(--transition), transform var(--transition-property);
@@ -113,27 +113,27 @@ span, p, img {
   bottom: 0;
   left: 0;
   display: block;
-  margin-bottom: .075em;
+  margin-bottom: .04em;
 }
 #brand h2 {
   opacity: .4;
   margin-left: calc(66px + 3.19vw);
 }
 #brand h2 p {
-  font-size: calc(10px + .75vw);
-  line-height: calc(16px + 1.2vw);
+  font-size: calc(10px + .4vw);
+  line-height: calc(16px + .64vw);
   cursor: default;
   transition: var(--transition), margin-top var(--transition-property), margin-bottom var(--transition-property);
 }
 #brand h2 p:last-child {
-  margin-bottom: calc(-16px + -1.2vw);
+  margin-bottom: calc(-16px + -.64vw);
   opacity: 0;
 }
 #brand h2:hover, #brand h2:active {
   opacity: 1;
 }
 #brand h2:hover p:first-child, #brand h2:active p:first-child {
-  margin-top: calc(-16px -1.2vw);
+  margin-top: calc(-16px -.64vw);
   opacity: 0;
 }
 #brand h2:hover p:last-child, #brand h2:active p:last-child {
@@ -147,10 +147,10 @@ span, p, img {
   height: 100vh;
 }
 #links nav {
-  text-align: center;
   display: table-cell;
   vertical-align: middle;
-  padding: 7vh 19vw 0;
+  padding: 7vh calc(5px + .81vw) 0;
+  margin: auto;
 }
 #links nav ul {
   list-style: none;
@@ -161,14 +161,15 @@ span, p, img {
   opacity: .4;
 }
 #links nav ul li {
-  display: inline-block;
+  display: table;
   padding: 5px 10px;
 }
 #links nav ul li a {
   text-decoration: none;
   line-height: calc(19.2px + 5.4vh);
   outline: none;
-  display: block;
+  display: inline-block;
+  padding: 0 4rem 0 0;
   position: relative;
 }
 #links nav ul li a::before {
@@ -180,20 +181,23 @@ span, p, img {
   right: 0;
   width: 0;
   background-color: var(--wldh);
-  transition: var(--transition), width var(--transition-property);
+  transform: skew(15deg);
+  transition: var(--transition), width var(--transition-property), transform var(--transition-property);
 }
 #links nav ul li a:hover::before, #links nav ul li a:active::before {
   width: 100%;
   left: 0;
+  transform: skew(-15deg);
 }
 #links nav ul li a:hover span, #links nav ul li a:active span {
   color: var(--light);
 }
 #links nav ul li a span {
+  font-style: italic;
   position: relative;
   display: block;
-  line-height: calc(19.2px + 5.4vh);
-  font-size: calc(12px + 4vh);
+  line-height: calc(19.2px + 4.8vh);
+  font-size: calc(12px + 3vh);
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 5px;
