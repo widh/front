@@ -217,10 +217,16 @@ span, p, img {
 }
 
 @media only screen and (max-height: 599px) {
-  #switch {
-    display: none;
-  }
   #links nav {
-    padding-top: 0;
+    padding-top: 14vh;
+  }
+  #links nav ul li {
+    display: inline-table;
+  }
+  #links nav ul li a {
+    padding: 0;
+  }
+  #links nav ul li a span {
+    padding-right: .75em;
   }
 }
