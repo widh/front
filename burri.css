@@ -203,7 +203,7 @@ span, p, img {
   opacity: .6;
 }
 
-@media only screen and (max-width: 479px), only screen and (max-height: 599px) {
+@media only screen and (max-width: 799px), only screen and (max-height: 599px) {
   #switch {
     top: 12vh;
     left: calc(19px + .81vw);
