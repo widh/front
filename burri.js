@@ -4,7 +4,7 @@
     var c = ci.split('=')
     if ('modarkbul' === c[0].trim()) {
       if (c[1][0] === 't') {
-        document.documentElement.style.setProperty('background-color', 'rgb(34, 34, 34)')
+        document.documentElement.style.setProperty('background-color', 'rgb(0, 0, 0)')
         document.documentElement.classList.add('dark')
       } else {
         document.documentElement.style.setProperty('background-color', 'rgb(234, 234, 234)')
@@ -16,7 +16,7 @@
 window.onload = function () {
   // Lightmode
   if (document.documentElement.classList.contains('dark')) {
-    document.querySelector('meta[name=theme-color]').content = '#343434'
+    document.querySelector('meta[name=theme-color]').content = '#000000'
   }
   const setCookie = function (value) {
     var date = new Date()
@@ -32,8 +32,8 @@ window.onload = function () {
       document.querySelector('meta[name=theme-color]').content = '#eeeeee'
     } else {
       document.documentElement.classList.add('dark')
-      document.documentElement.style.setProperty('background-color', 'rgb(34, 34, 34)')
-      document.querySelector('meta[name=theme-color]').content = '#343434'
+      document.documentElement.style.setProperty('background-color', 'rgb(0, 0, 0)')
+      document.querySelector('meta[name=theme-color]').content = '#000000'
     }
     setCookie(!isDark)
   }
