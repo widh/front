@@ -6,7 +6,6 @@
       if (c[1][0] === 't') {
         document.documentElement.style.setProperty('background-color', 'rgb(34, 34, 34)')
         document.documentElement.classList.add('dark')
-        document.querySelector('meta[name=theme-color]').content = '#343434'
       } else {
         document.documentElement.style.setProperty('background-color', 'rgb(234, 234, 234)')
       }
@@ -16,6 +15,9 @@
 
 window.onload = function () {
   // Lightmode
+  if (document.documentElement.classList.contains('dark')) {
+    document.querySelector('meta[name=theme-color]').content = '#343434'
+  }
   const setCookie = function (value) {
     var date = new Date()
     date.setTime(date.getTime() + 315360000000)
