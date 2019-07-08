@@ -70,14 +70,14 @@ span, p, img {
   padding: 0;
   display: block;
   position: fixed;
-  top: 12vh;
-  left: calc(19px + .81vw);
+  top: calc(48.5vh - 40px - 2vw);
+  right: calc(45vw - 4rem);
   cursor: pointer;
   animation: opa-wave 2s infinite;
   transition: var(--transition), transform var(--transition-property);
 }
 #switch:hover svg, #switch:active svg {
-  padding-top: 32px;
+  padding-top: 3vh;
 }
 #switch:focus svg, #switch:active svg {
   transition: var(--transition), padding-top var(--transition-property), transform .09s var(--transition-timing-function);
@@ -93,33 +93,13 @@ span, p, img {
 #brand {
   position: fixed;
   left: calc(5px + .81vw);
-  bottom: calc(2vh - .075rem - .39vw);
-}
-#brand h1 {
-  opacity: .4;
-}
-#brand h1, #brand h1 svg {
-  width: calc(60px + 3.19vw);
-  max-width: 360px;
-  height: auto;
-  font-size: calc(20px + 1.39vw);
-}
-#brand h1 svg {
-  background-color: var(--background);
-  z-index: 10;
-}
-#brand h1 svg, #brand h1 > div {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: block;
-  margin-bottom: .04em;
+  bottom: calc(2vh);
 }
 #brand h2 {
   opacity: .4;
-  margin-left: calc(66px + 3.19vw);
+  margin-left: 25px;
 }
-#brand h2 p {
+#brand h2 p, #brand h2 p span {
   font-size: calc(10px + .4vw);
   line-height: calc(16px + .64vw);
   cursor: default;
@@ -127,6 +107,17 @@ span, p, img {
 }
 #brand h2 p:last-child {
   margin-bottom: calc(-16px + -.64vw);
+  opacity: 0;
+}
+#brand h2 p span {
+  display: block;
+  opacity: 1;
+  transition: var(--transition);
+}
+#brand h2 p span.removed {
+  display: none;
+}
+#brand h2 p span.transparent {
   opacity: 0;
 }
 #brand h2:hover, #brand h2:active {
@@ -149,7 +140,7 @@ span, p, img {
 #links nav {
   display: table-cell;
   vertical-align: middle;
-  padding: 7vh calc(5px + .81vw) 0;
+  padding: 0 calc(5px + .81vw) 0;
   margin: auto;
 }
 #links nav ul {
@@ -191,6 +182,7 @@ span, p, img {
 }
 #links nav ul li a:hover span, #links nav ul li a:active span {
   color: var(--light);
+  padding-left: calc(15px + 1rem);
 }
 #links nav ul li a span {
   font-style: italic;
@@ -201,22 +193,24 @@ span, p, img {
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 5px;
+  transition: padding-left var(--transition-property);
 }
 
 #author {
   position: fixed;
-  right: calc(10px + .81vw);
+  right: calc(25px + .81vw);
   bottom: 2vh;
   opacity: .6;
 }
 
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 479px), only screen and (max-height: 599px) {
+  #switch {
+    top: 12vh;
+    left: calc(19px + .81vw);
+  }
   #brand h2 {
     display: none;
   }
-}
-
-@media only screen and (max-height: 599px) {
   #links nav {
     padding-top: 14vh;
   }
