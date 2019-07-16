@@ -45,11 +45,13 @@ window.onload = function () {
   lightSwitch.ontouchend = function (event) {
     event.target.blur()
   }
+
   // Loader
   lightSwitch.style.setProperty('animation', 'none')
   window.addEventListener('beforeunload', function () {
     lightSwitch.style.setProperty('animation', 'opa-wave 2s infinite')
   })
+
   // Changing banner
   let textIter = 0
   const textBanners = document.getElementById('banner').children
