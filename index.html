@@ -50,10 +50,24 @@
       <p role="contentinfo">&copy; wldh</p>
     </footer>
   </article>
-  <!--[if IE]>
-    <script>
-      window.location = 'https://www.mozilla.org/firefox/'
-    </script>
-  <![endif]-->
+  <script>
+    (function () {
+      var agent = navigator.userAgent.toLowerCase();
+      if (
+        (navigator.appName === "Netscape" && agent.indexOf("trident") !== -1)
+        || agent.indexOf("msie") !== -1
+      ) {
+        if (document.cookie.indexOf("stillie") === -1) {
+          var wannaUseIE = window.confirm("\"Internet Explorer\", which is a web browser now you are using, is now officially deprecated, and this page will not properly work on Internet Explorer.\nWould you still like to see this page using Internet Explorer?\n\n지금 사용중인 인터넷 탐색 프로그램인 \"Internet Explorer\"는 공식적으로 폐기된 웹 브라우저이며, 이 홈페이지는 Internet Explorer에서 제대로 보이거나 작동하지 않습니다.\n그래도 Internet Explorer로 탐색을 계속하시겠습니까?");
+          if (wannaUseIE === true) {
+            document.cookie = "stillie=true";
+          } else {
+            alert("Going back to the previous page.\n이전 페이지로 돌아갑니다.");
+            history.back();
+          }
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
