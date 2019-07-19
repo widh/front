@@ -30,7 +30,7 @@ body {
 body, body * {
   --wldh: #e34;
   --dark: rgb(0, 0, 0);
-  --light: rgb(234, 234, 234);
+  --light: rgb(240, 240, 240);
   --color: var(--dark);
   --background: var(--light);
   --transition-duration: .23s;
@@ -148,7 +148,7 @@ span, p, img {
   padding: 0;
   display: contents;
 }
-#links nav ul:hover li a:not(:hover), #links nav ul:active li a:not(:active) {
+#links nav ul:hover li a:not(:hover), #links nav ul:active li a:not(:active), #links nav ul:focus-within li a:not(:focus) {
   opacity: .4;
 }
 #links nav ul li {
@@ -175,12 +175,12 @@ span, p, img {
   transform: skew(15deg);
   transition: var(--transition), width var(--transition-property), transform var(--transition-property);
 }
-#links nav ul li a:hover::before, #links nav ul li a:active::before {
+#links nav ul li a:hover::before, #links nav ul li a:active::before, #links nav ul li a:focus::before {
   width: 100%;
   left: 0;
   transform: skew(-15deg);
 }
-#links nav ul li a:hover span, #links nav ul li a:active span {
+#links nav ul li a:hover span, #links nav ul li a:active span, #links nav ul li a:focus {
   color: var(--light);
   padding-left: calc(15px + 1rem);
 }
