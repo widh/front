@@ -148,7 +148,7 @@ span, p, img {
   padding: 0;
   display: contents;
 }
-#links nav ul:hover li a:not(:hover), #links nav ul:active li a:not(:active), #links nav ul:focus-within li a:not(:focus) {
+#links nav ul:hover li a:not(:hover):not(:focus), #links nav ul:active li a:not(:active), #links nav ul:focus-within li a:not(:focus):not(:hover) {
   opacity: .4;
 }
 #links nav ul li {
@@ -180,7 +180,7 @@ span, p, img {
   left: 0;
   transform: skew(-15deg);
 }
-#links nav ul li a:hover span, #links nav ul li a:active span, #links nav ul li a:focus {
+#links nav ul li a:hover span, #links nav ul li a:active span, #links nav ul li a:focus span {
   color: var(--light);
   padding-left: calc(15px + 1rem);
 }
