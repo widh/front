@@ -88,6 +88,8 @@ span, p, img {
   transition: var(--transition), padding-top var(--transition-property), transform var(--transition-property);
   width: calc(80px + 4vw);
   height: calc(80px + 4vw);
+  max-width: 22vh;
+  max-height: 20vh;
 }
 
 #brand {
@@ -149,7 +151,7 @@ span, p, img {
   display: contents;
 }
 #links nav ul:hover li a:not(:hover):not(:focus), #links nav ul:active li a:not(:active), #links nav ul:focus-within li a:not(:focus):not(:hover) {
-  opacity: .4;
+  opacity: .4 !important;
 }
 #links nav ul li {
   display: table;
@@ -163,7 +165,23 @@ span, p, img {
   padding: 0 4rem 0 0;
   position: relative;
 }
-#links nav ul li a::before {
+#links nav ul ul {
+  max-width: 30vw;
+  display: block;
+  margin-top: 2.5vh;
+}
+#links nav ul ul li {
+  display: inline-table;
+  padding: 0;
+}
+#links nav ul ul li a {
+  line-height: calc(19.2px);
+  padding: .5vh 0 0 15px;
+}
+#links nav ul ul li a:not(:hover):not(:focus):not(:active) {
+  opacity: .6;
+}
+#links nav > ul > li > a::before {
   content: '';
   height: 100%;
   display: block;
@@ -175,16 +193,16 @@ span, p, img {
   transform: skew(15deg);
   transition: var(--transition), width var(--transition-property), transform var(--transition-property);
 }
-#links nav ul li a:hover::before, #links nav ul li a:active::before, #links nav ul li a:focus::before {
+#links nav > ul > li > a:hover::before, #links nav > ul > li > a:active::before, #links nav > ul > li > a:focus::before {
   width: 100%;
   left: 0;
   transform: skew(-15deg);
 }
-#links nav ul li a:hover span, #links nav ul li a:active span, #links nav ul li a:focus span {
+#links nav > ul > li > a:hover span, #links nav > ul > li > a:active span, #links nav > ul > li > a:focus span {
   color: var(--light);
   padding-left: calc(15px + 1rem);
 }
-#links nav ul li a span {
+#links nav > ul > li > a span {
   font-style: italic;
   position: relative;
   display: block;
@@ -207,6 +225,7 @@ span, p, img {
   #switch {
     top: 12vh;
     left: calc(19px + .81vw);
+    display: table;
   }
   #brand h2 {
     display: none;
@@ -222,5 +241,13 @@ span, p, img {
   }
   #links nav ul li a span {
     padding-right: .75em;
+  }
+  #links nav ul ul {
+    max-width: 80vw;
+    margin-top: 0;
+  }
+
+  .link-container {
+    display: table !important;
   }
 }
