@@ -45,7 +45,7 @@ body, body * {
   user-select: none;
 }
 
-h1, h2 {
+h1:not(.hidden), h2:not([aria-hidden="true"]):not(.hidden) {
   font-family: 'Noto Sans CJK KR Medium', 'Noto Sans KR', sans-serif;
   font-weight: 500;
   font-size: 2rem;
@@ -54,7 +54,7 @@ h1, h2 {
   color: var(--color);
 }
 
-span, p, img {
+span:not(.hidden), p:not(.hidden), img {
   font-family: 'Noto Sans CJK KR Regular', 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -97,39 +97,43 @@ span, p, img {
   left: calc(5px + .81vw);
   bottom: calc(2vh);
 }
-#brand h2 {
+#brand .text-roller {
   opacity: .4;
   margin-left: 25px;
+  display: block;
 }
-#brand h2 > span, #brand h2 > span > span {
+#brand .text-roller br {
+  display: none;
+}
+#brand .text-roller > span, #brand .text-roller > span > span {
   display: block;
   font-size: calc(10px + .4vw);
   line-height: calc(16px + .64vw);
   cursor: default;
   transition: var(--transition), margin-top var(--transition-property), margin-bottom var(--transition-property);
 }
-#brand h2 > span:last-child {
+#brand .text-roller > span:last-child {
   margin-bottom: calc(-16px + -.64vw);
   opacity: 0;
 }
-#brand h2 > span > span {
+#brand .text-roller > span > span {
   opacity: 1;
   transition: var(--transition);
 }
-#brand h2 > span > span.removed {
+#brand .text-roller > span > span.removed {
   display: none;
 }
-#brand h2 > span > span.transparent {
+#brand .text-roller > span > span.transparent {
   opacity: 0;
 }
-#brand h2:hover, #brand h2:active {
+#brand .text-roller:hover, #brand .text-roller:active {
   opacity: 1;
 }
-#brand h2:hover > span:first-child, #brand h2:active > span:first-child {
+#brand .text-roller:hover > span:first-child, #brand .text-roller:active > span:first-child {
   margin-top: calc(-16px -.64vw);
   opacity: 0;
 }
-#brand h2:hover > span:last-child, #brand h2:active > span:last-child {
+#brand .text-roller:hover > span:last-child, #brand .text-roller:active > span:last-child {
   opacity: 1;
   margin-bottom: 0;
 }
@@ -227,7 +231,7 @@ span, p, img {
     left: calc(19px + .81vw);
     display: table;
   }
-  #brand h2 {
+  #brand .text-roller {
     display: none;
   }
   #links nav {

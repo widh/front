@@ -1,7 +1,7 @@
 (function () {
-  var cq = document.cookie.split(';');
+  const cq = document.cookie.split(';');
   cq.forEach(function (ci) {
-    var c = ci.split('=');
+    const c = ci.split('=');
     if ('modarkbul' === c[0].trim()) {
       if (c[1][0] === 't') {
         document.documentElement.style.setProperty('background-color', 'rgb(0, 0, 0)');
@@ -54,7 +54,7 @@ window.onload = function () {
 
   // Changing banner
   let textIter = 0;
-  const textBanners = document.getElementById('banner').children;
+  const textBanners = document.getElementById('banner').querySelectorAll('span');
   const textChanger = function () {
     const nowText = textBanners[(textIter++) % textBanners.length];
     const nextText = textBanners[textIter % textBanners.length];
