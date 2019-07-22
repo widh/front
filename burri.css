@@ -101,35 +101,35 @@ span, p, img {
   opacity: .4;
   margin-left: 25px;
 }
-#brand h2 p, #brand h2 p span {
+#brand h2 > span, #brand h2 > span > span {
+  display: block;
   font-size: calc(10px + .4vw);
   line-height: calc(16px + .64vw);
   cursor: default;
   transition: var(--transition), margin-top var(--transition-property), margin-bottom var(--transition-property);
 }
-#brand h2 p:last-child {
+#brand h2 > span:last-child {
   margin-bottom: calc(-16px + -.64vw);
   opacity: 0;
 }
-#brand h2 p span {
-  display: block;
+#brand h2 > span > span {
   opacity: 1;
   transition: var(--transition);
 }
-#brand h2 p span.removed {
+#brand h2 > span > span.removed {
   display: none;
 }
-#brand h2 p span.transparent {
+#brand h2 > span > span.transparent {
   opacity: 0;
 }
 #brand h2:hover, #brand h2:active {
   opacity: 1;
 }
-#brand h2:hover p:first-child, #brand h2:active p:first-child {
+#brand h2:hover > span:first-child, #brand h2:active > span:first-child {
   margin-top: calc(-16px -.64vw);
   opacity: 0;
 }
-#brand h2:hover p:last-child, #brand h2:active p:last-child {
+#brand h2:hover > span:last-child, #brand h2:active > span:last-child {
   opacity: 1;
   margin-bottom: 0;
 }
