@@ -1,16 +1,16 @@
-@keyframes opa-wave {
+@keyframes shiney {
   0% { opacity: .8; }
   14% { opacity: .6; }
   27% { opacity: .8; }
   32% { opacity: .8; }
   41% { opacity: .4; }
-  50% { opacity: .8; }
+  50% { opacity: .6; }
   56% { opacity: .8; }
   68% { opacity: .5; }
-  74% { opacity: .8; }
+  74% { opacity: .6; }
   80% { opacity: .8; }
   88% { opacity: .4; }
-  96% { opacity: .8; }
+  96% { opacity: .6; }
   100% { opacity: .8; }
 }
 
@@ -73,7 +73,7 @@ span:not(.hidden), p:not(.hidden), img {
   top: calc(48.5vh - 40px - 2vw);
   right: calc(45vw - 4rem);
   cursor: pointer;
-  animation: opa-wave 2s infinite;
+  animation: shiney 3.2s ease-in-out infinite;
   transition: var(--transition), transform var(--transition-property);
 }
 #switch:hover svg, #switch:active svg {
@@ -126,14 +126,14 @@ span:not(.hidden), p:not(.hidden), img {
 #brand .text-roller > span > span.transparent {
   opacity: 0;
 }
-#brand .text-roller:hover, #brand .text-roller:active {
+#brand .text-roller:hover {
   opacity: 1;
 }
-#brand .text-roller:hover > span:first-child, #brand .text-roller:active > span:first-child {
+#brand .text-roller:hover > span:first-child {
   margin-top: calc(-16px -.64vw);
   opacity: 0;
 }
-#brand .text-roller:hover > span:last-child, #brand .text-roller:active > span:last-child {
+#brand .text-roller:hover > span:last-child {
   opacity: 1;
   margin-bottom: 0;
 }
