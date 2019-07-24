@@ -29,8 +29,8 @@ body {
 }
 body, body * {
   --wldh: #e34;
-  --dark: rgb(0, 0, 0);
-  --light: rgb(240, 240, 240);
+  --dark: #000;
+  --light: #faf9f8;
   --color: var(--dark);
   --background: var(--light);
   --transition-duration: .23s;

@@ -4,10 +4,10 @@
     const c = ci.split('=');
     if ('modarkbul' === c[0].trim()) {
       if (c[1][0] === 't') {
-        document.documentElement.style.setProperty('background-color', 'rgb(0, 0, 0)');
+        document.documentElement.style.setProperty('background-color', '#000000');
         document.documentElement.classList.add('dark');
       } else {
-        document.documentElement.style.setProperty('background-color', 'rgb(240, 240, 240)');
+        document.documentElement.style.setProperty('background-color', '#faf9f8');
       }
     }
   });
@@ -26,11 +26,11 @@ window.onload = function () {
     const isDark = document.documentElement.classList.contains('dark');
     if (isDark) {
       document.documentElement.classList.remove('dark');
-      document.documentElement.style.setProperty('background-color', 'rgb(240, 240, 240)');
-      document.querySelector('meta[name=theme-color]').content = '#f0f0f0';
+      document.documentElement.style.setProperty('background-color', '#faf9f8');
+      document.querySelector('meta[name=theme-color]').content = '#faf9f8';
     } else {
       document.documentElement.classList.add('dark');
-      document.documentElement.style.setProperty('background-color', 'rgb(0, 0, 0)');
+      document.documentElement.style.setProperty('background-color', '#000000');
       document.querySelector('meta[name=theme-color]').content = '#000000';
     }
     setCookie(!isDark);
