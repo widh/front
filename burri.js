@@ -37,6 +37,7 @@ window.onload = function () {
   };
   const lightSwitch = document.getElementById('switch');
   lightSwitch.onclick = toggleLight;
+  lightSwitch.title = 'Press here to change brightness mode';
 
   // Loader
   lightSwitch.style.setProperty('animation', 'none');
