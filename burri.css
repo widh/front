@@ -76,9 +76,6 @@ span:not(.hidden), p:not(.hidden), img {
   animation: shiney 3.2s ease-in-out infinite;
   transition: var(--transition), transform var(--transition-property);
 }
-#switch:hover svg, #switch:active svg {
-  padding-top: 3vh;
-}
 #switch:focus svg, #switch:active svg {
   transition: var(--transition), padding-top var(--transition-property), transform .09s var(--transition-timing-function);
   transform: scale(.9);
@@ -125,17 +122,6 @@ span:not(.hidden), p:not(.hidden), img {
 }
 #brand .text-roller > span > span.transparent {
   opacity: 0;
-}
-#brand .text-roller:hover {
-  opacity: 1;
-}
-#brand .text-roller:hover > span:first-child {
-  margin-top: calc(-16px -.64vw);
-  opacity: 0;
-}
-#brand .text-roller:hover > span:last-child {
-  opacity: 1;
-  margin-bottom: 0;
 }
 
 #links {
@@ -223,6 +209,24 @@ span:not(.hidden), p:not(.hidden), img {
   right: calc(25px + .81vw);
   bottom: 2vh;
   opacity: .6;
+}
+
+@media (hover: hover) {
+  #switch svg {
+    padding-top: 3vh;
+  }
+
+  #brand .text-roller {
+    opacity: 1;
+  }
+  #brand .text-roller > span:first-child {
+    margin-top: calc(-16px -.64vw);
+    opacity: 0;
+  }
+  #brand .text-roller > span:last-child {
+    opacity: 1;
+    margin-bottom: 0;
+  }
 }
 
 @media only screen and (max-width: 799px), only screen and (max-height: 599px) {
