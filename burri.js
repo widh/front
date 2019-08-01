@@ -70,9 +70,7 @@ window.onload = function () {
 
   // Active blurer
   const blurer = () => {
-    if (document.activeElement) {
-      document.activeElement.blur();
-    }
+    document.activeElement.blur();
   };
   document.body.onmouseup = blurer;
   document.body.ontouchend = blurer;
