@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script async>
+    (function () {
+      if (
+        (!document.cookie.includes("modarkbul") && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        || (document.cookie.includes("modarkbul=true"))
+      ) {
+        document.documentElement.style.setProperty("background-color", "#000000");
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.style.setProperty("background-color", "#faf9f8");
+      }
+    })();
+  </script>
   <script src="./burri.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

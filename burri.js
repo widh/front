@@ -1,15 +1,3 @@
-(function () {
-  if (
-    (!document.cookie.includes("modarkbul") && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    || (document.cookie.includes("modarkbul=true"))
-  ) {
-    document.documentElement.style.setProperty("background-color", "#000000");
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.style.setProperty("background-color", "#faf9f8");
-  }
-})();
-
 window.onload = function () {
   // Lightmode
   if (document.documentElement.classList.contains('dark'))
