@@ -79,18 +79,19 @@
           document.cookie = "keepgoing=true";
         }
       };
+
       var jsFeatures = [
         Array.prototype.includes, Array.prototype.forEach,
         HTMLElement, HTMLElement.prototype.querySelector,
         EventTarget, EventTarget.prototype.addEventListener,
         '()=>{}', 'let a=true', 'const a=true',
       ];
+
       for (var i = 0; i < jsFeatures.length; i += 1) {
         if (typeof jsFeatures[i] === 'string') {
           try { eval(jsFeatures[i]) } catch (e) { console.error(e); alertNotSupported(); break }
-        }
-        else if (!jsFeatures[i]) { console.error(i); alertNotSupported(); break }
-        else if (i === jsFeatures.length - 1) { console.info('This browser supports widh me.') }
+        } else if (!jsFeatures[i]) { console.error(i); alertNotSupported(); break }
+        if (i === jsFeatures.length - 1) { console.info('This browser supports widh me.') }
       }
     })();
   </script>
