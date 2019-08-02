@@ -212,18 +212,18 @@ span:not(.hidden), p:not(.hidden), img {
 }
 
 @media (hover: hover) {
-  #switch svg {
+  #switch svg:hover {
     padding-top: 3vh;
   }
 
-  #brand .text-roller {
+  #brand .text-roller:hover {
     opacity: 1;
   }
-  #brand .text-roller > span:first-child {
+  #brand .text-roller:hover > span:first-child {
     margin-top: calc(-16px -.64vw);
     opacity: 0;
   }
-  #brand .text-roller > span:last-child {
+  #brand .text-roller:hover > span:last-child {
     opacity: 1;
     margin-bottom: 0;
   }
