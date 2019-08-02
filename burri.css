@@ -212,7 +212,7 @@ span:not(.hidden), p:not(.hidden), img {
 }
 
 @media (hover: hover) {
-  #switch svg:hover {
+  #switch:hover svg {
     padding-top: 3vh;
   }
 
