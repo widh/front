@@ -87,8 +87,8 @@
       ];
       for (var i = 0; i < jsFeatures.length; i += 1) {
         if (typeof jsFeatures[i] === 'string') {
-          try { eval(jsFeatures[i]) } catch { alertNotSupported(); break }
-        } else if (!jsFeatures[i]) { alertNotSupported(); break }
+          try { eval(jsFeatures[i]) } catch (e) { console.debug(e); alertNotSupported(); break }
+        } else if (!jsFeatures[i]) { console.debug(i); alertNotSupported(); break }
       }
     })();
   </script>
