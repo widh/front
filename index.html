@@ -73,20 +73,22 @@
   </article>
   <script>
     (function () {
-      var agent = navigator.userAgent.toLowerCase();
-      if (
-        (navigator.appName === "Netscape" && agent.indexOf("trident") !== -1)
-        || agent.indexOf("msie") !== -1
-      ) {
-        if (document.cookie.indexOf("stillie") === -1) {
-          var wannaUseIE = window.confirm("\"Internet Explorer\", which is a web browser now you are using, is now officially deprecated, and this page will not properly work on Internet Explorer.\nWould you still like to see this page using Internet Explorer?\n\n지금 사용중인 인터넷 탐색 프로그램인 \"Internet Explorer\"는 공식적으로 폐기된 웹 브라우저이며, 이 홈페이지는 Internet Explorer에서 제대로 보이거나 작동하지 않습니다.\n그래도 Internet Explorer로 탐색을 계속하시겠습니까?");
-          if (wannaUseIE === true) {
-            document.cookie = "stillie=true";
-          } else {
-            alert("Going back to the previous page.\n이전 페이지로 돌아갑니다.");
-            history.back();
-          }
+      var alertNotSupported = function () {
+        if (document.cookie.indexOf('keepgoing=true') === -1) {
+          window.alert("This web browser does not support modern web features, so this page will not be rendered as intended or properly work on this browser.\n\n이 웹 브라우저는 현대 웹 기술을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 제대로 보이거나 작동하지 않습니다.");
+          document.cookie = "keepgoing=true";
         }
+      };
+      var jsFeatures = [
+        Array.prototype.includes, Array.prototype.forEach,
+        HTMLElement, HTMLElement.prototype.querySelector,
+        EventTarget, EventTarget.prototype.addEventListener,
+        '()=>{}', 'let a=true', 'const a=true',
+      ];
+      for (var i = 0; i < jsFeatures.length; i += 1) {
+        if (typeof jsFeatures[i] === 'string') {
+          try { eval(jsFeatures[i]) } catch { alertNotSupported(); break }
+        } else if (!jsFeatures[i]) { alertNotSupported(); break }
       }
     })();
   </script>
