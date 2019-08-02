@@ -82,8 +82,8 @@
 
       var jsFeatures = [
         Array.prototype.includes, Array.prototype.forEach,
-        HTMLElement, HTMLElement.prototype.querySelector,
-        EventTarget, EventTarget.prototype.addEventListener,
+        HTMLElement && HTMLElement.prototype.querySelector,
+        EventTarget && EventTarget.prototype.addEventListener,
         '()=>{}', 'let a=true', 'const a=true',
       ];
 
