@@ -234,6 +234,7 @@ span:not(.hidden), p:not(.hidden), img {
     top: 12vh;
     left: calc(19px + .81vw);
     display: table;
+    right: initial;
   }
   #brand .text-roller {
     display: none;
