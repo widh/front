@@ -2,10 +2,17 @@ window.onload = function () {
   // Lightmode
   if (document.documentElement.classList.contains('dark'))
     document.querySelector('meta[name=theme-color]').content = '#000000';
-  const setCookie = function (value) {
+  const setCookie = function (isDark) {
     const date = new Date();
-    date.setTime(date.getTime() + 315360000000);
-    document.cookie = `modarkbul=${value};expires=${date.toUTCString()};path=/;domain=widh.me`;
+    if (
+      (isDark && window.matchMedia("(prefers-color-scheme: dark)").matches)
+      || (!isDark && window.matchMedia("(prefers-color-scheme: light)").matches)
+    ) {
+      date.setTime(0);
+    } else {
+      date.setTime(date.getTime() + 315360000000);
+    }
+    document.cookie = `modarkbul=${isDark ? 'dark' : 'light'};expires=${date.toUTCString()};path=/;domain=widh.me`;
   };
   const toggleLight = () => {
     const isDark = document.documentElement.classList.contains('dark');
