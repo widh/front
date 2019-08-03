@@ -88,7 +88,7 @@
     (function () {
       var alertNotSupported = function () {
         if (document.cookie.indexOf('keepgoing=true') === -1) {
-          window.alert("This web browser does not support modern web features, so this page will not be rendered as intended or properly work on this browser.\n\n이 웹 브라우저는 현대 웹 기술을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 제대로 보이거나 작동하지 않습니다.");
+          window.alert("This web browser does not support modern web features, so this page will not be rendered as intended or work properly on this browser.\n\n이 웹 브라우저는 현대 웹 기술을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 제대로 보이거나 작동하지 않습니다.");
           document.cookie = "keepgoing=true";
         }
       };
