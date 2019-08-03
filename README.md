@@ -8,10 +8,17 @@ Supports *screen reader*, *no-js environoment*, *no-css environment*.
 
 ---
 
-#### Tested Browsers
+#### Tested & Supported Browsers
 
+Old browsers are not supported.
 
++ Safari `10+`
++ Edge `16+` `without transition effects (edgeHTML)`
++ Chrome `49+`
++ Firefox `44+` `without hover effects (44-63)`
 
++ Android `6+`
++ iOS `10+`
 
 ---
 
