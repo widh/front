@@ -66,42 +66,4 @@ window.onload = function () {
   };
   document.body.onmouseup = blurer;
   document.body.ontouchend = blurer;
-
-  // Fluent transition
-  document.querySelectorAll('a.fluent-transition[href]').forEach((anchor) => {
-    anchor.onclick = () => {
-      lightSwitch.style.setProperty('animation', 'shiney 3.2s ease-in-out infinite');
-
-      window.fetch(anchor.href)
-        .then((ajahResult) => {
-          document.getElementById('content').style.setProperty('opacity', 0);
-          window.setTimeout(() => {
-            const mother = document.createElement('div');
-            mother.innerHTML = ajahResult.text();
-
-            mother.querySelectorAll('script[data-preprocess="true"]').forEach((ppc) => {
-              let process = null;
-              window.eval(ppc.innerHTML);
-
-              if (typeof process === 'function') {
-                process.call({ root: mother });
-              }
-            });
-
-            const pageTitle = mother.querySelector('head title').textContent;
-            const html = mother.innerHTML;
-            window.history.pushState({ html, pageTitle }, pageTitle, anchor.href);
-          }, 240);
-        })
-        .catch((error) => {
-          if (error) {
-            console.error(error);
-            window.alert('An error occured while loading the page.\n\n페이지를 불러오던 중 오류가 발생했습니다.');
-            lightSwitch.style.setProperty('animation', 'none');
-          }
-        });
-
-      return false;
-    };
-  });
 };

@@ -30,7 +30,7 @@ body {
 body, body * {
   --wldh: #e34;
   --dark: #000;
-  --light: #faf9f8;
+  --light: #fff;
   --color: var(--dark);
   --background: var(--light);
   --transition-duration: .23s;
@@ -68,8 +68,8 @@ span:not(.hidden), p:not(.hidden), img {
 }
 
 #brand {
-  top: calc(48.5vh - 40px - 2vw);
-  right: calc(45vw - 4rem);
+  top: calc(48.5vh - 50px - 2.64vw);
+  left: calc(45vw - 4rem);
   position: fixed;
 }
 
@@ -98,7 +98,7 @@ span:not(.hidden), p:not(.hidden), img {
 
 #brand .text-roller {
   opacity: .4;
-  margin-left: 25px;
+  margin-top: 10px;
   display: block;
 }
 #brand .text-roller br {
@@ -106,8 +106,8 @@ span:not(.hidden), p:not(.hidden), img {
 }
 #brand .text-roller > span, #brand .text-roller > span > span {
   display: block;
-  font-size: calc(10px + .4vw);
-  line-height: calc(16px + .64vw);
+  font-size: calc(20px + .8vw);
+  line-height: calc(32px + 1.28vw);
   cursor: default;
   transition: var(--transition), margin-top var(--transition-property), margin-bottom var(--transition-property);
 }
@@ -154,7 +154,7 @@ span:not(.hidden), p:not(.hidden), img {
   line-height: calc(19.2px + 5.4vh);
   outline: none;
   display: inline-block;
-  padding: 0 4rem 0 0;
+  padding: 0 3rem 0 0;
   position: relative;
 }
 #links nav ul ul {
@@ -192,14 +192,14 @@ span:not(.hidden), p:not(.hidden), img {
 }
 #links nav > ul > li > a:hover span, #links nav > ul > li > a:active span, #links nav > ul > li > a:focus span {
   color: var(--light);
-  padding-left: calc(15px + 1rem);
+  padding-left: calc(10px + 1rem);
 }
 #links nav > ul > li > a span {
   font-style: italic;
   position: relative;
   display: block;
-  line-height: calc(19.2px + 4.8vh);
-  font-size: calc(12px + 3vh);
+  line-height: calc(19.2px + 3.6vh);
+  font-size: calc(12px + 2vh);
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 5px;
