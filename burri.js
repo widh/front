@@ -18,8 +18,8 @@ window.onload = function () {
     const isDark = document.documentElement.classList.contains('dark');
     if (isDark) {
       document.documentElement.classList.remove('dark');
-      document.documentElement.style.setProperty('background-color', '#faf9f8');
-      document.querySelector('meta[name=theme-color]').content = '#faf9f8';
+      document.documentElement.style.setProperty('background-color', '#ffffff');
+      document.querySelector('meta[name=theme-color]').content = '#ffffff';
     } else {
       document.documentElement.classList.add('dark');
       document.documentElement.style.setProperty('background-color', '#000000');
@@ -66,4 +66,42 @@ window.onload = function () {
   };
   document.body.onmouseup = blurer;
   document.body.ontouchend = blurer;
+
+  // Fluent transition
+  document.querySelectorAll('a.fluent-transition[href]').forEach((anchor) => {
+    anchor.onclick = () => {
+      lightSwitch.style.setProperty('animation', 'shiney 3.2s ease-in-out infinite');
+
+      window.fetch(anchor.href)
+        .then((ajahResult) => {
+          document.getElementById('content').style.setProperty('opacity', 0);
+          window.setTimeout(() => {
+            const mother = document.createElement('div');
+            mother.innerHTML = ajahResult.text();
+
+            mother.querySelectorAll('script[data-preprocess="true"]').forEach((ppc) => {
+              let process = null;
+              window.eval(ppc.innerHTML);
+
+              if (typeof process === 'function') {
+                process.call({ root: mother });
+              }
+            });
+
+            const pageTitle = mother.querySelector('head title').textContent;
+            const html = mother.innerHTML;
+            window.history.pushState({ html, pageTitle }, pageTitle, anchor.href);
+          }, 240);
+        })
+        .catch((error) => {
+          if (error) {
+            console.error(error);
+            window.alert('An error occured while loading the page.\n\n페이지를 불러오던 중 오류가 발생했습니다.');
+            lightSwitch.style.setProperty('animation', 'none');
+          }
+        });
+
+      return false;
+    };
+  });
 };

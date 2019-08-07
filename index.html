@@ -10,22 +10,22 @@
         document.documentElement.style.setProperty("background-color", "#000000");
         document.documentElement.classList.add("dark");
       } else {
-        document.documentElement.style.setProperty("background-color", "#faf9f8");
+        document.documentElement.style.setProperty("background-color", "#ffffff");
       }
     })();
   </script>
-  <script src="./burri.min.js" defer></script>
+  <script src="./burri.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="widh">
   <meta name="description" content="Personal homepage of Jio Gim.">
-  <meta name="theme-color" content="#faf9f8">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="Widh Homepage, Annyeong!">
   <meta property="og:url" content="https://widh.me/">
   <meta property="og:image" content="./banner.png">
   <meta property="og:description" content="Personal homepage of Jio Gim.">
   <title>Annyeong! Widh.</title>
-  <link href="./burri.min.css" rel="stylesheet">
+  <link href="./burri.css" rel="stylesheet">
   <link href="./favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500" rel="stylesheet">
   <noscript>
@@ -41,7 +41,7 @@
   </noscript>
 </head>
 <body>
-  <article>
+  <article id="content">
     <header id="brand" aria-label="Header">
       <h1 class="hidden">Widh Homepage</h1>
       <button id="switch" aria-hidden="true">
@@ -64,7 +64,7 @@
       <h2 aria-hidden="true">Links</h2>
       <nav aria-label="List of links about myself">
         <ul class="link-container">
-          <li role="none presentation"><a href="https://blog.widh.me/"><span>Blog</span></a></li>
+          <li role="none presentation"><a class="fluent-transition" href="https://blog.widh.me/"><span>Blog</span></a></li>
           <!--li role="none presentation"><a href="https://apps.widh.me/" onclick="alert('Under Construction');return false"><span>Apps</span></a></li-->
           <li role="none presentation"><a href="https://github.com/widh/"><span>GitHub</span></a></li>
           <li role="none presentation"><a href="https://blog.widh.me/pages/resume"><span>Resume</span></a></li>
@@ -98,6 +98,7 @@
           Array.prototype.includes, Array.prototype.forEach,
           window.HTMLElement && window.HTMLElement.prototype.querySelector,
           (window.EventTarget && window.EventTarget.prototype.addEventListener) || window.addEventListener,
+          window.fetch,
           '()=>{}', 'let a=true', 'const a=true',
         ];
 

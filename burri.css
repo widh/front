@@ -63,15 +63,22 @@ span:not(.hidden), p:not(.hidden), img {
   color: var(--color);
 }
 
+#content {
+  transition: opacity var(--transition-property);
+}
+
+#brand {
+  top: calc(48.5vh - 40px - 2vw);
+  right: calc(45vw - 4rem);
+  position: fixed;
+}
+
 #switch {
   background: none;
   outline: none;
   border: none;
   padding: 0;
   display: block;
-  position: fixed;
-  top: calc(48.5vh - 40px - 2vw);
-  right: calc(45vw - 4rem);
   cursor: pointer;
   animation: shiney 3.2s ease-in-out infinite;
   transition: var(--transition), transform var(--transition-property);
@@ -89,11 +96,6 @@ span:not(.hidden), p:not(.hidden), img {
   max-height: 20vh;
 }
 
-#brand {
-  position: fixed;
-  left: calc(5px + .81vw);
-  bottom: calc(2vh);
-}
 #brand .text-roller {
   opacity: .4;
   margin-left: 25px;
@@ -238,6 +240,10 @@ span:not(.hidden), p:not(.hidden), img {
   }
   #brand .text-roller {
     display: none;
+  }
+  #brand .text-roller > span, #brand .text-roller > span > span {
+    font-size: calc(10px + .4vw);
+    line-height: calc(16px + .64vw);
   }
   #links nav {
     padding-top: 14vh;
