@@ -113,6 +113,8 @@ span:not(.hidden), p:not(.hidden), img {
   position: relative;
   display: block;
   height: calc(32px + 1.28vw);
+  width: max-content;
+  margin: 0 auto;
 }
 #brand .text-roller > #banner-container > span, #brand .text-roller > #banner-container > span > span {
   display: block;
@@ -122,15 +124,14 @@ span:not(.hidden), p:not(.hidden), img {
   transition: var(--transition), top var(--transition-property), bottom var(--transition-property);
 }
 #brand .text-roller > #banner-container > span {
-  position: absolute;
-  width: calc(70vw - 5.5rem);
+  position: relative;
   top: 0;
   text-align: center;
 }
 #brand .text-roller > #banner-container > span:last-child {
   bottom: calc(-32px + -1.28vw);
   opacity: 0;
-  top: initial;
+  pointer-events: none;
 }
 #brand .text-roller > #banner-container > span > span {
   opacity: 1;
@@ -240,8 +241,10 @@ span:not(.hidden), p:not(.hidden), img {
   #brand #banner-container:hover {
     opacity: 1;
   }
-  #brand #banner-container:hover > span:first-child {
+  #brand #banner-container:hover > span {
     top: calc(-32px + -1.28vw);
+  }
+  #brand #banner-container:hover > span:first-child {
     opacity: 0;
     z-index: -1;
   }
@@ -332,7 +335,7 @@ span:not(.hidden), p:not(.hidden), img {
     margin-bottom: 1.5vh;
   }
 
-  #brand #banner-container:hover > span:first-child {
+  #brand #banner-container:hover > span {
     top: -1.2rem;
   }
 }
