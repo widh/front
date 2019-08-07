@@ -16,9 +16,10 @@
   </script>
   <script src="./burri.js" defer></script>
   <meta charset="UTF-8">
+  <meta name="robots" content="noimageindex">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="widh">
-  <meta name="description" content="Personal homepage of Jio Gim.">
+  <meta name="description" content="A personal homepage of Jio Gim that contains index of links related to myself.">
   <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="Widh Homepage, Annyeong!">
   <meta property="og:url" content="https://widh.me/">
@@ -34,8 +35,12 @@
         animation: none !important;
         cursor: default;
       }
-      #switch:hover svg, #switch:active svg, #switch:focus svg {
-        padding-top: 0 !important; transform: none;
+      #brand #switch {
+        transform: none !important;
+        margin-bottom: 1vh !important;
+      }
+      #switch:active svg, #switch:focus svg {
+        transform: none;
       }
     </style>
   </noscript>
@@ -55,17 +60,17 @@
           <span id="banner">
             <span><b>Widh</b> stands for with wldh</span>
             <br />
-            <span>With wldh, you can do everything.</span>
+            <span class="transparent removed">With wldh, you can do everything.</span>
           </span>
           <br />
-          <span>Be eigenius.</span>
+          <span><b>Be eigenius.</b></span>
         </span>
       </span>
     </header>
     <section id="links">
       <h2 aria-hidden="true">Links</h2>
       <nav aria-label="List of links about myself">
-        <ul class="link-container">
+        <ul id="outer-link-container" class="link-container">
           <li role="none presentation"><a href="https://blog.widh.me/"><span>Blog</span></a></li>
           <!--li role="none presentation"><a href="https://apps.widh.me/" onclick="alert('Under Construction');return false"><span>Apps</span></a></li-->
           <li role="none presentation"><a href="https://github.com/widh/"><span>GitHub</span></a></li>
@@ -97,10 +102,9 @@
 
       try {
         var jsFeatures = [
-          Array.prototype.includes, Array.prototype.forEach,
+          String.prototype.includes,
           window.HTMLElement && window.HTMLElement.prototype.querySelector,
           (window.EventTarget && window.EventTarget.prototype.addEventListener) || window.addEventListener,
-          window.fetch,
           '()=>{}', 'let a=true', 'const a=true',
         ];
 

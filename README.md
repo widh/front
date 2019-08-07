@@ -1,8 +1,10 @@
 Widh Front Page
 ===============
 
+This simple front-index page is my field of basic web practice.
+
 Implemented with pure CSS and JS.\
-Supports *screen reader*, *no-js environoment*, *no-css environment*.
+Supports *screen reader*, *no-js environoment*.
 
 &copy; wldh 2019. All rights reserved.
 

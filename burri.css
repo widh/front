@@ -68,9 +68,11 @@ span:not(.hidden), p:not(.hidden), img {
 }
 
 #brand {
-  top: calc(48.5vh - 50px - 2.64vw);
-  left: calc(45vw - 4rem);
+  top: calc(48.5vh - 60px - 2.64vw);
+  left: calc(20vw + 8rem);
   position: fixed;
+  z-index: 20;
+  width: calc(70vw - 5.5rem);
 }
 
 #switch {
@@ -78,10 +80,14 @@ span:not(.hidden), p:not(.hidden), img {
   outline: none;
   border: none;
   padding: 0;
+  margin-bottom: 1vh;
+  margin-left: auto;
+  margin-right: auto;
   display: block;
   cursor: pointer;
   animation: shiney 3.2s ease-in-out infinite;
-  transition: var(--transition), transform var(--transition-property);
+  transition: var(--transition), transform var(--transition-property), margin-bottom var(--transition-property);
+  z-index: 30;
 }
 #switch:focus svg, #switch:active svg {
   transition: var(--transition), padding-top var(--transition-property), transform .09s var(--transition-timing-function);
@@ -96,33 +102,44 @@ span:not(.hidden), p:not(.hidden), img {
   max-height: 20vh;
 }
 
-#brand .text-roller {
-  opacity: .4;
-  margin-top: 10px;
-  display: block;
+#brand .text-roller b {
+  font-weight: 500;
 }
 #brand .text-roller br {
   display: none;
 }
-#brand .text-roller > span, #brand .text-roller > span > span {
+#brand .text-roller > #banner-container {
+  opacity: .4;
+  position: relative;
+  display: block;
+  height: calc(32px + 1.28vw);
+}
+#brand .text-roller > #banner-container > span, #brand .text-roller > #banner-container > span > span {
   display: block;
   font-size: calc(20px + .8vw);
   line-height: calc(32px + 1.28vw);
   cursor: default;
-  transition: var(--transition), margin-top var(--transition-property), margin-bottom var(--transition-property);
+  transition: var(--transition), top var(--transition-property), bottom var(--transition-property);
 }
-#brand .text-roller > span:last-child {
-  margin-bottom: calc(-16px + -.64vw);
+#brand .text-roller > #banner-container > span {
+  position: absolute;
+  width: calc(70vw - 5.5rem);
+  top: 0;
+  text-align: center;
+}
+#brand .text-roller > #banner-container > span:last-child {
+  bottom: calc(-32px + -1.28vw);
   opacity: 0;
+  top: initial;
 }
-#brand .text-roller > span > span {
+#brand .text-roller > #banner-container > span > span {
   opacity: 1;
   transition: var(--transition);
 }
-#brand .text-roller > span > span.removed {
+#brand .text-roller > #banner-container > span > span.removed {
   display: none;
 }
-#brand .text-roller > span > span.transparent {
+#brand .text-roller > #banner-container > span > span.transparent {
   opacity: 0;
 }
 
@@ -136,6 +153,7 @@ span:not(.hidden), p:not(.hidden), img {
   vertical-align: middle;
   padding: 0 calc(5px + .81vw) 0;
   margin: auto;
+  position: relative;
 }
 #links nav ul {
   list-style: none;
@@ -209,44 +227,81 @@ span:not(.hidden), p:not(.hidden), img {
 #author {
   position: fixed;
   right: calc(25px + .81vw);
-  bottom: 2vh;
-  opacity: .6;
+  bottom: 1.2rem;
+  opacity: .4;
 }
 
 @media (hover: hover) {
-  #switch:hover svg {
-    padding-top: 3vh;
+  #brand #switch:hover {
+    transform: translateY(3vh);
+    margin-bottom: 2vh;
   }
 
-  #brand .text-roller:hover {
+  #brand #banner-container:hover {
     opacity: 1;
   }
-  #brand .text-roller:hover > span:first-child {
-    margin-top: calc(-16px -.64vw);
+  #brand #banner-container:hover > span:first-child {
+    top: calc(-32px + -1.28vw);
     opacity: 0;
+    z-index: -1;
   }
-  #brand .text-roller:hover > span:last-child {
+  #brand #banner-container:hover > span:last-child {
     opacity: 1;
-    margin-bottom: 0;
+    bottom: 0 !important;
   }
 }
 
 @media only screen and (max-width: 799px), only screen and (max-height: 599px) {
-  #switch {
-    top: 12vh;
-    left: calc(19px + .81vw);
+  #brand {
+    top: initial;
+    left: calc(25px + .81vw);
+    bottom: calc(60vh + 1.2rem + 30px - 8vw);
     display: table;
     right: initial;
+    width: initial;
   }
-  #brand .text-roller {
-    display: none;
+
+  #brand #switch {
+    margin-bottom: 1vh;
+    margin-left: 0;
+    margin-right: 0;
   }
-  #brand .text-roller > span, #brand .text-roller > span > span {
-    font-size: calc(10px + .4vw);
-    line-height: calc(16px + .64vw);
+
+  #brand #banner-container {
+    height: 1.2rem !important;
+    margin-left: 5px;
   }
+  #brand #banner-container > span:last-child {
+    bottom: -1.2rem !important;
+  }
+  #brand #banner-container span:not(.removed)::after {
+    content: '';
+    background-color: var(--color);
+    opacity: .2;
+    position: absolute;
+    bottom: -1.1rem;
+    left: 0;
+    height: 1px;
+    width: 40px;
+    border-radius: 1px;
+  }
+
+  #brand .text-roller span {
+    font-size: 1.1rem !important;
+    line-height: 1.2rem !important;
+    max-width: 80vw;
+    text-align: initial;
+    width: max-content !important;
+  }
+
+  #links {
+    padding-top: calc(40vh + 8vw);
+    height: calc(60vh - 8vw);
+  }
+
   #links nav {
-    padding-top: 14vh;
+    padding-top: 0;
+    vertical-align: top;
   }
   #links nav ul li {
     display: inline-table;
@@ -262,7 +317,22 @@ span:not(.hidden), p:not(.hidden), img {
     margin-top: 0;
   }
 
+  #author {
+    bottom: 2vh;
+  }
+
   .link-container {
     display: table !important;
+  }
+}
+
+@media only screen and (max-width: 799px) and (hover: hover), only screen and (max-height: 599px) and (hover: hover) {
+  #brand #switch:hover {
+    transform: translateY(2vh);
+    margin-bottom: 1.5vh;
+  }
+
+  #brand #banner-container:hover > span:first-child {
+    top: -1.2rem;
   }
 }

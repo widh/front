@@ -12,7 +12,7 @@ window.onload = function () {
     } else {
       date.setTime(date.getTime() + 315360000000);
     }
-    document.cookie = `modarkbul=${isDark ? 'dark' : 'light'};expires=${date.toUTCString()};path=/;domain=widh.me`;
+    document.cookie = `modarkbul=${isDark ? 'dark' : 'light'};expires=${date.toUTCString()};path=/;domain=${document.domain}`;
   };
   const toggleLight = () => {
     const isDark = document.documentElement.classList.contains('dark');
@@ -52,12 +52,11 @@ window.onload = function () {
       }, 20);
     }, 240);
   };
-  Array.prototype.slice.call(textBanners).slice(1).forEach((banner) => {
-    banner.classList.add('transparent');
-    banner.classList.add('removed');
-  });
   if (textBanners.length > 0) {
-    window.setInterval(textChanger, 5000);
+    window.setTimeout(() => {
+      textChanger();
+      window.setInterval(textChanger, 10000);
+    }, 3000);
   }
 
   // Active blurer
