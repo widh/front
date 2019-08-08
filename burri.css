@@ -18,9 +18,6 @@ html.dark body, html.dark body * {
   --color: var(--light);
   --background: var(--dark);
 }
-html.dark body svg rect, html.dark body svg path {
-  fill: var(--color);
-}
 
 body {
   margin: 0;
@@ -34,7 +31,7 @@ body, body * {
   --color: var(--dark);
   --background: var(--light);
   --transition-duration: .23s;
-  --transition-timing-function: ease;
+  --transition-timing-function: ease-in-out;
   --transition-property: var(--transition-duration) var(--transition-timing-function);
   --transition: color var(--transition-property), opacity var(--transition-property), fill var(--transition-property), background-color var(--transition-property);
   transition: var(--transition);
