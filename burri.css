@@ -167,6 +167,7 @@ span:not(.hidden), p:not(.hidden), img, em {
 #brand .text-roller > #banner-container > span > span {
   opacity: 1;
   transition: var(--transition);
+  font-weight: 300;
 }
 #brand .text-roller > #banner-container > span > span.removed {
   display: none;
