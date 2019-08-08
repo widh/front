@@ -101,20 +101,24 @@
       };
 
       try {
-        var jsFeatures = [
+        var features = [
           String.prototype.includes,
           window.HTMLElement && window.HTMLElement.prototype.querySelector,
           (window.EventTarget && window.EventTarget.prototype.addEventListener) || window.addEventListener,
+          window.CSS && window.CSS.supports('color', 'var(--a)'),
           '()=>{}', 'let a=true', 'const a=true',
         ];
 
-        for (var i = 0; i < jsFeatures.length; i += 1) {
-          if (typeof jsFeatures[i] === 'string') {
-            try { eval(jsFeatures[i]) } catch (e) { console.error(e); alertNotSupported(); break }
-          } else if (!jsFeatures[i]) { console.error(i); alertNotSupported(); break }
-          if (i === jsFeatures.length - 1) { console.info('This browser supports widh me.') }
+        for (var i = 0; i < features.length; i += 1) {
+          if (typeof features[i] === 'string') eval(features[i]);
+          else if (!features[i]) throw new Error(i.toString() + 'th feature is not supported.');
+          if (i === features.length - 1) console.info('This browser supports widh me.');
         }
-      } catch (e) { console.error(e); alertNotSupported(); }
+      } catch (e) {
+        console.info('This browser does not support widh me.');
+        console.error(e);
+        document.body.innerHTML = '<div id="browser-disclaimer"><div><div><em>This web browser does not support modern web features, so this page will not be rendered as intended or work properly on this browser.</em><br><em>이 웹 브라우저는 현대 웹 기술을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 온전하게 보이거나 작동하지 않습니다.</em></div><div><a href="http://old-browser.widh.me/">Learn More<br>자세히 알아보기</a></div></div></div>' + document.body.innerHTML;
+      }
     })();
   </script>
 </body>

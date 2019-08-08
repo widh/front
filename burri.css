@@ -15,8 +15,8 @@
 }
 
 html.dark body, html.dark body * {
-  --color: var(--light);
-  --background: var(--dark);
+  --foreground: #fff;
+  --background: #000;
 }
 
 body {
@@ -26,14 +26,13 @@ body {
 }
 body, body * {
   --wldh: #e34;
-  --dark: #000;
-  --light: #fff;
-  --color: var(--dark);
-  --background: var(--light);
+  --foreground: #000;
+  --background: #fff;
+  --shadow: rgba(72, 70, 68, .1);
   --transition-duration: .23s;
   --transition-timing-function: ease-in-out;
-  --transition-property: var(--transition-duration) var(--transition-timing-function);
-  --transition: color var(--transition-property), opacity var(--transition-property), fill var(--transition-property), background-color var(--transition-property);
+  --transition-property: .23s ease-in-out;
+  --transition: color .23s ease-in-out, opacity .23s ease-in-out, background-color .23s ease-in-out;
   transition: var(--transition);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -48,20 +47,55 @@ h1:not(.hidden), h2:not([aria-hidden="true"]):not(.hidden) {
   font-size: 2rem;
   line-height: 1;
   margin: 0;
-  color: var(--color);
+  color: var(--foreground);
 }
 
-span:not(.hidden), p:not(.hidden), img {
+span:not(.hidden), p:not(.hidden), img, em {
   font-family: 'Noto Sans CJK KR Regular', 'Noto Sans KR', sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.2;
   margin: 0;
-  color: var(--color);
+  color: var(--foreground);
 }
 
-#content {
-  transition: opacity var(--transition-property);
+#browser-disclaimer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  background-color: rgba(234, 234, 234, .94);
+  box-shadow: 0 0 0.5px 0 rgba(0, 0, 0, .1), 0 0.5px 2.4px 0 rgba(0, 0, 0, .1),
+  0 0.15px 2px 0 rgba(0, 0, 0, .1);
+  z-index: 40;
+  max-height: 42vh;
+  overflow: hidden;
+  padding: 5px;
+}
+#browser-disclaimer > div {
+  margin: 0 auto;
+  display: table;
+  border-spacing: 20px;
+}
+#browser-disclaimer > div > div {
+  display: table-cell;
+}
+#browser-disclaimer em, a {
+  font-family: 'Noto Sans CJK KR Regular', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.7rem;
+  font-style: normal;
+  opacity: .85;
+  color: #000;
+}
+#browser-disclaimer a {
+  color: #e34;
+  text-decoration: none;
+}
+#browser-disclaimer a:hover, #browser-disclaimer a:focus {
+  text-decoration: underline;
 }
 
 #brand {
@@ -207,7 +241,7 @@ span:not(.hidden), p:not(.hidden), img {
   transform: skew(-15deg);
 }
 #links nav > ul > li > a:hover span, #links nav > ul > li > a:active span, #links nav > ul > li > a:focus span {
-  color: var(--light);
+  color: #fff;
   padding-left: calc(10px + 1rem);
 }
 #links nav > ul > li > a span {
@@ -252,6 +286,17 @@ span:not(.hidden), p:not(.hidden), img {
 }
 
 @media only screen and (max-width: 799px), only screen and (max-height: 599px) {
+  #browser-disclaimer {
+    overflow-y: auto;
+  }
+  #browser-disclaimer > div > div {
+    display: table;
+    border-spacing: 0;
+  }
+  #browser-disclaimer em:last-child, #browser-disclaimer a:last-child {
+    padding-top: 1.7rem;
+  }
+
   #brand {
     top: initial;
     left: calc(25px + .81vw);
@@ -276,7 +321,7 @@ span:not(.hidden), p:not(.hidden), img {
   }
   #brand #banner-container span:not(.removed)::after {
     content: '';
-    background-color: var(--color);
+    background-color: var(--foreground);
     opacity: .2;
     position: absolute;
     bottom: -1.1rem;
