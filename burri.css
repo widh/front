@@ -90,6 +90,9 @@ span:not(.hidden), p:not(.hidden), img, em {
   opacity: .85;
   color: #000;
 }
+#browser-disclaimer em {
+  cursor: default;
+}
 #browser-disclaimer a {
   color: #e34;
   text-decoration: none;
