@@ -3,10 +3,9 @@ Widh Front Page
 
 This simple front-index page is my field of basic web practice.
 
-Implemented with pure CSS and JS.\
-Supports *screen reader*, *no-js environoment*.
+Supports *screen reader*, *no-js environment*.
 
-&copy; wldh 2019. All rights reserved.
+&copy; Jio Gim (wldh), All rights reserved.
 
 ---
 
@@ -26,4 +25,4 @@ Old browsers are not supported.
 
 #### Web Font License
 
-Noto Sans KR : [Open Font License](https://scripts.sil.org/OFL_web)
+Noto Sans KR : By Google, [Open Font License](https://scripts.sil.org/OFL_web)
