@@ -61,76 +61,63 @@ window.onload = function () {
 
   // Background image
   // NOTE : All major mobile browsers support navigator.connection
-  // NOTE : Array shuffle code by https://stackoverflow.com/q/6274339
   const isCellular = navigator.connection && navigator.connection.type === 'cellular';
   const bgURLs = isCellular ? [
     '/assets/images/0901.jpg',
     '/assets/images/0708.jpg',
   ] : [
     '/assets/videos/irona_fall.mp4',
-    '/assets/images/0874.JPG',
+    '/assets/images/0874.jpg',
     '/assets/images/0726.jpg',
     '/assets/images/0901.jpg',
     '/assets/images/0708.jpg',
   ];
-  for (let i = bgURLs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [bgURLs[i], bgURLs[j]] = [bgURLs[j], bgURLs[i]];
-  }
-  const bgLoadFuture = [];
-  let bgIteration = 0;
+  let isBackgroundDisplayed = false;
+  let bgIteration = -1;
+  const objectURLs = [];
+  const objectTypes = [];
+  const article = document.querySelector('article');
+  const changeBackground = (fadeOut = true) => {
+    bgIteration = bgIteration + 1 >= objectURLs.length ? 0 : bgIteration + 1;
+    (fadeOut ? new Promise((resolve) => {
+      article.style.setProperty('transition', 'background-color 2.5s ease-in-out');
+      setTimeout(() => {
+        article.style.setProperty('background-color', 'var(--background)');
+        setTimeout(resolve, 2550);
+      }, 50);
+    }) : Promise.resolve()).then(() => {
+      article.style.setProperty('transition', 'background-color 1s ease-in-out');
+      document.getElementById('background')
+        .outerHTML = `<${objectTypes[bgIteration]} id="background" style="filter: blur(75px);" src="${objectURLs[bgIteration]}"${
+        objectTypes[bgIteration] === 'video' ? ' autoplay muted loop controls="false"' : ''
+        }></${objectTypes[bgIteration]}>`;
+      setTimeout(() => {
+        // Make 100ms margin for image rendering
+        article.style.setProperty('background-color', 'var(--background-transparent)');
+        document.getElementById('background').style.setProperty('filter', 'blur(0px)');
+        setTimeout(() => {
+          article.style.setProperty('transition', '');
+        }, 1000);
+      }, 200);
+    });
+  };
   for (let i = 0; i < bgURLs.length; i += 1) {
-    bgLoadFuture.push(new Promise((resolve) => {
+    new Promise(() => {
       const request = new XMLHttpRequest();
       request.open('GET', bgURLs[i]);
       request.responseType = 'blob';
-      request.onload = resolve;
-      request.send();
-    }));
-  }
-  const article = document.querySelector('article');
-  setTimeout(() => {
-    // Do this after at least 1 second
-    Promise.all(bgLoadFuture).then((data) => {
-      const objectURLs = [];
-      const objectTypes = [];
-      const objectTypesOrigin = [];
-      for (let i = 0; i < data.length; i += 1) {
-        objectURLs.push((window.URL || window.webkitURL).createObjectURL(data[i].target.response));
-        objectTypes.push(data[i].target.response.type.indexOf('image') !== -1 ? 'img' : 'video');
-        objectTypesOrigin.push(data[i].target.response.type);
-      }
-      const changeBackground = (fadeOut = true) => {
-        (fadeOut ? new Promise((resolve) => {
-          article.style.setProperty('transition', 'background-color 2.5s ease-in-out');
-          setTimeout(() => {
-            article.style.setProperty('background-color', 'var(--background)');
-            setTimeout(resolve, 2550);
-          }, 50);
-        }) : Promise.resolve()).then(() => {
-          article.style.setProperty('transition', 'background-color 1s ease-in-out');
-          document.getElementById('background')
-            .outerHTML = `<${objectTypes[bgIteration]} id="background" style="filter: blur(75px);" src="${objectURLs[bgIteration]}"${
-              objectTypes[bgIteration] === 'video' ? ` autoplay muted loop controls="false" type="${objectTypesOrigin[bgIteration]}"` : ''
-            }></${objectTypes[bgIteration]}>`;
-          bgIteration = bgIteration + 1 >= objectURLs.length ? 0 : bgIteration + 1;
-          setTimeout(() => {
-            // Make 100ms margin for image rendering
-            article.style.setProperty('background-color', 'var(--background-transparent)');
-            document.getElementById('background').style.setProperty('filter', 'blur(0px)');
-            setTimeout(() => {
-              article.style.setProperty('transition', '');
-            }, 1000);
-          }, 200);
-        });
+      request.onload = (data) => {
+        objectURLs.push((window.URL || window.webkitURL).createObjectURL(data.target.response));
+        objectTypes.push(data.target.response.type.indexOf('image') !== -1 ? 'img' : 'video');
+        if (!isBackgroundDisplayed) {
+          isBackgroundDisplayed = true;
+          setInterval(changeBackground, 20000);
+          changeBackground(false);
+        }
       };
-      setInterval(changeBackground, 30000);
-      changeBackground(false);
-    }).catch(() => {
-      console.error('Failed to load backgrounds!');
+      request.send();
     });
-  }, 1000);
-
+  }
   // Active blurer
   const blurer = () => {
     document.activeElement.blur();
