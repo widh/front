@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.widh.me/</loc>
+    <loc>https://wldh.blog/</loc>
   </url>
   <url>
     <loc>https://github.com/wldh-g/</loc>
   </url>
-  <!--url>
-    <loc>https://blog.widh.me/pages/resume/</loc>
-  </url-->
+  <url>
+    <loc>https://www.instagram.com/with_jio/</loc>
+  </url>
 </urlset>

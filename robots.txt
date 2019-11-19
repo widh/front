@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /404.html
+Disallow: /compatibility.html
 
-Sitemap: https://widh.me/sitemap.xml
+Sitemap: https://wldh.world/sitemap.xml

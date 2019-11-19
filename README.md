@@ -1,4 +1,4 @@
-Widh Front Page
+Wldh Front Page
 ===============
 
 This simple front-index page is my field of basic web practice.
