@@ -62,15 +62,17 @@ window.onload = function () {
   // Background image
   // NOTE : All major mobile browsers support navigator.connection
   const isCellular = navigator.connection && navigator.connection.type === 'cellular';
+  const storageHost = 'https://wowldh.file.core.windows.net/bg-resources/';
+  const storageAccessToken = '?sv=2019-02-02&ss=f&srt=o&sp=r&se=2997-07-14T17:11:16Z&st=1997-07-15T09:11:16Z&spr=https&sig=CCi%2FSBbxGmHOaIB%2Fw7QQ53xtVIXtyc1n4XSf5ZFCG5k%3D'
   const bgURLs = isCellular ? [
-    '/assets/images/0901.jpg',
-    '/assets/images/0708.jpg',
+    '0901.jpg',
+    '0708.jpg',
   ] : [
-    '/assets/videos/irona_fall.mp4',
-    '/assets/images/0874.jpg',
-    '/assets/images/0726.jpg',
-    '/assets/images/0901.jpg',
-    '/assets/images/0708.jpg',
+    'irona_fall.mp4',
+    '0874.jpg',
+    '0726.jpg',
+    '0901.jpg',
+    '0708.jpg',
   ];
   let isBackgroundDisplayed = false;
   let bgIteration = -1;
@@ -104,7 +106,7 @@ window.onload = function () {
   for (let i = 0; i < bgURLs.length; i += 1) {
     new Promise(() => {
       const request = new XMLHttpRequest();
-      request.open('GET', bgURLs[i]);
+      request.open('GET', `${storageHost}${bgURLs[i]}${storageAccessToken}`);
       request.responseType = 'blob';
       request.onload = (data) => {
         objectURLs.push((window.URL || window.webkitURL).createObjectURL(data.target.response));
