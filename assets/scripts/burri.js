@@ -71,7 +71,6 @@ window.onload = function () {
   ] : [
     'irona_fall.webm',
     '0874.jpg',
-    '0726.jpg',
     '0901.jpg',
     '0708.jpg',
   ];
