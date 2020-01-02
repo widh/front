@@ -20,7 +20,7 @@ h2 {
   font-weight: 500;
 }
 span {
-  font-size: calc(0.5 * var(--txtStd));
+  font-size: 11pt;
   color: #b5897f;
   font-weight: 400;
 }
