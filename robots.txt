@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
-Disallow: /compatibility.html
+Disallow: /wait.html
 
-Sitemap: https://wldh.world/sitemap.xml
+Sitemap: https://www.wldh.org/sitemap.xml

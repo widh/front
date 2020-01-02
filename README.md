@@ -1,5 +1,5 @@
-Wldh Front Page
-===============
+Wldh Homepage
+=============
 
 This simple front-index page is my field of basic web practice.
 

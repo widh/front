@@ -1,0 +1,54 @@
+#browser-disclaimer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  background-color: rgba(234, 234, 234, .94);
+  box-shadow: 0 0 0.5px 0 rgba(0, 0, 0, .1), 0 0.5px 2.4px 0 rgba(0, 0, 0, .1),
+  0 0.15px 2px 0 rgba(0, 0, 0, .1);
+  z-index: 40;
+  max-height: 42vh;
+  overflow: hidden;
+  padding: 5px;
+}
+#browser-disclaimer > div {
+  margin: 0 auto;
+  display: table;
+  border-spacing: 20px;
+}
+#browser-disclaimer > div > div {
+  display: table-cell;
+}
+#browser-disclaimer em, a {
+  font-family: 'Noto Sans CJK KR Regular', 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.7rem;
+  font-style: normal;
+  opacity: .85;
+  color: #000;
+}
+#browser-disclaimer em {
+  cursor: default;
+}
+#browser-disclaimer a {
+  color: #e34;
+  text-decoration: none;
+}
+#browser-disclaimer a:hover, #browser-disclaimer a:focus {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 799px), only screen and (max-height: 599px) {
+  #browser-disclaimer {
+    overflow-y: auto;
+  }
+  #browser-disclaimer > div > div {
+    display: table;
+    border-spacing: 0;
+  }
+  #browser-disclaimer em:last-child, #browser-disclaimer a:last-child {
+    padding-top: 1.7rem;
+  }
+}

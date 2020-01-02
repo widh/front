@@ -24,11 +24,12 @@
   <meta name="description" content="A personal homepage of Jio Gim that contains index of links related to myself.">
   <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="The world of wldh, Annyeong!">
-  <meta property="og:url" content="https://widh.me/">
-  <meta property="og:image" content="/banner.png">
+  <meta property="og:url" content="https://www.wldh.org/">
+  <meta property="og:image" content="/assets/images/banner.png">
   <meta property="og:description" content="Personal homepage of Jio Gim.">
   <title>Annyeong! The world of wldh.</title>
   <link href="/assets/styles/burri.min.css" rel="stylesheet">
+  <link href="/assets/styles/browser-disclaimer.min.css" rel="stylesheet" defer>
   <link href="/favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500" rel="stylesheet">
   <noscript>
@@ -77,10 +78,10 @@
       <h2 aria-hidden="true">Links</h2>
       <nav aria-label="List of links about myself">
         <ul id="outer-link-container" class="link-container">
-          <li role="none presentation"><a data-lang="Korean" href="https://blog.widh.me/"><span>Blog</span></a></li>
-          <!--li role="none presentation"><a href="https://wldh.world/projects/"><span>Projects</span></a></li-->
+          <li role="none presentation"><a data-lang="Korean" href="https://blog.wldh.org/"><span>Blog</span></a></li>
+          <!--li role="none presentation"><a href="https://www.wldh.org/projects/"><span>Projects</span></a></li-->
           <li role="none presentation"><a href="https://github.com/wldh-g/"><span>GitHub</span></a></li>
-          <!--li role="none presentation"><a href="https://wldh.world/resume/"><span>Resume</span></a></li-->
+          <!--li role="none presentation"><a href="https://www.wldh.org/resume/"><span>Resume</span></a></li-->
           <li role="none presentation"><a href="https://www.instagram.com/with_jio/"><span>Instagram</span></a></li>
           <li class="link-container">
             <span class="hidden">Other Links</span>
@@ -107,7 +108,7 @@
           (window.URL || window.webkitURL) && (window.URL || window.webkitURL).createObjectURL,
           window.HTMLElement && window.HTMLElement.prototype.querySelector,
           (window.EventTarget && window.EventTarget.prototype.addEventListener) || window.addEventListener,
-          window.CSS && window.CSS.supports('color', 'var(--a)', 'filter'),
+          window.CSS && window.CSS.supports('color', 'var(--a)') && window.CSS.supports('filter', 'blur(0px)'),
           '()=>{}', 'let a=true', 'const a=true', 'let a,b;[a,b]=[0,1]',
         ];
 
@@ -122,7 +123,7 @@
       } catch (e) {
         console.info('This browser does not support wldh world.');
         console.error(e);
-        document.body.innerHTML = '<div id="browser-disclaimer"><div><div><em>This web browser does not support modern web features, so this page will not be rendered as intended or work properly on this browser.</em><br><em>이 웹 브라우저는 현대 웹 기술을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 온전하게 보이거나 작동하지 않습니다.</em></div><div><a href="/compatibility.html">Learn More<br>자세히 알아보기</a></div></div></div><style type="text/css">#background{display:none;}#switch{animation:none !important;cursor:default;}#brand #switch{transform:none !important;margin-bottom:1vh !important;}#switch:active svg,#switch:focus svg{transform:none;}</style>' + document.body.innerHTML;
+        document.body.innerHTML = '<div id="browser-disclaimer"><div><div><em>This web browser does not support modern web features, so this page will not be rendered as intended or work properly on this browser.</em><br><em>이 웹 브라우저는 현대 웹 기술을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 온전하게 보이거나 작동하지 않습니다.</em></div><div><a href="https://browser-update.org/update.html#co">Learn More<br>자세히 알아보기</a></div></div></div><style type="text/css">#background{display:none;}#switch{animation:none !important;cursor:default;}#brand #switch{transform:none !important;margin-bottom:1vh !important;}#switch:active svg,#switch:focus svg{transform:none;}</style>' + document.body.innerHTML;
       }
     })();
   </script>

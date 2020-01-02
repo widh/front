@@ -1,4 +1,5 @@
 window.onload = function () {
+  document.domain = 'wldh.org';
   // Lightmode
   if (document.documentElement.classList.contains('dark'))
     document.querySelector('meta[name=theme-color]').content = '#000000';
