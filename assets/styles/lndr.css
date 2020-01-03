@@ -4,6 +4,11 @@ body {
 }
 body * {
   --txtStd: 3vh;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 main {
   text-align: center;
@@ -31,7 +36,11 @@ img {
   margin-bottom: var(--txtStd);
 }
 footer span {
-  opacity: 0.7;
+  opacity: 0.6;
+  color: #000000;
+}
+.dark footer span {
+  color: #ffffff;
 }
 
 @media only screen and (max-width: 799px), only screen and (max-height: 599px) {
