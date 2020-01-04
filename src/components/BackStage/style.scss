@@ -21,6 +21,12 @@ body {
     -ms-user-select: none;
     user-select: none;
   }
+}
+
+.wrapper {
+  padding: $lndr-pad-vert $lndr-pad-hori;
+  min-width: calc(90vw - $lndr-scrollbar-approx);
+  min-height: 70vh;
 
   a, a:visited {
     color: inherit;
@@ -43,12 +49,6 @@ body {
   [data-visible="transparent"] {
     opacity: 0;
   }
-}
-
-.wrapper {
-  padding: $lndr-pad-vert $lndr-pad-hori;
-  min-width: calc(90vw - $lndr-scrollbar-approx);
-  min-height: 70vh;
 }
 
 .header {
