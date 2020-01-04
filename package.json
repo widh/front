@@ -1,0 +1,39 @@
+{
+  "name": "world-of-wldh",
+  "version": "2.0.0-alpha",
+  "description": "A homepage of Jio Gim",
+  "main": "src/index.js",
+  "repository": "https://github.com/wldh-g/world-of-wldh.git",
+  "author": "Jio <jio@wldh.org>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "next dev ./src",
+    "build": "next build ./src",
+    "export": "next export -o ./docs ./src"
+  },
+  "dependencies": {
+    "@types/node": "^13.1.4",
+    "@types/node-sass": "^4.11.0",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
+    "@zeit/next-sass": "^1.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-app": "^6.1.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "moment": "^2.24.0",
+    "next": "^9.1.7",
+    "node-sass": "^4.13.0",
+    "query-string": "^6.9.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5"
+  }
+}
