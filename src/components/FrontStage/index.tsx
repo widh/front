@@ -24,6 +24,7 @@ const FrontStage: React.SFC = () => {
       requiredFeatures={[
         Features.promise, Features.cssVar, Features.cssFilter,
       ]}
+      className={$.mainbody}
     >
       <div data-id="background" aria-hidden="true" />
       <article>

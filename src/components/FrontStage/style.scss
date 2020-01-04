@@ -26,7 +26,7 @@ body {
   font-size: 0;
   background-color: var(--background);
 }
-body, body * {
+.mainbody, .mainbody * {
   --wldh: #e34;
   --foreground: #000;
   --foreground-transparent: rgba(0, 0, 0, .71);
@@ -45,6 +45,7 @@ body, body * {
   user-select: none;
 }
 
+.mainbody{
 article {
   background-color: var(--background);
 }
@@ -258,8 +259,10 @@ span:not(.hidden), p:not(.hidden), img, em {
   bottom: 1.2rem;
   opacity: .4;
 }
+}
 
 @media (hover: hover) {
+  .mainbody{
   [data-id="brand"] [data-id="switch"]:hover {
     transform: translateY(3vh);
     margin-bottom: 2vh;
@@ -278,10 +281,11 @@ span:not(.hidden), p:not(.hidden), img, em {
   [data-id="brand"] [data-id="banner-container"]:hover > span:last-child {
     opacity: 1;
     bottom: 0 !important;
-  }
+  }}
 }
 
 @media only screen and (max-width: 799px), only screen and (max-height: 599px) {
+  .mainbody{
   [data-id="brand"] {
     top: initial;
     left: calc(25px + .81vw);
@@ -355,8 +359,10 @@ span:not(.hidden), p:not(.hidden), img, em {
     display: table !important;
   }
 }
+}
 
 @media only screen and (max-width: 799px) and (hover: hover), only screen and (max-height: 599px) and (hover: hover) {
+  .mainbody{
   [data-id="brand"] [data-id="switch"]:hover {
     transform: translateY(2vh);
     margin-bottom: 1.5vh;
@@ -364,5 +370,6 @@ span:not(.hidden), p:not(.hidden), img, em {
 
   [data-id="brand"] [data-id="banner-container"]:hover > span {
     top: -1.2rem;
+  }
   }
 }
