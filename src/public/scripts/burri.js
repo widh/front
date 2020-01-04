@@ -94,14 +94,14 @@ window.onload = function () {
       }, 50);
     }) : Promise.resolve()).then(() => {
       article.style.setProperty('transition', 'background-color 1s ease-in-out');
-      document.getElementById('background')
+      document.querySelector('[data-id="background"]')
         .outerHTML = `<${objectTypes[bgIteration]} data-id="background" style="filter: blur(75px);" src="${objectURLs[bgIteration]}"${
         objectTypes[bgIteration] === 'video' ? ' autoplay muted loop controls="false"' : ''
         }></${objectTypes[bgIteration]}>`;
       setTimeout(() => {
         // Make 100ms margin for image rendering
         article.style.setProperty('background-color', 'var(--background-transparent)');
-        document.getElementById('background').style.setProperty('filter', 'blur(0px)');
+        document.querySelector('[data-id="background"]').style.setProperty('filter', 'blur(0px)');
         setTimeout(() => {
           article.style.setProperty('transition', '');
         }, 1000);
