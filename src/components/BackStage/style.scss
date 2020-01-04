@@ -9,6 +9,10 @@ body {
   font-size: $lndr-ff;
   text-align: left;
   margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
 
   * {
     -webkit-touch-callout: none;
@@ -50,6 +54,7 @@ body {
 .header {
   margin-bottom: 2rem;
   display: inline-block;
+  z-index: 10;
 
   h1 {
     font-size: calc(#{3 * $lndr-ff} + 2vw);
@@ -68,6 +73,7 @@ body {
 
 .main {
   display: block;
+  z-index: 10;
 
   [data-white-space="preserved"] {
     white-space: pre;
@@ -78,8 +84,8 @@ body {
   display: contents;
 
   .blhx {
-    position: absolute;
-    z-index: -1;
+    position: fixed;
+    z-index: -5;
     bottom: $lndr-pad-vert - 5vh;
     right: $lndr-pad-hori;
     max-width: 50vw;
