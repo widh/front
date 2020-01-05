@@ -37,7 +37,10 @@ const FrontStage: React.SFC = () => {
           <span className={$['text-roller']}>
             <span data-id="banner-container">
               <span data-id="banner">
-                <span><b>Wldh</b> is a hangul typing of Jio.</span>
+                <span>
+                  <b>Wldh </b>
+                  is a hangul typing of Jio.
+                </span>
                 <br />
                 <span data-transparent="true" data-removed="true">With wldh, nothing is inconceivable.</span>
               </span>

@@ -149,7 +149,7 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
           rel="shortcut icon"
         />
         <link
-          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap"
+          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap&subset=korean"
           rel="stylesheet"
         />
 

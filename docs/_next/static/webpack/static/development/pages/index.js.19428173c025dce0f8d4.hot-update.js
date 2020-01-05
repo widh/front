@@ -31,7 +31,6 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-"https://www.microsoft.com/microsoft-365/windows/end-of-ie-support";
 /* Internationalization */
 
 i18next__WEBPACK_IMPORTED_MODULE_5__["default"].use(react_i18next__WEBPACK_IMPORTED_MODULE_2__["initReactI18next"]).init({
@@ -127,13 +126,13 @@ var Wrapper = function Wrapper(props) {
     className: className,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105
+      lineNumber: 104
     },
     __self: this
   }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106
+      lineNumber: 105
     },
     __self: this
   }, __jsx("script", {
@@ -142,7 +141,7 @@ var Wrapper = function Wrapper(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 109
+      lineNumber: 108
     },
     __self: this
   }), __jsx("script", {
@@ -151,7 +150,7 @@ var Wrapper = function Wrapper(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 127
+      lineNumber: 126
     },
     __self: this
   }), __jsx("meta", {
@@ -159,7 +158,7 @@ var Wrapper = function Wrapper(props) {
     content: "#ffffff",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138
+      lineNumber: 137
     },
     __self: this
   }), __jsx("meta", {
@@ -167,7 +166,7 @@ var Wrapper = function Wrapper(props) {
     content: "noimageindex",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139
+      lineNumber: 138
     },
     __self: this
   }), __jsx("meta", {
@@ -175,7 +174,7 @@ var Wrapper = function Wrapper(props) {
     content: metaDescription,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140
+      lineNumber: 139
     },
     __self: this
   }), __jsx("meta", {
@@ -183,7 +182,7 @@ var Wrapper = function Wrapper(props) {
     content: metaTitle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141
+      lineNumber: 140
     },
     __self: this
   }), __jsx("meta", {
@@ -191,7 +190,7 @@ var Wrapper = function Wrapper(props) {
     content: metaURL,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 142
+      lineNumber: 141
     },
     __self: this
   }), __jsx("meta", {
@@ -199,7 +198,7 @@ var Wrapper = function Wrapper(props) {
     content: metaImage,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 143
+      lineNumber: 142
     },
     __self: this
   }), __jsx("meta", {
@@ -207,13 +206,13 @@ var Wrapper = function Wrapper(props) {
     content: metaDescription,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144
+      lineNumber: 143
     },
     __self: this
   }), __jsx("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 145
+      lineNumber: 144
     },
     __self: this
   }, realTitle), __jsx("link", {
@@ -221,15 +220,15 @@ var Wrapper = function Wrapper(props) {
     rel: "shortcut icon",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 148
+      lineNumber: 147
     },
     __self: this
   }), __jsx("link", {
-    href: "https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap",
+    href: "https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap&subset=korean",
     rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 152
+      lineNumber: 151
     },
     __self: this
   })), children);
@@ -240,4 +239,4 @@ var Wrapper = function Wrapper(props) {
 /***/ })
 
 })
-//# sourceMappingURL=index.js.4731bad592381ff29229.hot-update.js.map
+//# sourceMappingURL=index.js.19428173c025dce0f8d4.hot-update.js.map
