@@ -7,15 +7,6 @@ import { WFeature, WFeatureDisclaimer } from '../../assets/features';
 
 import './style.scss';
 
-/* Constants */
-const browserDisclaimerHTML = WFeatureDisclaimer(
-  'This web browser does not support web standard, so this page will not be rendered as intended or work properly on this browser.',
-  '이 웹 브라우저는 웹 표준을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 온전하게 보이거나 작동하지 않습니다.',
-  'Learn More',
-  '자세히 알아보기',
-  'https://browser-update.org/update.html',
-);
-
 /* Internationalization */
 i18next
   .use(initReactI18next)
@@ -96,7 +87,13 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
         console.info(`This browser does not support wldh. [index=${i}]`);
         console.error(e);
         if (!document.getElementById('browser-disclaimer')) {
-          document.body.innerHTML = `${browserDisclaimerHTML}${document.body.innerHTML}`;
+          document.body.innerHTML = `${WFeatureDisclaimer(
+            'This web browser does not support web standard, so this page will not be rendered as intended or work properly on this browser.',
+            '이 웹 브라우저는 웹 표준을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 온전하게 보이거나 작동하지 않습니다.',
+            'Learn More',
+            '자세히 알아보기',
+            'https://browser-update.org/update.html',
+          )}${document.body.innerHTML}`;
         }
       }
     }
@@ -132,23 +129,6 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
               if (document.domain && document.domain.indexOf('wldh.org') > -1) {
                 document.domain = 'wldh.org';
               }
-            `,
-          }}
-        />
-
-        {/* Internet Explorer Check */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.addEventListener('load', function () {
-                var agent = navigator.userAgent.toLowerCase();
-                if (
-                  (navigator.appName === "Netscape" && agent.indexOf("trident") !== -1)
-                  || agent.indexOf("msie") !== -1
-                ) {
-                  document.body.innerHTML = '${browserDisclaimerHTML}' + document.body.innerHTML;
-                }
-              });
             `,
           }}
         />
