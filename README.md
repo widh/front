@@ -1,9 +1,7 @@
 The World of Wldh
 =================
 
-A homepage of Jio Gim. Aims for supporting *screen reader*.
-
-&copy; wldh, all rights reserved.
+A homepage of Jio Gim. &copy; wldh, all rights reserved.
 
 ---
 

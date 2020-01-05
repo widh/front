@@ -1,3 +1,5 @@
+// Managing JavaScript, CSS Features & Versions
+
 /* Feature Disclaimer */
 export const WFeatureDisclaimer = (
   msgEN: string, msgKR: string, btnEN?: string, btnKR?: string, url?: string,

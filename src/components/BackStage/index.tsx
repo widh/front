@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Wrapper from '../_Wrapper';
-import { WImageDescriptor } from '../../assets/ImageDescriptors';
-import { WFeature } from '../../assets/Features';
+import { WImageDescriptor } from '../../assets/imageDescriptors';
+import { WFeature } from '../../assets/features';
 
 import $ from './style.scss';
 
@@ -22,6 +22,7 @@ const BackStage: React.FC<Props> = (props: Props) => {
     title, detailedTitle, message, image, children, metaImage, favicoff, requiredFeatures,
   } = props;
   const [imageVisible, setVisibility] = useState('translucent');
+  const visibleData = useRef(false);
 
   // Event listener to avoid overlap of text and image
   useEffect(() => {
@@ -32,12 +33,17 @@ const BackStage: React.FC<Props> = (props: Props) => {
         (dtElement.offsetTop > azElement.offsetTop)
         && ((dtElement.offsetLeft + dtElement.offsetWidth - 50) > azElement.offsetLeft)
       ) {
-        if (imageVisible !== 'translucent') setVisibility('translucent');
-      } else if (imageVisible !== 'opaque') setVisibility('opaque');
+        if (visibleData.current) {
+          setVisibility('translucent');
+          visibleData.current = false;
+        }
+      } else if (!visibleData.current) {
+        setVisibility('opaque'); visibleData.current = true;
+      }
     };
     window.addEventListener('resize', azCheck);
     azCheck();
-  }, [imageVisible]);
+  }, [visibleData]);
 
   // Render
   return (

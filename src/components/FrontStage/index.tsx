@@ -1,7 +1,7 @@
 import React from 'react';
 import Wrapper from '../_Wrapper';
-import Features from '../../assets/Features';
-import VectorImages, { WVectorImageDOMConverter } from '../../assets/VectorImages';
+import Features from '../../assets/features';
+import VectorImages, { WVectorImageDOMConverter } from '../../assets/vectorImages';
 
 import $ from './style.scss';
 

@@ -1,9 +1,9 @@
 {
   "name": "world-of-wldh",
-  "version": "2.0.0-alpha",
+  "version": "2.0.0-alpha-2",
   "description": "A homepage of Jio Gim",
-  "main": "src/index.js",
-  "repository": "https://github.com/wldh-g/world-of-wldh.git",
+  "main": "src/pages/index.tsx",
+  "repository": "https://github.com/wldh-g/homepage.git",
   "author": "Jio <jio@wldh.org>",
   "license": "UNLICENSED",
   "private": true,
@@ -27,12 +27,13 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-app": "^6.1.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "i18next": "^19.0.2",
     "moment": "^2.24.0",
     "next": "^9.1.7",
     "node-sass": "^4.13.0",
-    "query-string": "^6.9.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-i18next": "^11.2.7",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5"
   }

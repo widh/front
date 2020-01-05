@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
+import { useTranslation, initReactI18next } from 'react-i18next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { WFeature, WFeatureDisclaimer } from '../../assets/Features';
+import i18next from 'i18next';
+import { WFeature, WFeatureDisclaimer } from '../../assets/features';
+
+import './style.scss';
 
 /* Constants */
 const browserDisclaimerHTML = WFeatureDisclaimer(
@@ -9,8 +13,25 @@ const browserDisclaimerHTML = WFeatureDisclaimer(
   '이 웹 브라우저는 웹 표준을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 온전하게 보이거나 작동하지 않습니다.',
   'Learn More',
   '자세히 알아보기',
-  'https://browser-update.org/update.html#co',
+  'https://browser-update.org/update.html',
 );
+
+/* Internationalization */
+i18next
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { main: {} },
+      ko: { main: {} },
+    },
+    lng: 'en',
+    fallbackLng: 'en',
+    defaultNS: 'main',
+    ns: 'main',
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 /* React Component */
 interface Props {
@@ -29,20 +50,39 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
     children, title, main, description, image, favicoff, className, requiredFeatures,
   } = props;
   const { pathname } = useRouter();
+  const [t, i18n] = useTranslation();
+
+  // Translation!
+  i18n.addResources('en', 'main', {
+    realTitleMain: 'Annyeong!',
+    realTitleSub: '{{0}} ～ wldh.',
+    metaTitle: 'Annyeong! - wldh',
+    metaDescription: 'Jio Gim\'s personal homepage.',
+  });
+  i18n.addResources('ko', 'main', {
+    realTitleMain: '반가워요!',
+    realTitleSub: '{{0}} ᅍ',
+    metaTitle: '반가워요! - ㅈㅇ',
+    metaDescription: '김지오의 개인 홈페이지입니다.',
+  });
+  useEffect(() => {
+    i18n.changeLanguage(document.documentElement.lang);
+  }, [i18n]);
 
   // Determine meta information
-  const realTitle = main ? 'Annyeong! The world of wldh.' : `${title} ～ Wowldh.`;
-  const metaTitle = main ? 'The world of wldh, Annyeong!' : title;
-  const metaDescription = description || 'Jio Gim\'s personal homepage, the world of wldh.';
+  const realTitle = main ? t('realTitleMain') : t('realTitleSub', [title]);
+  const metaTitle = main ? t('metaTitle') : title;
+  const metaDescription = description || t('metaDescription');
   const metaURL = `https://www.wldh.org${pathname}`;
   const metaImage = image || '/images/banner-index.png';
 
-  // Initialize features
-  let featureList: WFeature[] = [() => !!String.prototype.includes];
-  if (requiredFeatures) featureList = featureList.concat(requiredFeatures);
-
-  // Check features
+  // Feature Detection
   useEffect(() => {
+    // Initialize features
+    let featureList: WFeature[] = [() => !!String.prototype.includes];
+    if (requiredFeatures) featureList = featureList.concat(requiredFeatures);
+
+    // Check features
     for (let i = 0; i < featureList.length; i += 1) {
       try {
         if (!featureList[i]()) {
@@ -60,7 +100,7 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
         }
       }
     }
-  }, [featureList]);
+  }, [requiredFeatures]);
 
   // Render
   return (
@@ -72,16 +112,14 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
           dangerouslySetInnerHTML={{
             __html: `
               if (
-                (!document.cookie.includes("modarkbul") && window.matchMedia("(prefers-color-scheme: dark)").matches)
-                || (document.cookie.includes("modarkbul=dark"))
+                (!document.cookie.indexOf("modarkbul") > -1 && window.matchMedia("(prefers-color-scheme: dark)").matches)
+                || (document.cookie.indexOf("modarkbul=dark") > -1)
               ) {
-                document.documentElement.style.setProperty("background-color", "#000000");
                 document.documentElement.dataset.theme = "dark";
-                document.documentElement.style.setProperty("color", "#ffffff");
+                document.documentElement.style.setProperty("background-color", "#000000");
               } else {
-                document.documentElement.style.setProperty("background-color", "#ffffff");
                 document.documentElement.dataset.theme = "light";
-                document.documentElement.style.setProperty("color", "#000000");
+                document.documentElement.style.setProperty("background-color", "#ffffff");
               }
             `,
           }}
@@ -102,7 +140,7 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.onload = function () {
+              window.addEventListener('load', function () {
                 var agent = navigator.userAgent.toLowerCase();
                 if (
                   (navigator.appName === "Netscape" && agent.indexOf("trident") !== -1)
@@ -110,7 +148,7 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
                 ) {
                   document.body.innerHTML = '${browserDisclaimerHTML}' + document.body.innerHTML;
                 }
-              };
+              });
             `,
           }}
         />
@@ -136,16 +174,6 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
         />
 
       </Head>
-
-      {/* No Javascript Environment Alert */}
-      <noscript
-        dangerouslySetInnerHTML={{
-          __html: WFeatureDisclaimer(
-            'JavaScript is now disabled. Please turn it on for full page rendering.',
-            'JavaScript가 꺼져 있습니다. 완전한 페이지 표시를 위해 JavaScript를 켜 주세요.',
-          ),
-        }}
-      />
 
       {/* Real Body */}
       {children}

@@ -14,18 +14,13 @@
   100% { opacity: .8; }
 }
 
-html[data-theme="dark"] body, html[data-theme="dark"] body * {
+html[data-theme="dark"] .mainbody, html[data-theme="dark"] .mainbody * {
   --foreground: #fff;
   --foreground-transparent: rgba(255, 255, 255, .79);
   --background: #000;
   --background-transparent: rgba(0, 0, 0, .71);
 }
 
-body {
-  margin: 0;
-  font-size: 0;
-  background-color: var(--background);
-}
 .mainbody, .mainbody * {
   --wldh: #e34;
   --foreground: #000;
@@ -46,6 +41,9 @@ body {
 }
 
 .mainbody{
+  margin: 0;
+  font-size: 0;
+  background-color: var(--background);
 article {
   background-color: var(--background);
 }
