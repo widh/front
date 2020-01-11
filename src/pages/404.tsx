@@ -6,7 +6,7 @@ import ImageDescriptors from '../assets/imageDescriptors';
 
 const NotFound: React.SFC = () => {
   const [linkPlaceholder, setLink] = useState(<></>);
-  const router = useRouter();
+  const routeLink = useRouter().query.link;
   const [t, i18n] = useTranslation();
 
   /* Internationalization */
@@ -25,7 +25,7 @@ const NotFound: React.SFC = () => {
 
   /* Main function */
   useEffect(() => {
-    const parsedLink = router.query.link || '';
+    const parsedLink = routeLink || '';
 
     let reqText = '';
     let reqURL = '';
@@ -41,8 +41,8 @@ const NotFound: React.SFC = () => {
     setLink(<a href={reqURL}>{reqText}</a>);
 
     const tpSpan: HTMLElement = document.querySelector('[data-visible="transparent"]');
-    tpSpan.dataset.visible = 'opaque';
-  }, [router]);
+    if (tpSpan) tpSpan.dataset.visible = 'opaque';
+  }, [routeLink]);
 
   /* Render */
   return (
