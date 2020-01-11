@@ -22,7 +22,7 @@ const FrontStage: React.SFC = () => {
     <Wrapper
       main
       requiredFeatures={[
-        Features.promise, Features.cssVar, Features.cssFilter,
+        Features.promise, Features.cssFilter,
       ]}
       className={$.mainbody}
     >

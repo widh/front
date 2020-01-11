@@ -1,0 +1,10 @@
+.wrapper {
+  padding: $rpad-vert $rpad-hori;
+  min-width: calc(90vw - $scrollbar-approx);
+  min-height: 70vh;
+
+  * {
+    @include disable-select;
+    cursor: default;
+  }
+}

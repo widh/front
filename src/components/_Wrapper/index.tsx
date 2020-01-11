@@ -70,7 +70,10 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
   // Feature Detection
   useEffect(() => {
     // Initialize features
-    let featureList: WFeature[] = [() => !!String.prototype.includes];
+    let featureList: WFeature[] = [
+      () => !!String.prototype.includes,
+      () => !!(CSS && CSS.supports("color", "var(--a)")),
+    ];
     if (requiredFeatures) featureList = featureList.concat(requiredFeatures);
 
     // Check features

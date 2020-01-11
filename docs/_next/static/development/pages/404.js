@@ -7285,7 +7285,7 @@ function (_EventEmitter) {
           lng = _name$split4[0],
           ns = _name$split4[1];
 
-      this.read(lng, ns, 'read', null, null, function (err, data) {
+      this.read(lng, ns, 'read', undefined, undefined, function (err, data) {
         if (err) _this5.logger.warn("".concat(prefix, "loading namespace ").concat(ns, " for language ").concat(lng, " failed"), err);
         if (!err && data) _this5.logger.log("".concat(prefix, "loaded namespace ").concat(ns, " for language ").concat(lng), data);
 
@@ -11994,8 +11994,21 @@ __webpack_require__.r(__webpack_exports__);
 // Managing JavaScript, CSS Features & Versions
 
 /* Feature Disclaimer */
-var WFeatureDisclaimer = function WFeatureDisclaimer(msgEN, msgKR, btnEN, btnKR, url) {
-  var anchor = url && url.length > 0 ? "<div><a href=\"".concat(url, "\">").concat(btnEN, "<br>").concat(btnKR, "</a></div>") : '';
+var WFeatureDisclaimer = function WFeatureDisclaimer(msgEN, msgKR, btnEN, btnKR, urlEN, urlKR) {
+  var anchor = '';
+
+  if (btnEN && btnKR && urlEN && urlEN.length > 0) {
+    anchor = "<div><a href=\"".concat(urlEN, "\">").concat(btnEN);
+
+    if (urlKR && urlKR.length > 0) {
+      anchor += "</a><br><a href=\"".concat(urlKR, "\">");
+    } else {
+      anchor += '<br>';
+    }
+
+    anchor += "".concat(btnKR, "</a></div>");
+  }
+
   return "<div id=\"browser-disclaimer\"><div><div><em>".concat(msgEN, "</em><br><em>").concat(msgKR, "</em></div>").concat(anchor, "</div></div><link href=\"/styles/browser-disclaimer.min.css\" rel=\"stylesheet\" />");
 };
 /* Type Definition */
@@ -12013,8 +12026,10 @@ var Features = {
     return !!_babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default.a;
   },
   cssVar: function cssVar() {
-    return !!(CSS && CSS.supports('color', 'var(--a)'));
+    return true;
   },
+
+  /* Checked by Wrapper */
   cssFilter: function cssFilter() {
     return !!(CSS && CSS.supports('filter', 'blur(0px)'));
   }
@@ -12292,6 +12307,8 @@ var Wrapper = function Wrapper(props) {
     // Initialize features
     var featureList = [function () {
       return !!String.prototype.includes;
+    }, function () {
+      return !!(CSS && CSS.supports("color", "var(--a)"));
     }];
     if (requiredFeatures) featureList = featureList.concat(requiredFeatures); // Check features
 
@@ -12319,13 +12336,13 @@ var Wrapper = function Wrapper(props) {
     className: className,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 104
+      lineNumber: 107
     },
     __self: this
   }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105
+      lineNumber: 108
     },
     __self: this
   }, __jsx("script", {
@@ -12334,7 +12351,7 @@ var Wrapper = function Wrapper(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108
+      lineNumber: 111
     },
     __self: this
   }), __jsx("script", {
@@ -12343,7 +12360,7 @@ var Wrapper = function Wrapper(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 126
+      lineNumber: 129
     },
     __self: this
   }), __jsx("meta", {
@@ -12351,7 +12368,7 @@ var Wrapper = function Wrapper(props) {
     content: "#ffffff",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 137
+      lineNumber: 140
     },
     __self: this
   }), __jsx("meta", {
@@ -12359,7 +12376,7 @@ var Wrapper = function Wrapper(props) {
     content: "noimageindex",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 138
+      lineNumber: 141
     },
     __self: this
   }), __jsx("meta", {
@@ -12367,7 +12384,7 @@ var Wrapper = function Wrapper(props) {
     content: metaDescription,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 139
+      lineNumber: 142
     },
     __self: this
   }), __jsx("meta", {
@@ -12375,7 +12392,7 @@ var Wrapper = function Wrapper(props) {
     content: metaTitle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 140
+      lineNumber: 143
     },
     __self: this
   }), __jsx("meta", {
@@ -12383,7 +12400,7 @@ var Wrapper = function Wrapper(props) {
     content: metaURL,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 141
+      lineNumber: 144
     },
     __self: this
   }), __jsx("meta", {
@@ -12391,7 +12408,7 @@ var Wrapper = function Wrapper(props) {
     content: metaImage,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 142
+      lineNumber: 145
     },
     __self: this
   }), __jsx("meta", {
@@ -12399,13 +12416,13 @@ var Wrapper = function Wrapper(props) {
     content: metaDescription,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 143
+      lineNumber: 146
     },
     __self: this
   }), __jsx("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 144
+      lineNumber: 147
     },
     __self: this
   }, realTitle), __jsx("link", {
@@ -12413,7 +12430,7 @@ var Wrapper = function Wrapper(props) {
     rel: "shortcut icon",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 147
+      lineNumber: 150
     },
     __self: this
   }), __jsx("link", {
@@ -12421,7 +12438,7 @@ var Wrapper = function Wrapper(props) {
     rel: "stylesheet",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 151
+      lineNumber: 154
     },
     __self: this
   })), children);
@@ -12547,7 +12564,7 @@ var config = {
 
 /***/ }),
 
-/***/ 0:
+/***/ 4:
 /*!*************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F404&absolutePagePath=C%3A%5CUsers%5Cwldhg%5CDesktop%5Chomepage%5Csrc%5Cpages%5C404.tsx ***!
   \*************************************************************************************************************************************/
@@ -12570,5 +12587,5 @@ module.exports = dll_99873879131b459af989;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=404.js.map

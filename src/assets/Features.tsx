@@ -2,9 +2,18 @@
 
 /* Feature Disclaimer */
 export const WFeatureDisclaimer = (
-  msgEN: string, msgKR: string, btnEN?: string, btnKR?: string, url?: string,
+  msgEN: string, msgKR: string, btnEN?: string, btnKR?: string, urlEN?: string, urlKR?: string,
 ) : string => {
-  const anchor = url && url.length > 0 ? `<div><a href="${url}">${btnEN}<br>${btnKR}</a></div>` : '';
+  let anchor = '';
+  if (btnEN && btnKR && urlEN && urlEN.length > 0) {
+    anchor = `<div><a href="${urlEN}">${btnEN}`;
+    if (urlKR && urlKR.length > 0) {
+      anchor += `</a><br><a href="${urlKR}">`;
+    } else {
+      anchor += '<br>';
+    }
+    anchor += `${btnKR}</a></div>`;
+  }
   return `<div id="browser-disclaimer"><div><div><em>${msgEN}</em><br><em>${msgKR}</em></div>${anchor}</div></div><link href="/styles/browser-disclaimer.min.css" rel="stylesheet" />`;
 };
 
@@ -19,7 +28,7 @@ export interface WFeatures {
 const Features: WFeatures = {
   includes: () => true, /* Checked by Wrapper */
   promise: () => !!Promise,
-  cssVar: () => !!(CSS && CSS.supports('color', 'var(--a)')),
+  cssVar: () => true, /* Checked by Wrapper */
   cssFilter: () => !!(CSS && CSS.supports('filter', 'blur(0px)')),
 };
 
