@@ -38,7 +38,7 @@ const NotFound: React.SFC = () => {
       reqURL = `https://www.wldh.org${window.location.pathname}`;
     }
 
-    setLink(<a href={reqURL}>{reqText}</a>);
+    setLink(<a data-mono="slide" href={reqURL}>{reqText}</a>);
 
     const tpSpan: HTMLElement = document.querySelector('[data-visible="transparent"]');
     if (tpSpan) tpSpan.dataset.visible = 'opaque';

@@ -1,10 +1,10 @@
 {
   "name": "world-of-wldh",
-  "version": "2.0.0-alpha-4",
+  "version": "2.0.0-alpha-5",
   "description": "A homepage of Jio Gim",
   "main": "src/pages/index.tsx",
   "repository": "https://github.com/wldh-g/homepage.git",
-  "author": "Jio <jio@wldh.org>",
+  "author": "Jio Gim <jio@wldh.org>",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {

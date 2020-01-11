@@ -56,8 +56,11 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
     metaTitle: '반가워요! - ㅈㅇ',
     metaDescription: '김지오의 개인 홈페이지입니다.',
   });
+  console.log("goju");
   useEffect(() => {
+    console.log(t('main:metaTitle'));
     i18n.changeLanguage(document.documentElement.lang);
+    console.log(t('main:metaTitle'));
   }, [i18n]);
 
   // Determine meta information
@@ -153,6 +156,10 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
         />
         <link
           href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap&subset=korean"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Fira+Mono&display=swap"
           rel="stylesheet"
         />
 

@@ -49,11 +49,11 @@ const Wait: React.FC = () => {
       }, 1000);
     } else if (query.link && query.link.length > 0) {
       const link = `go.wldh.org/${query.link}`;
-      msg.current = `${t('wait:opened')} <a href="https://${link}">${link}</a>`;
+      msg.current = `${t('wait:opened')}&ensp;<a data-mono="slide" href="https://${link}">${link}</a>`;
     }
   } else if (query.link && query.link.length > 0) {
     const link = `go.wldh.org/${query.link}`;
-    msg.current = `${t('wait:unknown')}<br>${t('wait:retry')} <br />&#9;⇒ <a href="https://${link}">${link}</a>`;
+    msg.current = `${t('wait:unknown')}<br>${t('wait:retry')} <br />&#9;⇒&ensp;<a data-mono="slide" href="https://${link}">${link}</a>`;
   }
 
   /* Render */

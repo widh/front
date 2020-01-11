@@ -1,5 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Wrapper from '../_Wrapper';
+import MajorLinks from './MajorLinks';
+import MinorLinks from './MinorLinks';
 import Features from '../../assets/features';
 import VectorImages, { WVectorImageDOMConverter } from '../../assets/vectorImages';
 
@@ -7,94 +10,91 @@ import $ from './style.scss';
 
 /* React Components */
 const FrontStage: React.SFC = () => {
-  const rwldh = (
-    <>
-      {WVectorImageDOMConverter(VectorImages.wldh)}
-      <style>
-        {`
-          [data-id="switch"] path { fill: #e34; }
-        `}
-      </style>
-    </>
-  );
+  const [t, i18n] = useTranslation();
 
+  /* Internationalization */
+  i18n.addResources('en', 'front', {
+    title: 'The Space of Jio Gim',
+    subtitle: 'Welcome to Jio\'s Personal Homepage.',
+    index: 'Index',
+    lBlog: 'Blog',
+    lProjects: 'Projects',
+    lResume: 'Resume',
+    lGithub: 'GitHub',
+    lInsta: 'Instagram',
+    lFb: 'Facebook',
+    lTwit: 'Twitter',
+    lLin: 'LinkedIn',
+    lSteam: 'Steam',
+  });
+  i18n.addResources('ko', 'front', {
+    title: '김지오의 공간',
+    subtitle: '지오의 개인 홈페이지에 어서오세요.',
+    index: '둘러보기',
+    lBlog: '블로그',
+    lProjects: '프로젝트',
+    lResume: '이력',
+    lGithub: 'GitHub',
+    lInsta: 'Instagram',
+    lFb: 'Facebook',
+    lTwit: 'Twitter',
+    lLin: 'LinkedIn',
+    lSteam: 'Steam',
+  });
+  console.log("mnte");
+
+  /* Render */
   return (
     <Wrapper
       main
       requiredFeatures={[
-        Features.promise, Features.cssFilter,
       ]}
-      className={$.mainbody}
+      className={$.wrapper}
     >
-      <div data-id="background" aria-hidden="true" />
-      <article>
-        <header data-id="brand" aria-label="Header">
-          <h1 className={$.hidden}>World of wldh</h1>
-          <button data-id="switch" aria-hidden="true" tabIndex={-1} type="button">
-            {rwldh}
-          </button>
-          <h2 aria-hidden="true">Short Messages</h2>
-          <span className={$['text-roller']}>
-            <span data-id="banner-container">
-              <span data-id="banner">
-                <span>
-                  <b>Wldh </b>
-                  is a hangul typing of Jio.
-                </span>
-                <br />
-                <span data-transparent="true" data-removed="true">With wldh, nothing is inconceivable.</span>
-              </span>
-              <br />
-              <span data-id="banner-message"><b>Be eigenius.</b></span>
-            </span>
-          </span>
-        </header>
-        <section data-id="links">
-          <h2 aria-hidden="true">Links</h2>
-          <nav aria-label="List of links about myself">
-            <ul data-id="outer-link-container" className={$['link-container']}>
-              <li role="none presentation"><a data-lang="Korean" href="https://blog.wldh.org/"><span>Blog</span></a></li>
-              {/* <li role="none presentation"><a href="https://www.wldh.org/projects/"><span>Projects</span></a></li> */}
-              <li role="none presentation"><a href="https://github.com/wldh-g/"><span>GitHub</span></a></li>
-              {/* <li role="none presentation"><a href="https://www.wldh.org/resume/"><span>Resume</span></a></li> */}
-              <li role="none presentation"><a href="https://www.instagram.com/with_jio/"><span>Instagram</span></a></li>
-              <li className={$['link-container']}>
-                <span className={$.hidden}>Other Links</span>
-                <ul aria-hidden="true">
-                  <li role="none presentation"><a href="https://www.facebook.com/wldh.aa"><span>Facebook</span></a></li>
-                  <li role="none presentation"><a href="https://www.linkedin.com/in/wldh/"><span>LinkedIn</span></a></li>
-                  <li role="none presentation"><a href="https://twitter.com/wldh_aa"><span>Twitter</span></a></li>
-                  <li role="none presentation"><a href="https://steamcommunity.com/id/2_shakki"><span>Steam</span></a></li>
-                </ul>
-              </li>
-            </ul>
+      <header>
+        <h1>{t('front:title')}</h1>
+        <h2>{t('front:subtitle')}</h2>
+      </header>
+      <main>
+        <section>
+          <h3>{t('front:index')}</h3>
+          <nav>
+            <MajorLinks
+              hrefs={[
+                'https://blog.wldh.org',
+                '/projects',
+                '/resume',
+                'https://github.com/wldh-g/',
+              ]}
+              labels={[
+                t('front:lBlog'),
+                t('front:lProjects'),
+                t('front:lResume'),
+                t('front:lGithub'),
+              ]}
+            />
+            <MinorLinks
+              hrefs={[
+                'https://www.instagram.com/with_jio/',
+                'https://www.facebook.com/wldh.aa',
+                'https://twitter.com/wldh_aa',
+                'https://www.linkedin.com/in/wldh/',
+                'https://steamcommunity.com/id/2_shakki',
+              ]}
+              labels={[
+                t('front:lInsta'),
+                t('front:lFb'),
+                t('front:lTwit'),
+                t('front:lLin'),
+                t('front:lSteam'),
+              ]}
+            />
           </nav>
         </section>
-        <footer data-id="author" aria-label="Footer">
-          <p role="contentinfo">&copy; wldh</p>
-        </footer>
-      </article>
-      <noscript>
-        <style jsx>
-          {`
-            #background {
-              display: none;
-            }
-            #switch {
-              animation: none !important;
-              cursor: default;
-            }
-            #brand #switch {
-              transform: none !important;
-              margin-bottom: 1vh !important;
-            }
-            #switch:active svg, #switch:focus svg {
-              transform: none;
-            }
-          `}
-        </style>
-      </noscript>
-      <script src="/scripts/burri.js" />
+      </main>
+      <footer>
+
+      </footer>
     </Wrapper>
   );
 };

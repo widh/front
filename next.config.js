@@ -4,7 +4,7 @@ module.exports = SassWrapper({
   cssModules: true,
   cssLoaderOptions: {
     importLoaders: true,
-    localIdentName: '[hash:base64:7]',
+    localIdentName: '[emoji]-[sha512:hash:base62:7]',
   },
   sassLoaderOptions: {
     data: `
