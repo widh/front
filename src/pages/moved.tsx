@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useTranslation } from '../misc/i18n';
 import ImageDescriptors from '../misc/imageDescriptors';
 import BackStage from '../components/BackStage';
+import { useI18n } from '../misc/i18n';
 
 const Moved: React.FC = () => {
   const [rem, setRem] = useState(0);
-  const [t] = useTranslation();
+  const { t } = useI18n('moved');
 
   /* Main Function */
   const waitfor = 10;

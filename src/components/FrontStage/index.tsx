@@ -1,23 +1,23 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Wrapper from '../_Wrapper';
 import MajorLinks from './MajorLinks';
 import MinorLinks from './MinorLinks';
-import Features from '../../misc/features';
-import { useTranslation } from '../../misc/i18n';
-import VectorImages, { WVectorImageDOMConverter } from '../../misc/vectorImages';
+import { useI18n } from '../../misc/i18n';
 
 import $ from './style.scss';
 
+const requiredFeatures = [];
+
 /* React Components */
 const FrontStage: React.SFC = () => {
-  const [t] = useTranslation('front');
+  const { t } = useI18n('front');
 
   /* Render */
   return (
     <Wrapper
       main
-      requiredFeatures={[
-      ]}
+      requiredFeatures={requiredFeatures}
       className={$.wrapper}
     >
       <header>
@@ -61,9 +61,7 @@ const FrontStage: React.SFC = () => {
           </nav>
         </section>
       </main>
-      <footer>
-
-      </footer>
+      <footer>&copy; wldh</footer>
     </Wrapper>
   );
 };

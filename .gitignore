@@ -111,3 +111,6 @@ dist
 
 # Autosaved .png files from Krita
 *.png~
+
+# Test output
+docs-test/

@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import moment from 'moment';
-import { useTranslation } from '../misc/i18n';
 import ImageDescriptors from '../misc/imageDescriptors';
 import BackStage from '../components/BackStage';
+import { useI18n } from '../misc/i18n';
 
 const Wait: React.FC = () => {
   const [now, setNow] = useState((new Date()).getTime());
   const msg = useRef('');
   const { query } = useRouter();
-  const [t] = useTranslation();
+  const { t } = useI18n('wait');
 
   useEffect(() => {
     moment.locale(document.documentElement.lang);

@@ -1,7 +1,7 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useTranslation } from '../../misc/i18n';
+import { useI18n } from '../../misc/i18n';
 import { WFeature, WFeatureDisclaimer } from '../../misc/features';
 
 import './style.scss';
@@ -23,7 +23,7 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
     children, title, main, description, image, favicoff, className, requiredFeatures,
   } = props;
   const { pathname } = useRouter();
-  const [t] = useTranslation();
+  const { t } = useI18n('common');
 
   // Determine meta information
   const realTitle = main ? t('realTitleMain') : t('realTitleSub', [title]);
@@ -37,7 +37,7 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
     // Initialize features
     let featureList: WFeature[] = [
       () => !!String.prototype.includes,
-      () => !!(CSS && CSS.supports("color", "var(--a)")),
+      () => !!(CSS && CSS.supports('color', 'var(--a)')),
     ];
     if (requiredFeatures) featureList = featureList.concat(requiredFeatures);
 
@@ -56,7 +56,7 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
         console.error(e);
         if (!document.getElementById('browser-disclaimer')) {
           document.body.innerHTML = `${WFeatureDisclaimer(
-            'This web browser does not support web standard, so this page will not be rendered as intended or work properly on this browser.',
+            'This browser does not support web standard, so this page will not be rendered as intended or work properly on this browser.',
             '이 웹 브라우저는 웹 표준을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 온전하게 보이거나 작동하지 않습니다.',
             'Learn More',
             '자세히 알아보기',
@@ -129,6 +129,42 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
 
       {/* Real Body */}
       {children}
+
+      {/* No Javascript Environment Alert */}
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: WFeatureDisclaimer(
+            'JavaScript is now disabled. Please turn it on for full page rendering.',
+            'JavaScript가 꺼져 있습니다. 완전한 페이지 표시를 위해 JavaScript를 켜 주세요.',
+          ),
+        }}
+      />
+
+      {/* Internet Explorer Check */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.addEventListener('load', function () {
+              var agent = navigator.userAgent.toLowerCase();
+              if (
+                (navigator.appName === "Netscape" && agent.indexOf("trident") !== -1)
+                || agent.indexOf("msie") !== -1
+              ) {
+                document.body.innerHTML = '${
+                  WFeatureDisclaimer(
+                    'Internet Explorer is an old browser, does not support modern web technologies. This page will not be rendered as intended or work properly.',
+                    'Internet Explorer는 현대 웹 기술을 지원하지 않는 낡은 브라우저입니다. 이 페이지는 Internet Explorer에서 온전하게 보이거나 작동하지 않습니다.',
+                    'Learn More',
+                    '더 알아보기',
+                    'https://techcommunity.microsoft.com/t5/windows-it-pro-blog/the-perils-of-using-internet-explorer-as-your-default-browser/ba-p/331732',
+                    'http://newslabit.hankyung.com/article/201902192484G',
+                  )
+                }' + document.body.innerHTML;
+              }
+            });
+          `,
+        }}
+      />
     </div>
   );
 };

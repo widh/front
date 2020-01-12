@@ -1,6 +1,6 @@
 {
   "name": "world-of-wldh",
-  "version": "2.0.0-alpha-6",
+  "version": "2.0.0-alpha-7",
   "description": "A homepage of Jio Gim",
   "main": "src/next.test.js",
   "repository": "https://github.com/wldh-g/homepage.git",
@@ -9,9 +9,10 @@
   "private": true,
   "scripts": {
     "start": "cd src && next dev .",
+    "startest": "cd docs-test && npx static-server -p 3100",
     "build": "cd src && next build .",
     "export": "cd src && next export -o ../docs .",
-    "test": "cd docs && npx static-server -p 3100"
+    "exportest": "cd src && next export -o ../docs-test ."
   },
   "dependencies": {
     "@types/node": "^13.1.6",
@@ -21,22 +22,24 @@
     "@typescript-eslint/eslint-plugin": "^2.15.0",
     "@typescript-eslint/parser": "^2.15.0",
     "@zeit/next-sass": "^1.0.1",
-    "core-js": "^3.6.3",
+    "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-react-app": "^5.1.0",
+    "eslint-plugin-flowtype": "^3.13.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-app": "^6.1.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "express": "^4.17.1",
     "i18next": "^19.0.3",
     "moment": "^2.24.0",
     "next": "^9.1.7",
-    "next-i18next-serverless": "^1.1.72",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
+    "react-app": "^1.1.2",
     "react-dom": "^16.12.0",
+    "react-i18next": "^11.2.7",
     "static-server": "^2.2.1",
     "typescript": "^3.7.4",
     "webpack": "^4.41.5"

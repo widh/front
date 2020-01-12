@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTranslation, Link } from '../../../misc/i18n';
-import Features from '../../../misc/features';
+import Link from 'next/link';
+import { useI18n } from '../../../misc/i18n';
 
 import $ from './style.scss';
 
@@ -13,18 +13,19 @@ interface Props {
 /* React Components */
 const MinorLinks: React.SFC<Props> = (props: Props) => {
   const { hrefs, labels } = props;
-  const [t] = useTranslation();
+  const { t } = useI18n('front');
 
   /* Render */
   return (
     <>
-      <h4>{t('front:miliTitle')}</h4>
+      <h4>{t('miliTitle')}</h4>
       <ul className={$.mili}>
         {hrefs.map((href, idx) => {
           let innerHTML;
           if (href[0] === '/') {
             innerHTML = (
               <Link href={href}>
+                {/* eslint-disable jsx-a11y/anchor-is-valid */}
                 <a className={$.anchor}>{labels[idx]}</a>
               </Link>
             );

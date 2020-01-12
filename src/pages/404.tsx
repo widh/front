@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useTranslation } from '../misc/i18n';
 import ImageDescriptors from '../misc/imageDescriptors';
 import BackStage from '../components/BackStage';
+import { useI18n } from '../misc/i18n';
 
 const NotFound: React.SFC = () => {
   const [linkPlaceholder, setLink] = useState(<></>);
   const routeLink = useRouter().query.link;
-  const [t] = useTranslation();
+  const { t } = useI18n('404');
 
   /* Main function */
   useEffect(() => {

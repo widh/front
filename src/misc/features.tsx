@@ -14,7 +14,7 @@ export const WFeatureDisclaimer = (
     }
     anchor += `${btnKR}</a></div>`;
   }
-  return `<div id="browser-disclaimer"><div><div><em>${msgEN}</em><br><em>${msgKR}</em></div>${anchor}</div></div><link href="/static/styles/browser-disclaimer.min.css" rel="stylesheet" />`;
+  return `<div id="browser-disclaimer"><div><div><em>${msgEN}</em><br><em>${msgKR}</em></div>${anchor}</div></div><link href="/styles/browser-disclaimer.min.css" rel="stylesheet" />`;
 };
 
 /* Type Definition */
