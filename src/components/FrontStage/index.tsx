@@ -1,47 +1,16 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import Wrapper from '../_Wrapper';
 import MajorLinks from './MajorLinks';
 import MinorLinks from './MinorLinks';
-import Features from '../../assets/features';
-import VectorImages, { WVectorImageDOMConverter } from '../../assets/vectorImages';
+import Features from '../../misc/features';
+import { useTranslation } from '../../misc/i18n';
+import VectorImages, { WVectorImageDOMConverter } from '../../misc/vectorImages';
 
 import $ from './style.scss';
 
 /* React Components */
 const FrontStage: React.SFC = () => {
-  const [t, i18n] = useTranslation();
-
-  /* Internationalization */
-  i18n.addResources('en', 'front', {
-    title: 'The Space of Jio Gim',
-    subtitle: 'Welcome to Jio\'s Personal Homepage.',
-    index: 'Index',
-    lBlog: 'Blog',
-    lProjects: 'Projects',
-    lResume: 'Resume',
-    lGithub: 'GitHub',
-    lInsta: 'Instagram',
-    lFb: 'Facebook',
-    lTwit: 'Twitter',
-    lLin: 'LinkedIn',
-    lSteam: 'Steam',
-  });
-  i18n.addResources('ko', 'front', {
-    title: '김지오의 공간',
-    subtitle: '지오의 개인 홈페이지에 어서오세요.',
-    index: '둘러보기',
-    lBlog: '블로그',
-    lProjects: '프로젝트',
-    lResume: '이력',
-    lGithub: 'GitHub',
-    lInsta: 'Instagram',
-    lFb: 'Facebook',
-    lTwit: 'Twitter',
-    lLin: 'LinkedIn',
-    lSteam: 'Steam',
-  });
-  console.log("mnte");
+  const [t] = useTranslation('front');
 
   /* Render */
   return (
@@ -52,12 +21,12 @@ const FrontStage: React.SFC = () => {
       className={$.wrapper}
     >
       <header>
-        <h1>{t('front:title')}</h1>
-        <h2>{t('front:subtitle')}</h2>
+        <h1>{t('title')}</h1>
+        <h2>{t('subtitle')}</h2>
       </header>
       <main>
         <section>
-          <h3>{t('front:index')}</h3>
+          <h3>{t('index')}</h3>
           <nav>
             <MajorLinks
               hrefs={[
@@ -67,10 +36,10 @@ const FrontStage: React.SFC = () => {
                 'https://github.com/wldh-g/',
               ]}
               labels={[
-                t('front:lBlog'),
-                t('front:lProjects'),
-                t('front:lResume'),
-                t('front:lGithub'),
+                t('lBlog'),
+                t('lProjects'),
+                t('lResume'),
+                t('lGithub'),
               ]}
             />
             <MinorLinks
@@ -82,11 +51,11 @@ const FrontStage: React.SFC = () => {
                 'https://steamcommunity.com/id/2_shakki',
               ]}
               labels={[
-                t('front:lInsta'),
-                t('front:lFb'),
-                t('front:lTwit'),
-                t('front:lLin'),
-                t('front:lSteam'),
+                t('lInsta'),
+                t('lFb'),
+                t('lTwit'),
+                t('lLin'),
+                t('lSteam'),
               ]}
             />
           </nav>

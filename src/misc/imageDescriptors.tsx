@@ -13,15 +13,15 @@ export interface WImageDescriptors {
 /* Image Descriptors */
 const ImageDescriptors: WImageDescriptors = {
   gIsland: {
-    path: '/images/cryingIsland.gif',
+    path: '/static/images/cryingIsland.gif',
     alt: 'Crying Long Island from Azur Lane',
   },
   gShiratsuyu: {
-    path: '/images/sleepingShiratsuyu.gif',
+    path: '/static/images/sleepingShiratsuyu.gif',
     alt: 'Sleeping Shiratsuyu from Azur Lane',
   },
   gEnterprise: {
-    path: '/images/thinkingEnterprise.gif',
+    path: '/static/images/thinkingEnterprise.gif',
     alt: 'Thinking Enterprise sitting on a box from Azur Lane',
   },
 };

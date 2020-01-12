@@ -8,8 +8,8 @@ module.exports = SassWrapper({
   },
   sassLoaderOptions: {
     data: `
-      @import "src/assets/mixins.scss";
-      @import "src/assets/variables.scss";
+      @import "misc/mixins.scss";
+      @import "misc/variables.scss";
     `,
   },
 });

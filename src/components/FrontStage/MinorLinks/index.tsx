@@ -1,7 +1,6 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import Link from 'next/link';
-import Features from '../../../assets/features';
+import { useTranslation, Link } from '../../../misc/i18n';
+import Features from '../../../misc/features';
 
 import $ from './style.scss';
 
@@ -14,15 +13,7 @@ interface Props {
 /* React Components */
 const MinorLinks: React.SFC<Props> = (props: Props) => {
   const { hrefs, labels } = props;
-  const [t, i18n] = useTranslation();
-
-  /* Internationalization */
-  i18n.addResources('en', 'front', {
-    miliTitle: 'Minor Links',
-  });
-  i18n.addResources('ko', 'front', {
-    miliTitle: '나머지 링크',
-  });
+  const [t] = useTranslation();
 
   /* Render */
   return (

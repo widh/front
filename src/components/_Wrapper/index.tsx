@@ -1,28 +1,10 @@
-import React, { useEffect } from 'react';
-import { useTranslation, initReactI18next } from 'react-i18next';
+import React, { useEffect, useLayoutEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import i18next from 'i18next';
-import { WFeature, WFeatureDisclaimer } from '../../assets/features';
+import { useTranslation } from '../../misc/i18n';
+import { WFeature, WFeatureDisclaimer } from '../../misc/features';
 
 import './style.scss';
-
-/* Internationalization */
-i18next
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: { main: {} },
-      ko: { main: {} },
-    },
-    lng: 'en',
-    fallbackLng: 'en',
-    defaultNS: 'main',
-    ns: 'main',
-    interpolation: {
-      escapeValue: false,
-    },
-  });
 
 /* React Component */
 interface Props {
@@ -41,34 +23,14 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
     children, title, main, description, image, favicoff, className, requiredFeatures,
   } = props;
   const { pathname } = useRouter();
-  const [t, i18n] = useTranslation();
-
-  // Translation!
-  i18n.addResources('en', 'main', {
-    realTitleMain: 'Annyeong!',
-    realTitleSub: '{{0}} ～ wldh.',
-    metaTitle: 'Annyeong! - wldh',
-    metaDescription: 'Jio Gim\'s personal homepage.',
-  });
-  i18n.addResources('ko', 'main', {
-    realTitleMain: '반가워요!',
-    realTitleSub: '{{0}} ᅍ',
-    metaTitle: '반가워요! - ㅈㅇ',
-    metaDescription: '김지오의 개인 홈페이지입니다.',
-  });
-  console.log("goju");
-  useEffect(() => {
-    console.log(t('main:metaTitle'));
-    i18n.changeLanguage(document.documentElement.lang);
-    console.log(t('main:metaTitle'));
-  }, [i18n]);
+  const [t] = useTranslation();
 
   // Determine meta information
   const realTitle = main ? t('realTitleMain') : t('realTitleSub', [title]);
   const metaTitle = main ? t('metaTitle') : title;
   const metaDescription = description || t('metaDescription');
   const metaURL = `https://www.wldh.org${pathname}`;
-  const metaImage = image || '/images/banner-index.png';
+  const metaImage = image || '/static/images/banner-index.png';
 
   // Feature Detection
   useEffect(() => {

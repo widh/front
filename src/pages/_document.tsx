@@ -2,27 +2,43 @@ import React from 'react';
 import Document, {
   Html, Head, Main, NextScript,
 } from 'next/document';
-import { WFeatureDisclaimer } from '../assets/features';
+import { WFeatureDisclaimer } from '../misc/features';
 
-class WDocument extends Document {
+interface LocaleProps {
+  langDir: string
+  lang: string
+};
+
+class WDocument extends Document<LocaleProps> {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+    /*const {
+      res: { locals },
+    } = ctx;
+    const localeProps = {
+      langDir: locals.languageDirection,
+      lang: locals.language,
+    };*/
+    return { ...initialProps/*, ...localeProps*/ };
   }
 
   render() {
+    const { langDir, lang } = this.props;
     return (
-      <Html>
+      <Html lang={lang} dir={langDir}>
         <Head>
 
           {/* Language Configuration */}
-          <script
+          {/*<script
             dangerouslySetInnerHTML={{
               __html: `
                 document.documentElement.lang = navigator.language.indexOf('ko') > -1 ? 'ko' : 'en';
               `,
             }}
-          />
+          />*/}
+
+        </Head>
+        <body>
 
           {/* Internet Explorer Check */}
           <script
@@ -49,9 +65,6 @@ class WDocument extends Document {
               `,
             }}
           />
-
-        </Head>
-        <body>
 
           {/* No Javascript Environment Alert */}
           <noscript
