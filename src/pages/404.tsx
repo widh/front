@@ -7,28 +7,40 @@ import { useI18n } from '../misc/i18n';
 const NotFound: React.SFC = () => {
   const [linkPlaceholder, setLink] = useState(<></>);
   const routeLink = useRouter().query.link;
+  const routeSrc = useRouter().query.src;
   const { t } = useI18n('404');
 
   /* Main function */
   useEffect(() => {
     const parsedLink = routeLink || '';
+    const parsedSrc = routeSrc || '';
 
     let reqText = '';
     let reqURL = '';
+    let showLink = false;
 
-    if (parsedLink && parsedLink.length > 0) {
-      reqText = `go.wldh.org/${parsedLink}`;
-      reqURL = `https://go.wldh.org/${parsedLink}`;
-    } else {
+    if (parsedSrc === 'go') {
+      reqText = `${parsedSrc}.wldh.org/${parsedLink}`;
+      reqURL = `https://${parsedSrc}.wldh.org/${parsedLink}`;
+      showLink = true;
+    } else if (parsedSrc === 'www') {
+      window.location.replace(`https://www.wldh.org/${parsedLink}`);
+    } else if (
+      parsedLink.length === 0
+      && window.location.href !== 'https://www.wldh.org/404'
+      && window.location.href !== 'https://www.wldh.org/404.html'
+    ) {
       reqText = `www.wldh.org${window.location.pathname}`;
       reqURL = `https://www.wldh.org${window.location.pathname}`;
+      showLink = true;
     }
 
-    setLink(<a data-mono="slide" href={reqURL}>{reqText}</a>);
-
-    const tpSpan: HTMLElement = document.querySelector('[data-visible="transparent"]');
-    if (tpSpan) tpSpan.dataset.visible = 'opaque';
-  }, [routeLink]);
+    if (showLink) {
+      setLink(<a data-mono="slide" href={reqURL}>{reqText}</a>);
+      const tpSpan: HTMLElement = document.querySelector('[data-visible="transparent"]');
+      if (tpSpan) tpSpan.dataset.visible = 'opaque';
+    }
+  }, [routeLink, routeSrc]);
 
   /* Render */
   return (

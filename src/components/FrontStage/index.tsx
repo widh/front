@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import Wrapper from '../_Wrapper';
 import MajorLinks from './MajorLinks';
 import MinorLinks from './MinorLinks';
@@ -21,8 +20,10 @@ const FrontStage: React.SFC = () => {
       className={$.wrapper}
     >
       <header>
-        <h1>{t('title')}</h1>
+        <h1 className={$.hidden}>{t('title')}</h1>
         <h2>{t('subtitle')}</h2>
+        <em className={$.acnt}>{t('underConstruction')}</em>
+        <em className={$.acnt}>{t('langNotify')}</em>
       </header>
       <main>
         <section>
@@ -31,14 +32,14 @@ const FrontStage: React.SFC = () => {
             <MajorLinks
               hrefs={[
                 'https://blog.wldh.org',
-                '/projects',
-                '/resume',
+                /* '/projects', */
+                /* '/resume', */
                 'https://github.com/wldh-g/',
               ]}
               labels={[
                 t('lBlog'),
-                t('lProjects'),
-                t('lResume'),
+                /* t('lProjects'), */
+                /* t('lResume'), */
                 t('lGithub'),
               ]}
             />
@@ -48,7 +49,7 @@ const FrontStage: React.SFC = () => {
                 'https://www.facebook.com/wldh.aa',
                 'https://twitter.com/wldh_aa',
                 'https://www.linkedin.com/in/wldh/',
-                'https://steamcommunity.com/id/2_shakki',
+                'https://steamcommunity.com/id/avowaling',
               ]}
               labels={[
                 t('lInsta'),

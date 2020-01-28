@@ -28,7 +28,7 @@ const useI18n = (ns: string | string[]) : I18nUse => {
         i18n.addResources('ko', ans, koRaw.default);
       } finally {
         i18n.changeLanguage(i18n.language);
-        document.body.dataset.ready = 'true';
+        if (document instanceof Object) document.body.dataset.ready = 'true';
       }
     }
   });

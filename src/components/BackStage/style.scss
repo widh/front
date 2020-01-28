@@ -6,7 +6,7 @@
   overflow-x: hidden;
 
   ::selection {
-    background-color: $c-dim;
+    background-color: var(--c-acnt);
     color: var(--c-fore);
   }
 
@@ -104,7 +104,7 @@
       word-break: keep-all;
     }
     span {
-      color: $c-dim;
+      color: var(--c-acnt);
     }
   }
 

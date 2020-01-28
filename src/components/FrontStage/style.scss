@@ -7,6 +7,22 @@
 
   ::selection {
     color: var(--c-fore);
-    background-color: $c-dim;
+    background-color: var(--c-acnt);
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .acnt {
+    color: var(--c-acnt);
+  }
+
+  a {
+    color: var(--c-fore);
+
+    &:hover, &:focus {
+      color: var(--c-acnt);
+    }
   }
 }

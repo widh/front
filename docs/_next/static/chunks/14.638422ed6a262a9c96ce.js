@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{"7ubu":function(e){e.exports=JSON.parse('{"realTitleMain":"Annyeong!","realTitleSub":"{{0}} \uff5e wldh.","metaTitle":"Annyeong! - wldh","metaDescription":"Jio Gim\'s personal homepage."}')}}]);

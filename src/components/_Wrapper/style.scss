@@ -1,11 +1,13 @@
 [data-theme="dark"] body {
   --c-fore: #{$c-light};
   --c-back: #{$c-dark};
+  --c-acnt: #{$c-bright};
 }
 
 [data-theme="light"] body {
   --c-fore: #{$c-dark};
   --c-back: #{$c-light};
+  --c-acnt: #{$c-dim};
 }
 
 body {
