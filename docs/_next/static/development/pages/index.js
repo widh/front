@@ -11660,7 +11660,7 @@ var config = {
 
 /***/ }),
 
-/***/ 4:
+/***/ 1:
 /*!************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5CUsers%5Cwldhg%5CDesktop%5Chomepage%5Csrc%5Cpages%5Cindex.tsx ***!
   \************************************************************************************************************************************/
@@ -11683,5 +11683,5 @@ module.exports = dll_99873879131b459af989;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map
