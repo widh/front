@@ -77,7 +77,7 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
           dangerouslySetInnerHTML={{
             __html: `
               if (
-                (!document.cookie.indexOf("modarkbul") > -1 && window.matchMedia("(prefers-color-scheme: dark)").matches)
+                (!(document.cookie.indexOf("modarkbul") > -1) && window.matchMedia("(prefers-color-scheme: dark)").matches)
                 || (document.cookie.indexOf("modarkbul=dark") > -1)
               ) {
                 document.documentElement.dataset.theme = "dark";

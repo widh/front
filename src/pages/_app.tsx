@@ -7,7 +7,7 @@ i18next
   .use(initReactI18next)
   .init({
     defaultNS: 'common',
-    fallbackLng: 'dev',
+    fallbackLng: 'ko',
     lng: 'en',
     initImmediate: true,
     whitelist: ['ko', 'en'],

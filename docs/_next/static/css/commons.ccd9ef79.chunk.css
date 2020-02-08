@@ -1,0 +1,23 @@
+[data-theme="dark"] body {
+  --c-fore: #fff;
+  --c-back: #000;
+  --c-acnt: #68e0f5; }
+
+[data-theme="light"] body {
+  --c-fore: #000;
+  --c-back: #fff;
+  --c-acnt: #00bfe0; }
+
+body {
+  background-color: var(--c-back);
+  color: var(--c-fore);
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 11pt;
+  text-align: left;
+  margin: 0; }
+  body > * {
+    opacity: 0;
+    transition: opacity .4s; }
+  body[data-ready="true"] > * {
+    opacity: initial; }
+
