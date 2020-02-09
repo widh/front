@@ -57,6 +57,9 @@ const NotFound: React.SFC = () => {
         <br />
         &ensp;&ensp;&ensp;
         {linkPlaceholder}
+        <br />
+        <br />
+        {t('404:orgohome')}
       </span>
     </BackStage>
   );
