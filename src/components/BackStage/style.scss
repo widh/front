@@ -23,6 +23,15 @@
       cursor: pointer;
     }
 
+    &[data-alt] {
+      opacity: .6;
+      text-decoration: none;
+
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+
     &[data-mono] {
       font-family: 'Fira Mono', monospace;
     }

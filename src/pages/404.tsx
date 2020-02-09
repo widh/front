@@ -59,7 +59,7 @@ const NotFound: React.SFC = () => {
         {linkPlaceholder}
         <br />
         <br />
-        {t('404:orgohome')}
+        <a data-alt href="https://www.wldh.org/">{t('404:orgohome')}</a>
       </span>
     </BackStage>
   );

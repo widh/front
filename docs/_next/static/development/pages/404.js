@@ -9500,7 +9500,7 @@ var Wrapper = function Wrapper(props) {
     __self: this
   }, __jsx("script", {
     dangerouslySetInnerHTML: {
-      __html: "\n              if (\n                (!document.cookie.indexOf(\"modarkbul\") > -1 && window.matchMedia(\"(prefers-color-scheme: dark)\").matches)\n                || (document.cookie.indexOf(\"modarkbul=dark\") > -1)\n              ) {\n                document.documentElement.dataset.theme = \"dark\";\n                document.documentElement.style.setProperty(\"background-color\", \"#000000\");\n              } else {\n                document.documentElement.dataset.theme = \"light\";\n                document.documentElement.style.setProperty(\"background-color\", \"#ffffff\");\n              }\n            "
+      __html: "\n              if (\n                (!(document.cookie.indexOf(\"modarkbul\") > -1) && window.matchMedia(\"(prefers-color-scheme: dark)\").matches)\n                || (document.cookie.indexOf(\"modarkbul=dark\") > -1)\n              ) {\n                document.documentElement.dataset.theme = \"dark\";\n                document.documentElement.style.setProperty(\"background-color\", \"#000000\");\n              } else {\n                document.documentElement.dataset.theme = \"light\";\n                document.documentElement.style.setProperty(\"background-color\", \"#ffffff\");\n              }\n            "
     },
     __source: {
       fileName: _jsxFileName,
@@ -10005,7 +10005,27 @@ var NotFound = function NotFound() {
       lineNumber: 57
     },
     __self: this
-  }), "\u2002\u2002\u2002", linkPlaceholder));
+  }), "\u2002\u2002\u2002", linkPlaceholder, __jsx("br", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: this
+  }), __jsx("br", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 61
+    },
+    __self: this
+  }), __jsx("a", {
+    "data-alt": true,
+    href: "https://www.wldh.org/",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: this
+  }, t('404:orgohome'))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NotFound);
@@ -10015,7 +10035,7 @@ var config = {
 
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!*************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F404&absolutePagePath=C%3A%5CUsers%5Cwldhg%5CDesktop%5Chomepage%5Csrc%5Cpages%5C404.tsx ***!
   \*************************************************************************************************************************************/
@@ -10038,5 +10058,5 @@ module.exports = dll_99873879131b459af989;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=404.js.map

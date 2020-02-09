@@ -5007,7 +5007,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 i18next__WEBPACK_IMPORTED_MODULE_3__["default"].use(react_i18next__WEBPACK_IMPORTED_MODULE_2__["initReactI18next"]).init({
   defaultNS: 'common',
-  fallbackLng: 'dev',
+  fallbackLng: 'ko',
   lng: 'en',
   initImmediate: true,
   whitelist: ['ko', 'en'],
