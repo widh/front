@@ -1,0 +1,104 @@
+// Migrated from Prontera project.
+
+$MDB_WIDTH: 40px;
+$MDB_HEIGHT: 22px;
+$MDB_BALL_SIZE: 14px;
+$MDB_ELASTICITY: 4px;
+$MDB_FUSS: 3px;
+$MDB_MARGIN: ($MDB_HEIGHT - $MDB_BALL_SIZE) / 2;
+$MDB_TOP_FIX: ($MDB_HEIGHT - 1.2px - $MDB_BALL_SIZE) / 3;
+
+.modarkbul {
+  display: table;
+  border-spacing: 10px;
+  cursor: pointer;
+
+  @include onUltraCompactView {
+    display: none;
+  }
+
+  @include onFocus {
+    .icon {
+      opacity: 1;
+    }
+
+    .container .border label {
+      left: $MDB_WIDTH - $MDB_MARGIN - $MDB_BALL_SIZE - $MDB_ELASTICITY - $MDB_FUSS;
+      width: $MDB_BALL_SIZE + $MDB_ELASTICITY;
+      opacity: 1;
+
+      &.dark {
+        left: $MDB_MARGIN + $MDB_FUSS;
+      }
+    }
+  }
+
+  & > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .container {
+    .border {
+      border-radius: $MDB_HEIGHT;
+      width: $MDB_WIDTH;
+      height: $MDB_HEIGHT;
+      position: relative;
+      background-color: rgba(72, 70, 68, 0.6);
+      margin-top: $MDB_TOP_FIX;
+
+      @include transit(background-color);
+
+      label {
+        position: absolute;
+        width: $MDB_BALL_SIZE;
+        height: $MDB_BALL_SIZE;
+        top: $MDB_MARGIN;
+        left: $MDB_WIDTH - $MDB_MARGIN - $MDB_BALL_SIZE;
+        border-radius: $MDB_BALL_SIZE;
+        background-color: var(--c-fg);
+        opacity: 0.6;
+        pointer-events: none;
+
+        @include transit(left, width, opacity, background-color);
+
+        &.dark {
+          left: $MDB_MARGIN;
+        }
+
+        input[type="checkbox"] {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .icon {
+    width: $MDB_HEIGHT;
+    height: $MDB_HEIGHT;
+    margin-top: $MDB_TOP_FIX;
+    opacity: 0.8;
+
+    @include transit(opacity);
+
+    &.moon path {
+      fill: #163b88;
+
+      @include onDark {
+        fill: #4f75b3;
+      }
+    }
+
+    &.sun path {
+      fill: #ffb700;
+
+      @include onDark {
+        fill: #edd326;
+      }
+    }
+
+    path {
+      @include transit(fill);
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@mixin onDark {
+  @at-root html[data-theme="dark"] & {
+    @media screen {
+      @content;
+    }
+  }
+}

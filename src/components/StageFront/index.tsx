@@ -3,6 +3,7 @@ import Wrapper from '../wrap';
 import MetaLinks from './MetaLinks';
 import Resume from './Resume';
 import Footer from '../CommonFooter';
+import BrightnessController from '../CommonBrightnessController';
 import useI18n from '../../global/i18n';
 
 import $ from './style.scss';
@@ -19,11 +20,12 @@ const FrontStage: React.SFC = () => {
       requiredFeatures={[]}
       classList={$.front}
     >
-      <header>
-        <h1 className={$.hidden}>{t('title')}</h1>
-        <h2>{t('subtitle')}</h2>
-        <em className={$.acnt}>{t('underConstruction')}</em>
-        <em className={$.acnt}>{t('langNotify')}</em>
+      <header className={$.header}>
+        <h1>
+          <img src="/images/logo-fit.png" alt="Jio Gim Logo" />
+          <span>Jio Gim</span>
+        </h1>
+        <BrightnessController className={$.modarkbul} />
       </header>
       <main>
         <MetaLinks />

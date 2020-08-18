@@ -1,0 +1,13 @@
+.copyrightSection {
+  width: 100%;
+  padding: 0 var(--s-pad-hori);
+  margin-top: var(--s-pad-vert);
+  box-sizing: border-box;
+
+  .copyrightText {
+    text-align: left;
+    font-size: 1rem;
+    vertical-align: middle;
+    color: var(--c-ntr);
+  }
+}

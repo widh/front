@@ -1,0 +1,20 @@
+$TRANSIT_TIME: 0.23s;
+$TRANSIT_FUNCTION: ease-in-out;
+$TRANSIT_PROPERTY: #{$TRANSIT_TIME} #{$TRANSIT_FUNCTION};
+
+@function getTransitProperty($props) {
+  $tsFullText: "";
+  $tsSeparator: "";
+  @each $prop in $props {
+    $tsFullText: $tsFullText + $tsSeparator + $prop + " " + $TRANSIT_PROPERTY;
+    $tsSeparator: ", ";
+  }
+  @return #{$tsFullText};
+}
+
+@mixin transit($props...) {
+  transition: getTransitProperty($props);
+}
+@mixin transitImportant($props...) {
+  transition: getTransitProperty($props) !important;
+}

@@ -1,28 +1,32 @@
-.wrapper {
-  padding: $rpad-vert $rpad-hori;
-  min-width: calc(90vw - #{$scrollbar-approx});
-  min-height: 70vh;
-  max-width: 100vw;
-  overflow-x: hidden;
+$HEADER_HEIGHT: 60px;
 
-  ::selection {
-    color: var(--c-fore);
-    background-color: var(--c-acnt);
-  }
+.front {
+  .header {
+    margin-top: var(--s-pad-vert);
+    margin-left: var(--s-pad-hori);
+    margin-right: var(--s-pad-hori);
 
-  .hidden {
-    display: none;
-  }
+    img {
+      height: $HEADER_HEIGHT;
+      margin-right: 0.5em;
+    }
 
-  .acnt {
-    color: var(--c-acnt);
-  }
+    h1 {
+      display: inline-block;
+      margin: 0;
+      font-size: $HEADER_HEIGHT * 0.9;
+      line-height: 1.111;
 
-  a {
-    color: var(--c-fore);
+      span {
+        vertical-align: top;
+      }
+    }
 
-    &:hover, &:focus {
-      color: var(--c-acnt);
+    .modarkbul {
+      top: var(--s-pad-vert);
+      margin-top: 11px;
+      right: var(--s-pad-hori);
+      position: absolute;
     }
   }
 }

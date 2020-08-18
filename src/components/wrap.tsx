@@ -41,9 +41,12 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
   useEffect(() => {
     // Locale set
     setLocale(document.documentElement.lang === 'ko' ? 'ko' : 'en');
+
     // Theme set
     setTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
-  }, [setLocale, setTheme]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [/* DO ONLY ONCE */]);
 
   // Redefine meta information
   const fallbackTitle = title || t('제목 없음');

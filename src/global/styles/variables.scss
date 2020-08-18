@@ -1,19 +1,20 @@
 ///////////
 // Color //
 ///////////
-$c-bright: #68e0f5; // accent color
-$c-dim: #00bfe0; // dimming color
-$c-dark: #000; // dark main color
-$c-light: #fff; // white main color
+$c-dark: #000;
+$c-dark-brighter: #2b2b2b;
+
+$c-light: #fff;
+$c-light-darker: #dedede;
+
+$c-accent: #3ba;
+$c-pastel: #6bb;
+
+$c-neutral: #808c8b;
 
 //////////
 // Font //
 //////////
-$fs-base: 11pt; // base font size
-
-//////////
-// Size //
-//////////
-$scrollbar-approx: 36px; // approximate thickness of scrollbar
-$rpad-hori: 5vw; // root padding horizontal
-$rpad-vert: 15vh; // root padding vertical
+$f-family-base: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
+$f-family-mono: 'Fira Mono', monospace;
+$f-size-base: 16px;

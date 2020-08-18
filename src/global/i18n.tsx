@@ -92,15 +92,15 @@ export const I18nEnabled: React.SFC<Props> = ({ children }: Props) => {
   );
 };
 
-export const useI18n = (dict) => {
+export const useI18n = (dict: object) => {
   const state = useContext(LocaleContext);
   const dispatch = useContext(LocaleDispatchContext);
 
   // Translator
   const t = (item: string, adaptiveDict?: FormatDict): string => {
     let translated = item;
-    if (dict[state.locale]) {
-      if (dict[state.locale][item]) {
+    if (dict !== null && Object.prototype.hasOwnProperty.call(dict, state.locale)) {
+      if (Object.prototype.hasOwnProperty.call(dict[state.locale], item)) {
         translated = dict[state.locale][item];
         if (adaptiveDict) {
           translated = format(translated, adaptiveDict);

@@ -8,7 +8,7 @@ module.exports = SassWrapper({
   },
   sassLoaderOptions: {
     data: `
-      @import "misc/style.scss";
+      @import "global/style.scss";
     `,
   },
   webpack(config, options) {

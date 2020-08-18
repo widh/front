@@ -1,20 +1,60 @@
-[data-theme="dark"] body {
-  --c-fore: #{$c-light};
-  --c-back: #{$c-dark};
-  --c-acnt: #{$c-bright};
-}
+html {
+  font-family: $f-family-base;
+  font-size: $f-size-base;
+  background-color: var(--c-bg) !important;
+  color: var(--c-fg) !important;
 
-[data-theme="light"] body {
-  --c-fore: #{$c-dark};
-  --c-back: #{$c-light};
-  --c-acnt: #{$c-dim};
+  :focus {
+    outline: none;
+  }
+
+  ::selection {
+    color: $c-light;
+    background-color: $c-accent;
+  }
+
+  @include transit(background-color, color);
+
+  --c-acc: #{$c-accent};
+  --c-pst: #{$c-pastel};
+  --c-ntr: #{$c-neutral};
+
+  --c-fg: #{$c-dark};
+  --c-fg2: #{$c-dark-brighter};
+  --c-bg: #{$c-light};
+  --c-bg2: #{$c-light-darker};
+
+  &[data-theme="dark"] {
+    --c-fg: #{$c-light};
+    --c-fg2: #{$c-light-darker};
+    --c-bg: #{$c-dark};
+    --c-bg2: #{$c-dark-brighter};
+  }
 }
 
 body {
-  background-color: var(--c-back);
-  color: var(--c-fore);
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: $fs-base;
   text-align: left;
   margin: 0;
+
+  --s-pad-hori: 80px;
+  --s-pad-vert: 100px;
+
+  @include onWideView {
+    --s-pad-hori: 20vw;
+  }
+
+  @include onSemiCompactView {
+    --s-pad-hori: 30px;
+    --s-pad-vert: 60px;
+  }
+
+  @include onSuperCompactView {
+    --s-pad-hori: 15px;
+    --s-pad-vert: 30px;
+  }
+
+  @include onUltraCompactView {
+    --s-pad-hori: 5px;
+    --s-pad-vert: 10px;
+  }
 }

@@ -1,0 +1,27 @@
+@mixin disable-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin onFocus {
+  &:target,
+  &:focus,
+  &:active {
+    @content;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin notOnFocus {
+  &:not(:hover):not(:target):not(:focus):not(:active) {
+    @content;
+  }
+}

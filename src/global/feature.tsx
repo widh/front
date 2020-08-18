@@ -38,9 +38,11 @@ export const FeatureChecked: React.SFC<Props> = ({ children }: Props) => {
   );
 };
 
+const state = { checked: [] };
+
 export const useFeature = (fn: Feature | Feature[], alert = true) => {
-  const state = useContext(FCContext);
-  const dispatch = useContext(FCDispatchContext);
+  // const state = useContext(FCContext);
+  // const dispatch = useContext(FCDispatchContext);
 
   const results: FeatureCheckResultAdvanced[] = [];
   let isPassed = true;
@@ -93,9 +95,9 @@ export const useFeature = (fn: Feature | Feature[], alert = true) => {
         }
       } else {
         results.push({
+          pass: result,
           importance: 0,
           fn: target[i],
-          pass: result,
           infoEn: `A test(${i}: ${target[i].name}) failed.`,
           infoKo: `테스트(${i}: ${target[i].name})에 실패했습니다.`,
           linkEn: null,
@@ -103,16 +105,17 @@ export const useFeature = (fn: Feature | Feature[], alert = true) => {
         });
       }
     }
-
-    dispatch({ type: 'CHECK_FEATURE', checkedFn: results });
+    state.checked = [...results, ...state.checked];
 
     // Make log
     /* eslint-disable no-console */
-    console.groupCollapsed(`[Feature Check Log (${isPassed ? 'passed' : 'failed'})]`);
-    for (let i = 0; i < results.length; i += 1) {
-      console.debug(results[i]);
-    };
-    console.groupEnd();
+    if (target.length > 0) {
+      console.groupCollapsed(`Feature Check Log (${isPassed ? 'passed' : 'failed'})`);
+      for (let i = 0; i < results.length; i += 1) {
+        console.log(results[i]);
+      };
+      console.groupEnd();
+    }
 
     // Make alert
     if (!isPassed && alert) {
@@ -161,7 +164,11 @@ export const useFeature = (fn: Feature | Feature[], alert = true) => {
     }
   }
 
-  return { isPassed, results };
+  const saveFCResult = () => {
+    // dispatch({ type: 'CHECK_FEATURE', checkedFn: results });
+  };
+
+  return { isPassed, results, saveFCResult };
 };
 
 export default useFeature;
