@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import moment from 'moment';
 import atob from 'atob';
-import ImageDescriptors from '../misc/imageDescriptors';
+import ImageDescriptors from '../global/imageDescriptors';
 import BackStage from '../components/BackStage';
-import { useI18n } from '../misc/i18n';
+import { useI18n } from '../global/i18n';
 
 const Wait: React.FC = () => {
   const [now, setNow] = useState((new Date()).getTime());

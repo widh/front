@@ -4,12 +4,18 @@ module.exports = SassWrapper({
   cssModules: true,
   cssLoaderOptions: {
     importLoaders: true,
-    localIdentName: '[emoji]-[sha512:hash:base62:7]',
+    localIdentName: '[sha512:hash:base62:7]',
   },
   sassLoaderOptions: {
     data: `
-      @import "misc/mixins.scss";
-      @import "misc/variables.scss";
+      @import "misc/style.scss";
     `,
+  },
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.ya?ml$/,
+      use: 'js-yaml-loader',
+    });
+    return config;
   },
 });

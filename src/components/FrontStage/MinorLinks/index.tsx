@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { useI18n } from '../../../misc/i18n';
+import { useI18n } from '../../../global/i18n';
 
 import $ from './style.scss';
 

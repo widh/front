@@ -24,7 +24,7 @@
   "include": [
     "./components/**/*",
     "./pages/**/*",
-    "./scss.d.ts"
+    "extensions.d.ts",
   ],
   "exclude": [
     "./node_modules/**/*",

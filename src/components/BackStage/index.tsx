@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Wrapper from '../_Wrapper';
-import { WImageDescriptor } from '../../misc/imageDescriptors';
-import { WFeature } from '../../misc/features';
+import Wrapper from '../wrap';
+import { WImageDescriptor } from '../../global/imageDescriptors';
+import { WFeature } from '../../global/features';
 
 import $ from './style.scss';
 

@@ -1,39 +1,18 @@
-import React, { useEffect } from 'react';
-import { initReactI18next, useTranslation } from 'react-i18next';
+import React from 'react';
 import { AppProps } from 'next/app';
-import i18next from 'i18next';
+import { I18nEnabled } from '../global/i18n';
+import { ThemeEnabled } from '../global/theme';
+import { FeatureChecked } from '../global/feature';
 
-i18next
-  .use(initReactI18next)
-  .init({
-    defaultNS: 'common',
-    fallbackLng: 'en',
-    lng: 'en',
-    initImmediate: true,
-    whitelist: ['ko', 'en'],
-    interpolation: {
-      escapeValue: false,
-    },
-    resources: {
-      en: { common: {} },
-      ko: { common: {} },
-    },
-    react: {
-      bindI18n: 'languageChanged loaded',
-      useSuspense: false,
-    },
-  });
-
-const WApp = ({ Component, pageProps }: AppProps) => {
-  const i18n = useTranslation()[1];
-
-  useEffect(() => {
-    document.documentElement.lang = navigator.language.indexOf('ko') > -1 ? 'ko' : 'en';
-    i18n.changeLanguage(document.documentElement.lang);
-  }, [i18n]);
-
-  /* eslint-disable react/jsx-props-no-spreading */
-  return (<Component {...pageProps} />);
-};
+/* eslint-disable react/jsx-props-no-spreading */
+const WApp = ({ Component, pageProps }: AppProps) => (
+  <I18nEnabled>
+    <ThemeEnabled>
+      <FeatureChecked>
+        <Component {...pageProps} />
+      </FeatureChecked>
+    </ThemeEnabled>
+  </I18nEnabled>
+);
 
 export default WApp;

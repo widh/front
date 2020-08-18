@@ -6,4 +6,3 @@ const Index: React.SFC = () => (
 );
 
 export default Index;
-export const config = { amp: 'true' };
