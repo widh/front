@@ -1,8 +1,8 @@
 import React from 'react';
-import FrontStage from '../components/FrontStage';
+import StageFront from '../components/StageFront';
 
 const Index: React.SFC = () => (
-  <FrontStage />
+  <StageFront />
 );
 
 export default Index;

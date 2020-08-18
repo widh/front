@@ -16,6 +16,8 @@ class WDocument extends Document {
     return (
       <Html>
         <Head>
+          {/* Common Meta Tags */}
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
           {/* Document Domain Configuration */}
           <script
