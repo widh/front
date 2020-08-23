@@ -10,6 +10,7 @@
   "scripts": {
     "start": "cd src && next dev .",
     "build": "cd src && next build .",
+    "dev": "cd src && next dev .",
     "export": "cd src && next export -o ../docs .",
     "test-start": "cd docs-test && npx static-server -p 3100",
     "test-export": "cd src && next export -o ../docs-test ."

@@ -1,5 +1,5 @@
 import React from 'react';
 
-const SideStage: React.SFC = () => (<em>Under Construction</em>);
+const StageSide: React.SFC = () => (<em>Under Construction</em>);
 
-export default SideStage;
+export default StageSide;

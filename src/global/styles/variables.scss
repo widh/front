@@ -11,6 +11,7 @@ $c-accent: #3ba;
 $c-pastel: #6bb;
 
 $c-neutral: #808c8b;
+$c-neutral-opaque: rgba(165, 165, 165, .3);
 
 //////////
 // Font //
@@ -18,3 +19,13 @@ $c-neutral: #808c8b;
 $f-family-base: 'Noto Sans CJK KR', 'Noto Sans KR', sans-serif;
 $f-family-mono: 'Fira Mono', monospace;
 $f-size-base: 16px;
+
+//////////
+// Size //
+//////////
+
+$s-ultra-wide-start: 1930px;
+$s-wide-start: 1000px;
+$s-normal-start: 800px;
+$s-compact-start: 520px;
+$s-ultra-compact-start: 330px;

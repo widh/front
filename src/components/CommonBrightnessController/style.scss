@@ -44,7 +44,7 @@ $MDB_TOP_FIX: ($MDB_HEIGHT - 1.2px - $MDB_BALL_SIZE) / 3;
       width: $MDB_WIDTH;
       height: $MDB_HEIGHT;
       position: relative;
-      background-color: rgba(72, 70, 68, 0.6);
+      background-color: var(--c-ntr-op);
       margin-top: $MDB_TOP_FIX;
 
       @include transit(background-color);

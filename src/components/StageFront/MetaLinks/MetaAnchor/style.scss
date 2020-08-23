@@ -1,0 +1,48 @@
+.metaButton {
+  padding: 8px 13px;
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  color: var(--c-fg);
+  display: inline-flex;
+  text-decoration: none;
+  font-weight: 300;
+  vertical-align: middle;
+  border-radius: 3px;
+
+  @include transit(background-color, filter, color);
+
+  @include onFocus {
+    &:not(.metaButtonDisabled) {
+      background-color: var(--c-ntr-op);
+
+      .iconContainer {
+        filter: grayscale(0);
+      }
+    }
+  }
+
+  .iconContainer {
+    margin-right: 11px;
+    filter: grayscale(1);
+
+    @include transit(filter);
+
+    img {
+      height: 1.5rem;
+      width: 1.5rem;
+
+      &.inverted {
+        @include transit(filter);
+
+        @include onDark {
+          filter: invert(1);
+        }
+      }
+    }
+  }
+
+  &.metaButtonDisabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+}

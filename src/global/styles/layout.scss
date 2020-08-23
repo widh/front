@@ -1,23 +1,31 @@
+@import "./variables.scss";
+
+@mixin onUltraWideView {
+  @media screen and (min-width: #{$s-ultra-wide-start}) {
+    @content;
+  }
+}
+
 @mixin onWideView {
-  @media screen and (min-width: 2499px) {
+  @media screen and (min-width: #{$s-wide-start}) {
     @content;
   }
 }
 
-@mixin onSemiCompactView {
-  @media screen and (max-width: 799px) {
+@mixin onNormalView {
+  @media screen and (max-width: #{$s-wide-start - 1}) {
     @content;
   }
 }
 
-@mixin onSuperCompactView {
-  @media screen and (max-width: 419px) {
+@mixin onCompactView {
+  @media screen and (max-width: #{$s-normal-start - 1}) {
     @content;
   }
 }
 
 @mixin onUltraCompactView {
-  @media screen and (max-width: 329px) {
+  @media screen and (max-width: #{$s-compact-start - 1}) {
     @content;
   }
 }

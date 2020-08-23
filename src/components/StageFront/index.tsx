@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Wrapper from '../wrap';
 import MetaLinks from './MetaLinks';
 import Resume from './Resume';
@@ -21,10 +22,12 @@ const FrontStage: React.SFC = () => {
       classList={$.front}
     >
       <header className={$.header}>
-        <h1>
-          <img src="/images/logo-fit.png" alt="Jio Gim Logo" />
-          <span>Jio Gim</span>
-        </h1>
+        <Link href="/">
+          <h1 title={t('첫 페이지로 이동')}>
+            <img src="/images/logo-fit.png" alt="Jio Gim Logo" />
+            <span>Jio Gim</span>
+          </h1>
+        </Link>
         <BrightnessController className={$.modarkbul} />
       </header>
       <main>

@@ -1,0 +1,24 @@
+.metaLinks {
+  padding-left: calc(var(--s-pad-hori) + 11px);
+  max-width: calc(100% - var(--s-pad-hori));
+  min-width: 240px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0 0.2rem 10px 0;
+    }
+  }
+
+  @include onNormalView {
+    ul {
+      display: block;
+
+      li {
+        display: inline-block;
+      }
+    }
+  }
+}
