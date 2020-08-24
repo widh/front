@@ -46,6 +46,8 @@ $HEADER_HEIGHT: 60px;
 
     & > * > h2 {
       font-size: 1.2rem;
+      margin-top: 0.8rem;
+      margin-bottom: calc(0.8rem + 11px);
     }
   }
 }

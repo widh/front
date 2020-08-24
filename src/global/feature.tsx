@@ -1,5 +1,5 @@
 import React, {
-  createContext, useReducer, useContext, Dispatch,
+  createContext, useReducer, Dispatch,
 } from 'react';
 import { Feature, FeatureCheckResultAdvanced } from './features';
 

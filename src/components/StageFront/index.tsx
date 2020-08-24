@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import Wrapper from '../wrap';
 import MetaLinks from './MetaLinks';
+import Preparing from './Preparing';
 import Resume from './Resume';
 import Footer from '../CommonFooter';
 import BrightnessController from '../CommonBrightnessController';
@@ -16,11 +16,7 @@ const FrontStage: React.SFC = () => {
 
   /* Render */
   return (
-    <Wrapper
-      isMain
-      requiredFeatures={[]}
-      classList={$.front}
-    >
+    <div className={$.front}>
       <header className={$.header}>
         <Link href="/">
           <h1 title={t('첫 페이지로 이동')}>
@@ -32,10 +28,11 @@ const FrontStage: React.SFC = () => {
       </header>
       <main>
         <MetaLinks />
-        <Resume />
+        <Preparing />
+        {/* <Resume /> */}
       </main>
       <Footer />
-    </Wrapper>
+    </div>
   );
 };
 

@@ -1,13 +1,39 @@
-.copyrightSection {
+.footerContainer {
   width: 100%;
   padding: 0 var(--s-pad-hori) var(--s-pad-vert);
   margin-top: var(--s-pad-vert);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
 
-  .copyrightText {
-    text-align: left;
-    font-size: 1rem;
+  .copyrightSection {
+    margin-right: 3vw;
     vertical-align: middle;
-    color: var(--c-ntr);
+
+    .copyrightText {
+      text-align: left;
+      font-size: 1rem;
+      color: var(--c-ntr);
+    }
+  }
+
+  .brightnessSection, .localeSection {
+    vertical-align: middle;
+    margin-right: 1.6vw;
+
+    .controlButton {
+      cursor: pointer;
+      background: transparent;
+      color: var(--c-fg);
+      font-size: 1rem;
+      border: none;
+      padding: 0;
+
+      @include onFocus {
+        color: var(--c-acc);
+
+        @include transit(color);
+      }
+    }
   }
 }

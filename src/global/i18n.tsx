@@ -109,12 +109,16 @@ export const useI18n = (dict: object) => {
         /* eslint-disable no-console */
         console.warn(`No appropriate translation for "${item}"!`);
       }
+    } else if (adaptiveDict) {
+      translated = format(translated, adaptiveDict);
     }
     return translated;
   };
 
   // Locale Setter
   const setLocale = (locale: I18nLocale): void => {
+    document.documentElement.lang = locale;
+
     dispatch({
       type: 'SET_LOCALE',
       locale,
@@ -124,7 +128,28 @@ export const useI18n = (dict: object) => {
   // Locale Getter
   const getLocale = (): I18nLocale => state.locale;
 
-  return { t, setLocale, getLocale };
+  // Locale Toggler
+  const toggleLocale = (withBlurring = true): void => {
+    const newLocale = getLocale() === 'en' ? 'ko' : 'en';
+    const beKorean = newLocale === 'ko';
+    const isBrowserKo = navigator.language.indexOf('ko') > -1;
+
+    if (isBrowserKo === beKorean) {
+      window.localStorage.removeItem('ssualassuala');
+    } else {
+      window.localStorage.setItem('ssualassuala', newLocale);
+    }
+
+    setLocale(newLocale);
+
+    if (withBlurring) {
+      (document.activeElement as HTMLElement).blur();
+    }
+  };
+
+  return {
+    t, setLocale, getLocale, toggleLocale,
+  };
 };
 
 export default useI18n;

@@ -44,7 +44,7 @@ class WDocument extends Document {
           {/* Set language  */}
           <script
             dangerouslySetInnerHTML={{
-              __html: '(function () { document.documentElement.lang = navigator.language.indexOf("ko") > -1 ? "ko" : "en"; })();',
+              __html: '(function () { var ssualassuala = window.localStorage.getItem("ssualassuala"); if (ssualassuala === null) { document.documentElement.lang = navigator.language.indexOf("ko") > -1 ? "ko" : "en"; } else { document.documentElement.lang = ssualassuala.toString(); } })();',
             }}
           />
 

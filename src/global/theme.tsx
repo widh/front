@@ -80,8 +80,29 @@ export const useTheme = () => {
     });
   };
 
+  // Toggler
+  const toggleTheme = (withBlurring = true): void => {
+    const newTheme = getTheme() === 'dark' ? 'light' : 'dark';
+    const beDark = newTheme === 'dark';
+
+    if (
+      (beDark && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      || (!beDark && window.matchMedia('(prefers-color-scheme: light)').matches)
+    ) {
+      window.localStorage.removeItem('modarkbul');
+    } else {
+      window.localStorage.setItem('modarkbul', newTheme);
+    }
+
+    setTheme(newTheme);
+
+    if (withBlurring) {
+      (document.activeElement as HTMLElement).blur();
+    }
+  };
+
   return {
-    getTheme, setTheme, lockTheme, unlockTheme, isThemeLocked,
+    getTheme, setTheme, lockTheme, unlockTheme, isThemeLocked, toggleTheme,
   };
 };
 

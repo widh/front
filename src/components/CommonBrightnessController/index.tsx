@@ -12,24 +12,10 @@ interface Props {
 const BrightnessController: React.SFC<Props> = (props: Props) => {
   const { className } = props;
   const { t } = useI18n(dict);
-  const { setTheme, getTheme } = useTheme();
+  const { toggleTheme, getTheme } = useTheme();
 
   const toggleMode = () => {
-    const newTheme = getTheme() === 'dark' ? 'light' : 'dark';
-    const beDark = newTheme === 'dark';
-
-    if (
-      (beDark && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      || (!beDark && window.matchMedia('(prefers-color-scheme: light)').matches)
-    ) {
-      window.localStorage.removeItem('modarkbul');
-    } else {
-      window.localStorage.setItem('modarkbul', newTheme);
-    }
-
-    setTheme(newTheme);
-
-    (document.activeElement as HTMLElement).blur();
+    toggleTheme();
   };
 
   const classNameFormulated = className.length > 0 ? `${$.modarkbul} ${className}` : $.modarkbul;

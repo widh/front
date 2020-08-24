@@ -1,0 +1,19 @@
+.linkBody {
+  color: var(--c-fg);
+  font-family: $f-family-mono;
+  text-decoration: none;
+
+  @include onFocus {
+    text-decoration: underline;
+  }
+}
+
+.goToHome {
+  opacity: 0.6;
+  text-decoration: none;
+  color: var(--c-fg);
+
+  @include onFocus {
+    text-decoration: underline;
+  }
+}

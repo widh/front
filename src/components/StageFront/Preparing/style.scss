@@ -1,0 +1,18 @@
+.preparingContainer {
+  margin-right: var(--s-pad-hori);
+  margin-left: calc(0.5 * var(--s-pad-hori));
+  min-height: 400px;
+  background-color: var(--c-ntr-op);
+  padding: 20px;
+  width: calc(100% - 40px);
+  border-radius: 3px;
+  max-width: calc(100% - var(--s-pad-hori) * 2 - 10px);
+
+  @include onUltraCompactView {
+    max-width: calc(100% - var(--s-pad-hori) * 2 - 32px);
+  }
+
+  .preparingIcon {
+    font-size: 4rem;
+  }
+}
