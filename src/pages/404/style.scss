@@ -17,3 +17,14 @@
     text-decoration: underline;
   }
 }
+
+.retry {
+  color: var(--c-acc);
+  text-decoration: none;
+  margin-bottom: 6px;
+  display: block;
+
+  @include onFocus {
+    text-decoration: underline;
+  }
+}

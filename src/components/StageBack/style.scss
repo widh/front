@@ -27,5 +27,9 @@
   .backMain {
     margin-left: var(--s-pad-hori);
     margin-right: var(--s-pad-hori);
+
+    a {
+      @include transit(color);
+    }
   }
 }

@@ -1,7 +1,13 @@
 .metaLinks {
-  padding-left: calc(var(--s-pad-hori) + 11px);
-  max-width: calc(100% - var(--s-pad-hori));
   min-width: 240px;
+
+  --s-metalink-factor: 1;
+
+  h2 {
+    @include onUltraCompactView {
+      display: none;
+    }
+  }
 
   ul {
     list-style: none;
@@ -20,5 +26,9 @@
         display: inline-block;
       }
     }
+  }
+
+  @include onUltraCompactView {
+    --s-metalink-factor: 0.8462;
   }
 }

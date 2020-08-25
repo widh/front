@@ -13,10 +13,6 @@ $MDB_TOP_FIX: ($MDB_HEIGHT - 1.2px - $MDB_BALL_SIZE) / 3;
   border-spacing: 10px;
   cursor: pointer;
 
-  @include onUltraCompactView {
-    display: none;
-  }
-
   @include onFocus {
     .icon {
       opacity: 1;

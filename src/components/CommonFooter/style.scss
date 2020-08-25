@@ -1,7 +1,7 @@
 .footerContainer {
   width: 100%;
   padding: 0 var(--s-pad-hori) var(--s-pad-vert);
-  margin-top: var(--s-pad-vert);
+  margin-top: calc(0.5 * var(--s-pad-vert));
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -9,6 +9,7 @@
   .copyrightSection {
     margin-right: 3vw;
     vertical-align: middle;
+    flex-grow: 0;
 
     .copyrightText {
       text-align: left;
@@ -20,6 +21,7 @@
   .brightnessSection, .localeSection {
     vertical-align: middle;
     margin-right: 1.6vw;
+    flex-grow: 0;
 
     .controlButton {
       cursor: pointer;

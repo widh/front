@@ -12,6 +12,7 @@ const NotFound: React.FC = () => {
   const { link, src } = useRouter().query;
   const [showGuide, setGuideVisibility] = useState(false);
   const [guideLink, setGuideLink] = useState(<></>);
+  const [guideLinkURL, setGuideLinkURL] = useState('/');
 
   useEffect(() => {
     const parsedLink = link || '';
@@ -43,6 +44,7 @@ const NotFound: React.FC = () => {
     if (showLink) {
       setGuideVisibility(true);
       setGuideLink(<a className={$.linkBody} href={reqURL}>{reqText}</a>);
+      setGuideLinkURL(reqURL);
     }
   }, [link, src]);
 
@@ -58,7 +60,6 @@ const NotFound: React.FC = () => {
       <StageBack
         header={t('어... 모르겠어요.')}
         detail={t('찾으시는 페이지가 존재하지 않아요.')}
-        suggestion={t('전에는 이런 적이 없었는데... 다시 한 번 시도해보시겠어요?')}
       >
         {
           showGuide && (
@@ -70,13 +71,16 @@ const NotFound: React.FC = () => {
                 {guideLink}
               </div>
               <br />
+              <a className={$.retry} href={guideLinkURL}>
+                {t('전에는 이런 적이 없었는데... 다시 한 번 시도해보시겠어요?')}
+              </a>
             </>
           )
         }
         <a className={$.goToHome} href="/">
-          {showGuide && t('아니면...')}
+          {showGuide ? t('아니면 여기를') : t('여기를')}
           &nbsp;
-          {t('여기를 눌러서 첫 페이지로 가시겠어요?')}
+          {t('눌러서 첫 페이지로 가시겠어요?')}
         </a>
       </StageBack>
     </Wrapper>

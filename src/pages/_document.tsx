@@ -27,7 +27,7 @@ class WDocument extends Document {
           {/* Modarkbul - dark/light theme */}
           <script
             dangerouslySetInnerHTML={{
-              __html: '(function () { var modarkbul = window.localStorage.getItem("modarkbul"); var isDark = ((modarkbul === null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || (modarkbul === "dark"); document.documentElement.dataset.theme = isDark ? "dark" : "light"; document.documentElement.style.setProperty("background-color", isDark ? "#000000" : "#ffffff"); })();',
+              __html: '(function () { var modarkbul = window.localStorage.getItem("modarkbul"); var isDark = ((modarkbul === null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || (modarkbul === "dark"); document.documentElement.dataset.theme = isDark ? "dark" : "light"; document.documentElement.style.setProperty("background-color", isDark ? "#000000" : "#ffffff"); document.documentElement.style.setProperty("color", isDark ? "#ffffff" : "#000000"); })();',
             }}
           />
 

@@ -3,6 +3,7 @@ html {
   font-size: $f-size-base;
   background-color: var(--c-bg) !important;
   color: var(--c-fg) !important;
+  min-width: 430px;
 
   :focus {
     outline: none;
@@ -21,10 +22,12 @@ html {
 
   --c-ntr-op: #{$c-neutral-opaque};
 
-  --c-fg: #{$c-dark};
-  --c-fg2: #{$c-dark-brighter};
-  --c-bg: #{$c-light};
-  --c-bg2: #{$c-light-darker};
+  &[data-theme="light"] {
+    --c-fg: #{$c-dark};
+    --c-fg2: #{$c-dark-brighter};
+    --c-bg: #{$c-light};
+    --c-bg2: #{$c-light-darker};
+  }
 
   &[data-theme="dark"] {
     --c-fg: #{$c-light};
@@ -40,18 +43,39 @@ body {
 
   --s-pad-hori: 50px;
   --s-pad-vert: 100px;
+  --s-view: 'normal';
 
   @include onUltraWideView {
     --s-pad-hori: 200px;
+    --s-view: 'ultra-wide';
+  }
+
+  @include onWideView {
+    --s-view: 'wide';
   }
 
   @include onCompactView {
     --s-pad-hori: 30px;
     --s-pad-vert: 60px;
+    --s-view: 'compact';
   }
 
   @include onUltraCompactView {
-    --s-pad-hori: 8px;
-    --s-pad-vert: 16px;
+    --s-pad-hori: 20px;
+    --s-pad-vert: 40px;
+    --s-view:'ultra-compact';
+  }
+
+  div[id="__next-prerender-indicator"]::after {
+    z-index: 99999;
+    background-color: white;
+    content: var(--s-view);
+    position: fixed;
+    bottom: 12px;
+    left: 12px;
+    color: black;
+    padding: 1px 5px;
+    border-radius: 3px;
+    opacity: 0.6;
   }
 }

@@ -19,8 +19,8 @@ const StageBack: React.FC<Props> = (props: Props) => {
     <div className={$.back}>
       <header className={$.backHeader}>
         <h1 dangerouslySetInnerHTML={{ __html: header }} />
-        <h2 dangerouslySetInnerHTML={{ __html: detail }} />
-        <span dangerouslySetInnerHTML={{ __html: suggestion }} />
+        {detail && (<h2 dangerouslySetInnerHTML={{ __html: detail }} />)}
+        {suggestion && (<span dangerouslySetInnerHTML={{ __html: suggestion }} />)}
       </header>
       <main className={$.backMain}>{children}</main>
       <CommonFooter useBrightnessModeControl />

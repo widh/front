@@ -51,6 +51,12 @@ export const useTheme = () => {
   const setTheme = (theme: ThemeName): void => {
     if (!state.locked) {
       document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+      document.documentElement.style.setProperty(
+        'background-color', theme === 'dark' ? '#000000' : '#ffffff',
+      );
+      document.documentElement.style.setProperty(
+        'color', theme === 'dark' ? '#ffffff' : '#000000',
+      );
       dispatch({
         type: 'SET_THEME',
         theme,

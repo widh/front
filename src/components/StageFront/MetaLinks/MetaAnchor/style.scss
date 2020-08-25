@@ -1,7 +1,7 @@
 .metaButton {
-  padding: 8px 13px;
-  font-size: 1.3rem;
-  line-height: 1.5rem;
+  padding: calc(var(--s-metalink-factor) * 8px) calc(var(--s-metalink-factor) * 13px);
+  font-size: calc(var(--s-metalink-factor) * 1.3rem);
+  line-height: calc(var(--s-metalink-factor) * 1.5rem);
   color: var(--c-fg);
   display: inline-flex;
   text-decoration: none;
@@ -28,8 +28,8 @@
     @include transit(filter);
 
     img {
-      height: 1.5rem;
-      width: 1.5rem;
+      height: calc(var(--s-metalink-factor) * 1.5rem);
+      width: calc(var(--s-metalink-factor) * 1.5rem);
 
       &.inverted {
         @include transit(filter);
