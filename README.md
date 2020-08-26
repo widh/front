@@ -13,7 +13,7 @@ A personal homepage of Jio Gim. &copy; wldh, all rights reserved.
 
 #### Images
 
-+ `src/public/images/cryingIsland.gif`, `src/public/images/thinkingEnterprise.gif`, `src/public/images/sleepingShiratsuyu.gif` : &copy; [蛮啾网络](https://manjuu.cn/)
++ Logos excluding my logo : all rights of each logos used in index page is reserved to its own company.
 
 #### Development Tools
 
