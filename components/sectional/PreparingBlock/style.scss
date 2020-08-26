@@ -1,0 +1,14 @@
+.preparingContainer {
+  padding: 20px;
+
+  @include roundedGrayBackground;
+
+  @include onNormalView {
+    min-height: initial;
+    padding-bottom: 40px;
+  }
+
+  .preparingIcon {
+    font-size: 4rem;
+  }
+}

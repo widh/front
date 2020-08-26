@@ -1,0 +1,33 @@
+.back {
+  .backHeader {
+    margin-top: var(--s-pad-vert);
+    margin-left: var(--s-pad-hori);
+    margin-right: var(--s-pad-hori);
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: calc(#{3 * $f-size-base} + 2vw);
+      margin: 0 0 .5rem 0;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: calc(#{1.5 * $f-size-base} + 1vw);
+      margin: 0 0 .5rem 0;
+      font-weight: 500;
+    }
+
+    span {
+      color: var(--c-acc);
+    }
+  }
+
+  .backMain {
+    margin-left: var(--s-pad-hori);
+    margin-right: var(--s-pad-hori);
+
+    a {
+      @include transit(color);
+    }
+  }
+}

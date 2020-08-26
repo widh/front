@@ -1,0 +1,18 @@
+.linkBody {
+  color: var(--c-fg);
+  font-family: $f-family-mono;
+  word-break: break-all;
+  display: block;
+  margin-left: 6ex;
+}
+
+.goToHome {
+  opacity: 0.6;
+  color: var(--c-fg);
+}
+
+.retry {
+  color: var(--c-acc);
+  margin-bottom: 6px;
+  display: block;
+}
