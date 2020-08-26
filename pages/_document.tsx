@@ -60,12 +60,28 @@ class WDocument extends Document {
 
           {/* No Javascript Environment Alert */}
           <noscript>
-            <div id="feature-alert-form">
-              <div className="feature-alert-text">
-                <em>JavaScript is now disabled. Please turn it on for full page rendering.</em>
-                <em>JavaScript가 꺼져 있습니다. 완전한 페이지 표시를 위해 JavaScript를 켜 주세요.</em>
-              </div>
-            </div>
+            <table id="feature-alert-form">
+              <colgroup>
+                <col />
+                <col />
+              </colgroup>
+              <tr className="feature-alert-text-ko">
+                <td rowSpan={2}>
+                  <img
+                    src="/images/logo-alert.png"
+                    alt="Jio logo with exclamation mark"
+                    width="65"
+                    height="65"
+                  />
+                </td>
+                <td>
+                  JavaScript가 꺼져 있습니다. 완전한 페이지 표시를 위해 JavaScript를 켜 주세요.
+                </td>
+              </tr>
+              <tr className="feature-alert-text-en">
+                <td>JavaScript is now disabled. Please turn it on for full page rendering.</td>
+              </tr>
+            </table>
             <link rel="stylesheet" id="feature-alert-style" href="/styles/feature-alert.min.css" />
           </noscript>
 

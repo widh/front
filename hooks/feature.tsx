@@ -40,10 +40,14 @@ export const FeatureChecked: React.SFC<Props> = ({ children }: Props) => {
 
 const state = { checked: [] };
 
-export const useFeature = (fn: Feature | Feature[], alert = true) => {
+export const useFeature = (fn: Feature | Feature[]) => {
   const results: FeatureCheckResultAdvanced[] = [];
   const target: Feature[] = [];
   let isPassed = true;
+  let maxInfoKo = '이 웹 브라우저는 웹 표준을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 온전하게 보이거나 작동하지 않습니다.';
+  let maxInfoEn = 'This browser does not support the web standard, so this page will not be rendered or not work properly on this browser.';
+  let maxLinkKo = 'https://browser-update.org/update.html';
+  let maxLinkEn = 'https://browser-update.org/update.html';
 
   if (fn) {
     const findFnInContext = (fnName: string): boolean => {
@@ -69,10 +73,6 @@ export const useFeature = (fn: Feature | Feature[], alert = true) => {
 
     // Check each functions
     let maxImportance = 0;
-    let maxInfoKo = '이 웹 브라우저는 웹 표준을 지원하지 않기 때문에, 이 페이지는 이 브라우저에서 온전하게 보이거나 작동하지 않습니다.';
-    let maxInfoEn = 'This browser does not support the web standard, so this page will not be rendered or not work properly on this browser.';
-    let maxLinkKo = 'https://browser-update.org/update.html';
-    let maxLinkEn = 'https://browser-update.org/update.html';
     for (let i = 0; i < target.length; i += 1) {
       let result = null;
       try {
@@ -83,7 +83,7 @@ export const useFeature = (fn: Feature | Feature[], alert = true) => {
       if (typeof result === 'object') {
         results.push(result);
         isPassed = isPassed && result.pass;
-        if (result.importance > maxImportance) {
+        if (!result.pass && result.importance > maxImportance) {
           maxInfoKo = result.infoKo;
           maxInfoEn = result.infoEn;
           maxLinkKo = result.linkKo;
@@ -91,6 +91,7 @@ export const useFeature = (fn: Feature | Feature[], alert = true) => {
           maxImportance = result.importance;
         }
       } else {
+        isPassed = isPassed && result;
         results.push({
           pass: result,
           importance: 0,
@@ -103,55 +104,9 @@ export const useFeature = (fn: Feature | Feature[], alert = true) => {
       }
     }
     state.checked = [...results, ...state.checked];
-
-    // Make alert
-    if (!isPassed && alert) {
-      const isAlertFormLoaded = document.getElementById('feature-alert-form');
-      const isAlertStyleLoaded = document.getElementById('feature-alert-style');
-      if (isAlertFormLoaded === null) {
-        const koInfo = document.createElement('em');
-        koInfo.classList.add('i18n-ko');
-        koInfo.textContent = maxInfoKo;
-        const enInfo = document.createElement('em');
-        enInfo.classList.add('i18n-en');
-        enInfo.textContent = maxInfoEn;
-        const formWrap = document.createElement('div');
-        formWrap.className = 'feature-alert-text';
-        formWrap.appendChild(koInfo);
-        formWrap.appendChild(enInfo);
-        const twoWrap = document.createElement('div');
-        twoWrap.appendChild(formWrap);
-        if (maxLinkKo !== null || maxLinkEn !== null) {
-          const koButton = document.createElement('button');
-          koButton.classList.add('i18n-ko');
-          koButton.textContent = '더 알아보기';
-          koButton.onclick = function koAlert() { window.location.href = maxLinkKo; };
-          const enButton = document.createElement('button');
-          enButton.classList.add('i18n-en');
-          enButton.textContent = 'Learn More';
-          enButton.onclick = function enAlert() { window.location.href = maxLinkEn; };
-          const buttonWrap = document.createElement('div');
-          buttonWrap.className = 'feature-alert-buttons';
-          buttonWrap.appendChild(koButton);
-          buttonWrap.appendChild(enButton);
-          twoWrap.appendChild(buttonWrap);
-        }
-        const formChild = document.createElement('div');
-        formChild.id = 'feature-alert-form';
-        formChild.appendChild(twoWrap);
-        document.body.insertBefore(formChild, document.body.firstChild);
-      }
-      if (isAlertStyleLoaded === null) {
-        const styleChild = document.createElement('link');
-        styleChild.id = 'feature-alert-style';
-        styleChild.href = '/styles/feature-alert.min.css';
-        styleChild.rel = 'stylesheet';
-        document.head.appendChild(styleChild);
-      }
-    }
   }
 
-  const printFCResult = () => {
+  const printFCResult = (document?: HTMLDocument) => {
     /* eslint-disable no-console */
     if (target.length > 0) {
       console.groupCollapsed(`Feature Check Log (${isPassed ? 'passed' : 'failed'})`);
@@ -159,6 +114,66 @@ export const useFeature = (fn: Feature | Feature[], alert = true) => {
         console.log(results[i]);
       };
       console.groupEnd();
+    }
+
+    if (document) {
+      // Make alert
+      if (!isPassed) {
+        const isAlertFormLoaded = document.getElementById('feature-alert-form');
+        const isAlertStyleLoaded = document.getElementById('feature-alert-style');
+        if (isAlertFormLoaded === null) {
+          const koInfo = document.createElement('td');
+          koInfo.textContent = maxInfoKo;
+          const enInfo = document.createElement('td');
+          enInfo.textContent = maxInfoEn;
+          const formWrapKo = document.createElement('tr');
+          formWrapKo.className = 'feature-alert-text-ko';
+          formWrapKo.appendChild(koInfo);
+          const formWrapEn = document.createElement('tr');
+          formWrapEn.className = 'feature-alert-text-en';
+          formWrapEn.appendChild(enInfo);
+          if (maxLinkKo !== null || maxLinkEn !== null) {
+            const koButton = document.createElement('button');
+            koButton.textContent = '더 알아보기';
+            koButton.onclick = function koAlert() { window.location.href = maxLinkKo; };
+            const koButtonWrap = document.createElement('td');
+            koButtonWrap.appendChild(koButton);
+            formWrapKo.appendChild(koButtonWrap);
+            const enButton = document.createElement('button');
+            enButton.textContent = 'Learn More';
+            enButton.onclick = function enAlert() { window.location.href = maxLinkEn; };
+            const enButtonWrap = document.createElement('td');
+            enButtonWrap.appendChild(enButton);
+            formWrapEn.appendChild(enButtonWrap);
+          }
+          const formImg = document.createElement('img');
+          formImg.src = '/images/logo-alert.png';
+          formImg.alt = 'Jio logo with exclamation mark';
+          formImg.width = 65;
+          formImg.height = 65;
+          const formImgWrap = document.createElement('td');
+          formImgWrap.rowSpan = 2;
+          formImgWrap.appendChild(formImg);
+          formWrapKo.insertBefore(formImgWrap, formWrapKo.firstChild);
+          const formColGroup = document.createElement('colgroup');
+          formColGroup.appendChild(document.createElement('col'));
+          formColGroup.appendChild(document.createElement('col'));
+          formColGroup.appendChild(document.createElement('col'));
+          const formChild = document.createElement('table');
+          formChild.id = 'feature-alert-form';
+          formChild.appendChild(formColGroup);
+          formChild.appendChild(formWrapKo);
+          formChild.appendChild(formWrapEn);
+          document.body.insertBefore(formChild, document.body.firstChild);
+        }
+        if (isAlertStyleLoaded === null) {
+          const styleChild = document.createElement('link');
+          styleChild.id = 'feature-alert-style';
+          styleChild.href = '/styles/feature-alert.css';
+          styleChild.rel = 'stylesheet';
+          document.head.appendChild(styleChild);
+        }
+      }
     }
   };
 

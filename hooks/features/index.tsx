@@ -1,8 +1,12 @@
-import InternetExplorer from './InternetExplorer';
+import CSSFilter from './CSS.filter';
 import CSSVariable from './CSS.variable';
+import Failure from './Failure';
+import InternetExplorer from './InternetExplorer';
 import StringIncludes from './String.Includes';
 
-export { InternetExplorer, CSSVariable, StringIncludes };
+export {
+  CSSFilter, CSSVariable, Failure, InternetExplorer, StringIncludes,
+};
 
 export type Feature = {
   name: string;

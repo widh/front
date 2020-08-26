@@ -46,7 +46,7 @@ const Wrapper: React.SFC<Props> = (props: Props) => {
     setTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
 
     // Print Function Check Result
-    printFCResult();
+    printFCResult(document);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [/* DO ONLY ONCE */]);
