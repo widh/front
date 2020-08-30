@@ -169,7 +169,7 @@ export const useFeature = (fn: Feature | Feature[]) => {
         if (isAlertStyleLoaded === null) {
           const styleChild = document.createElement('link');
           styleChild.id = 'feature-alert-style';
-          styleChild.href = '/styles/feature-alert.css';
+          styleChild.href = '/styles/feature-alert.min.css';
           styleChild.rel = 'stylesheet';
           document.head.appendChild(styleChild);
         }

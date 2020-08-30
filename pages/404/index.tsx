@@ -13,6 +13,7 @@ const NotFound: React.FC = () => {
   const [showGuide, setGuideVisibility] = useState(false);
   const [guideLink, setGuideLink] = useState(<></>);
   const [guideLinkURL, setGuideLinkURL] = useState('/');
+  const [homeLinkURL, setHomeLinkURL] = useState('/');
 
   useEffect(() => {
     const parsedLink = link.toString() || '';
@@ -25,6 +26,7 @@ const NotFound: React.FC = () => {
 
     if (parsedSrc.length > 0) {
       // Not found in some wow service
+      setHomeLinkURL(`https://${parsedSrc}.wldh.org/`);
       if (
         parsedLink.length === 0
         && parsedPath.length > 0 && parsedPath[0] === '/'
@@ -86,7 +88,7 @@ const NotFound: React.FC = () => {
             </>
           )
         }
-        <a className={$.goToHome} href="/">
+        <a className={$.goToHome} href={homeLinkURL}>
           {showGuide ? t('아니면 여기를') : t('여기를')}
           &nbsp;
           {t('눌러서 첫 페이지로 가시겠어요?')}
