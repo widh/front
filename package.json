@@ -1,15 +1,19 @@
 {
   "name": "world-of-wldh",
-  "version": "2.0.0-alpha.14",
+  "version": "2.0.0-alpha.15",
   "description": "A homepage of Jio Gim",
-  "main": "next.config.js",
   "repository": "https://github.com/wldh-g/homepage.git",
   "author": "Jio Gim <jio@wldh.org>",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "local": "npx vercel dev",
-    "upload": "npx vercel deploy --prod"
+    "local": "yarn vercel dev",
+    "upload": "yarn vercel deploy --prod"
+  },
+  "engines": {
+    "npm": "USE YARN INSTEAD OF NPM",
+    "node": "^14.8.0",
+    "yarn": "^1.22.0"
   },
   "dependencies": {
     "@types/node": "^14.6.0",
@@ -43,6 +47,6 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "husky": "^4.2.5",
-    "vercel": "^20.0.0"
+    "vercel": "^20.1.0"
   }
 }

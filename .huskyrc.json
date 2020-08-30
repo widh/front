@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "pre-commit": "npx next build",
+    "pre-commit": "yarn outdated --no-color && next build",
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
   }
 }
