@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/_next",
+      "destination": "/404?src=www&link=_next",
+      "statusCode": 404
+    },
+    {
+      "source": "/_next/static",
+      "destination": "/404?src=www&link=_next/static",
+      "statusCode": 404
+    },
+    {
+      "source": "/images",
+      "destination": "/404?src=www&link=images",
+      "statusCode": 404
+    },
+    {
+      "source": "/styles",
+      "destination": "/404?src=www&link=styles",
+      "statusCode": 404
+    }
+  ]
+}
