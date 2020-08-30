@@ -9,30 +9,38 @@ import dict from './i18n.d.yml';
 
 const NotFound: React.FC = () => {
   const { t } = useI18n(dict);
-  const { link, src } = useRouter().query;
+  const { link, src, path } = useRouter().query;
   const [showGuide, setGuideVisibility] = useState(false);
   const [guideLink, setGuideLink] = useState(<></>);
   const [guideLinkURL, setGuideLinkURL] = useState('/');
 
   useEffect(() => {
-    const parsedLink = link || '';
-    const parsedSrc = src || '';
+    const parsedLink = link.toString() || '';
+    const parsedSrc = src.toString() || '';
+    const parsedPath = path.toString() || '';
 
     let reqText = '';
     let reqURL = '';
     let showLink = false;
 
-    if (parsedSrc === 'go') {
-      // Not found in short URL(go) service
-      reqText = `${parsedSrc}.wldh.org/${parsedLink}`;
-      reqURL = `https://${parsedSrc}.wldh.org/${parsedLink}`;
-      showLink = true;
-    } else if (parsedSrc === 'www') {
-      // Fall back from wldh.org, poss to www service
-      window.location.replace(`https://www.wldh.org/${parsedLink}`);
+    if (parsedSrc.length > 0) {
+      // Not found in some wow service
+      if (
+        parsedLink.length === 0
+        && parsedPath.length > 0 && parsedPath[0] === '/'
+      ) {
+        reqText = `${parsedSrc}.wldh.org${parsedPath}`;
+        reqURL = `https://${parsedSrc}.wldh.org${parsedPath}`;
+        showLink = true;
+      } else if (parsedLink.length > 0 && parsedPath.length === 0) {
+        reqText = `${parsedSrc}.wldh.org/${parsedLink}`;
+        reqURL = `https://${parsedSrc}.wldh.org/${parsedLink}`;
+        showLink = true;
+      }
     } else if (
       parsedSrc.length === 0
       && parsedLink.length === 0
+      && parsedPath.length === 0
       && window.location.href !== 'https://www.wldh.org/404'
       && window.location.href !== 'https://www.wldh.org/404.html'
     ) {
@@ -49,7 +57,7 @@ const NotFound: React.FC = () => {
     } else {
       setGuideVisibility(false);
     }
-  }, [link, src]);
+  }, [link, src, path]);
 
   return (
     <Wrapper
