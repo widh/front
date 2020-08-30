@@ -16,9 +16,9 @@ const NotFound: React.FC = () => {
   const [homeLinkURL, setHomeLinkURL] = useState('/');
 
   useEffect(() => {
-    const parsedLink = link.toString() || '';
-    const parsedSrc = src.toString() || '';
-    const parsedPath = path.toString() || '';
+    const parsedLink = (link || '').toString();
+    const parsedSrc = (src || '').toString();
+    const parsedPath = (path || '').toString();
 
     let reqText = '';
     let reqURL = '';
