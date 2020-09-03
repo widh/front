@@ -7,6 +7,7 @@
   text-decoration: none;
   font-weight: 300;
   vertical-align: middle;
+  user-select: none;
 
   @include transit(background-color, filter, color);
 
@@ -17,7 +18,11 @@
       @include roundedGrayBackground;
 
       .iconContainer {
-        filter: grayscale(0);
+        filter: grayscale(0) brightness(1) contrast(1);
+
+        img.silhouette {
+          filter: brightness(1) contrast(1) invert(0);
+        }
       }
     }
   }
@@ -32,11 +37,31 @@
       height: calc(var(--s-metalink-factor) * 1.5rem);
       width: calc(var(--s-metalink-factor) * 1.5rem);
 
-      &.inverted {
+      &.inverted:not(.silhouette) {
         @include transit(filter);
 
         @include onDark {
           filter: invert(1);
+        }
+      }
+
+      &.silhouette:not(inverted) {
+        @include transit(filter);
+
+        filter: brightness(0) contrast(0);
+
+        @include onDark {
+          filter: brightness(0) contrast(0);
+        }
+      }
+
+      &.silhouette.inverted {
+        @include transit(filter);
+
+        filter: brightness(0) contrast(0);
+
+        @include onDark {
+          filter: brightness(0) contrast(0) invert(1);
         }
       }
     }

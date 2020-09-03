@@ -78,13 +78,18 @@ const NotFound: React.FC = () => {
           showGuide && (
             <>
               <div className={$.linkGuide}>
-                <span className={$.linkGuideHeader}>{`${t('가려던 페이지')}:`}</span>
+                <span className={$.linkGuideHeader}>
+                  {`${t('가려던 페이지')}:`}
+                  &nbsp;
+                </span>
+                <br />
                 {guideLink}
               </div>
               <br />
               <a className={$.retry} href={guideLinkURL}>
                 {t('전에는 이런 적이 없었는데... 다시 한 번 시도해보시겠어요?')}
               </a>
+              <br />
             </>
           )
         }

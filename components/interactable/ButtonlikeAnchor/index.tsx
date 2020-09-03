@@ -13,12 +13,13 @@ interface Props {
   linkHref: string;
   disabled?: boolean;
   invertOnDark?: boolean;
+  silhouetteOnUnactivated?: boolean;
 };
 
 /* React Components */
 const ButtonlikeAnchor: React.SFC<Props> = (props: Props) => {
   const {
-    iconHref, iconLabel, linkLabel, linkHref, disabled, invertOnDark,
+    iconHref, iconLabel, linkLabel, linkHref, disabled, invertOnDark, silhouetteOnUnactivated,
   } = props;
   const { t } = useI18n(dict);
 
@@ -31,9 +32,15 @@ const ButtonlikeAnchor: React.SFC<Props> = (props: Props) => {
     return !disabled;
   };
 
-  const wrapperClassName = [$.metaButton, disabled ? $.metaButtonDisabled : undefined]
-    .filter(Boolean).join(' ');
-  const invertClass = invertOnDark ? $.inverted : '';
+  const wrapperClassName = [
+    $.metaButton,
+    disabled ? $.metaButtonDisabled : undefined,
+  ].filter(Boolean).join(' ');
+
+  const iconClassName = [
+    invertOnDark ? $.inverted : undefined,
+    silhouetteOnUnactivated ? $.silhouette : undefined,
+  ].filter(Boolean).join(' ');
 
   /* Render */
   return (
@@ -42,7 +49,7 @@ const ButtonlikeAnchor: React.SFC<Props> = (props: Props) => {
         {
           iconHref && (
             <div className={$.iconContainer}>
-              <img className={invertClass} src={iconHref} alt={iconLabelFallback} />
+              <img className={iconClassName} src={iconHref} alt={iconLabelFallback} />
             </div>
           )
         }
@@ -59,6 +66,7 @@ ButtonlikeAnchor.defaultProps = {
   iconLabel: undefined,
   disabled: false,
   invertOnDark: false,
+  silhouetteOnUnactivated: false,
 };
 
 export default ButtonlikeAnchor;

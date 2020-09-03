@@ -4,6 +4,7 @@
     margin-left: var(--s-pad-hori);
     margin-right: var(--s-pad-hori);
     margin-bottom: calc(0.5 * var(--s-pad-vert));
+    user-select: none;
 
     --s-header-height: 60px;
 

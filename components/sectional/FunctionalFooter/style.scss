@@ -5,6 +5,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  user-select: none;
 
   .copyrightSection {
     margin-right: 30px;

@@ -17,7 +17,7 @@ const AsideLinks: React.SFC = () => {
             iconHref="/images/blog.png"
             linkHref="https://blog.wldh.org/"
             linkLabel={t('블로그')}
-            invertOnDark
+            silhouetteOnUnactivated
           />
         </li>
         <li>
