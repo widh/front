@@ -14,7 +14,7 @@ const AsideLinks: React.SFC = () => {
       <ul>
         <li>
           <ButtonlikeAnchor
-            iconHref="/images/tistory.svg"
+            iconHref="/images/blog.png"
             linkHref="https://blog.wldh.org/"
             linkLabel={t('블로그')}
             invertOnDark
