@@ -1,6 +1,6 @@
 {
   "name": "world-of-wldh",
-  "version": "2.0.0-alpha.15",
+  "version": "2.0.0-alpha.16",
   "description": "A homepage of Jio Gim",
   "repository": "https://github.com/wldh-g/homepage.git",
   "author": "Jio Gim <jio@wldh.org>",
@@ -14,37 +14,38 @@
     "npm": "USE YARN INSTEAD OF NPM"
   },
   "dependencies": {
-    "@types/node": "^14.6.3",
+    "@types/node": "^14.11.2",
     "@types/node-sass": "^4.11.1",
-    "@types/react": "^16.9.49",
+    "@types/react": "^16.9.50",
     "@types/react-dom": "^16.9.8",
     "@zeit/next-sass": "^1.0.1",
     "atob": "^2.1.2",
     "js-yaml-loader": "^1.2.2",
-    "moment": "^2.27.0",
+    "moment": "^2.29.0",
     "next": "^9.5.3",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-app": "^1.1.2",
     "react-dom": "^16.13.1",
-    "typescript": "^4.0.2",
-    "webpack": "^4.44.1"
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-conventional": "^9.1.2",
-    "@typescript-eslint/eslint-plugin": "^4.0.1",
-    "@typescript-eslint/parser": "^4.0.1",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.8.1",
+    "eslint": "^7.10.0",
     "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-react-app": "^6.0.0-next.77",
+    "eslint-config-react-app": "^6.0.0-next.98",
     "eslint-plugin-flowtype": "^5.2.0",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.0.2",
     "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
-    "husky": "^4.2.5",
-    "vercel": "^20.1.0"
+    "eslint-plugin-react": "^7.21.3",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "husky": "^4.3.0",
+    "vercel": "^20.1.1"
   }
 }

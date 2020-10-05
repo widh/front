@@ -12,7 +12,7 @@ interface Props {
   children?: React.ReactElement | React.ReactElement[];
 }
 
-const FunctionalFooter: React.SFC<Props> = (props: Props) => {
+const FunctionalFooter: React.FC<Props> = (props: Props) => {
   const {
     useBrightnessModeControl, useLocaleControl, children, className,
   } = props;

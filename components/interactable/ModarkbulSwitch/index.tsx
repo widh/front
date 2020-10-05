@@ -9,7 +9,7 @@ interface Props {
   className?: string | string[];
 }
 
-const ModarkbulSwitch: React.SFC<Props> = (props: Props) => {
+const ModarkbulSwitch: React.FC<Props> = (props: Props) => {
   const { className } = props;
   const { t } = useI18n(dict);
   const { toggleTheme, getTheme } = useTheme();

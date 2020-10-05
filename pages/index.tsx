@@ -12,7 +12,7 @@ import $ from './index.scss';
 import dict from './index.d.yml';
 
 /* React Components */
-const Index: React.SFC = () => {
+const Index: React.FC = () => {
   const { t } = useI18n(dict);
 
   /* Render */
