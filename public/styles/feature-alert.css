@@ -14,50 +14,50 @@
   box-shadow: 0 0 20px rgb(187, 187, 187);
 }
 
-#feature-alert-form > colgroup > col:nth-child(1) {
+#feature-alert-form colgroup > col:nth-child(1) {
   width: 4.75rem;
 }
 
-#feature-alert-form > colgroup > col:nth-child(2) {
+#feature-alert-form colgroup > col:nth-child(2) {
   width: auto;
 }
 
-#feature-alert-form > colgroup > col:nth-child(3) {
+#feature-alert-form colgroup > col:nth-child(3) {
   width: 10em;
 }
 
-#feature-alert-form > tr {
+#feature-alert-form tr {
   border: 0;
 }
 
-#feature-alert-form > tr > td {
+#feature-alert-form tr > td {
   border: 0;
   color: black;
   padding: 0;
 }
 
-#feature-alert-form > tr > td, #feature-alert-form > tr > td > * {
+#feature-alert-form tr > td, #feature-alert-form tr > td > * {
   font-family: "Noto Sans CJK KR", "Noto Sans KR", sans-serif !important;
   font-style: normal;
   font-weight: 300;
   font-size: 1rem;
 }
 
-#feature-alert-form > tr > td:nth-child(1) {
+#feature-alert-form tr > td:nth-child(1) {
   padding-right: 1rem;
 }
 
-#feature-alert-form > tr > td:nth-child(1) > img {
+#feature-alert-form tr > td:nth-child(1) > img {
   width: 3.75rem;
   height: 3.75rem;
   vertical-align: middle;
 }
 
-#feature-alert-form > tr > td:last-child {
+#feature-alert-form tr > td:last-child {
   text-align: center;
 }
 
-#feature-alert-form > tr > td > button {
+#feature-alert-form tr > td > button {
   font-weight: 500 !important;
   border: none;
   border-radius: 3px;
@@ -70,11 +70,11 @@
   cursor: pointer;
 }
 
-#feature-alert-form > tr > td > button:hover, #feature-alert-form > tr > td > button:focus {
+#feature-alert-form tr > td > button:hover, #feature-alert-form tr > td > button:focus {
   background-color: rgba(248, 248, 248, .9);
 }
 
-#feature-alert-form > tr > td > button:active {
+#feature-alert-form tr > td > button:active {
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0 4px rgba(124, 124, 124, .1);
 }
