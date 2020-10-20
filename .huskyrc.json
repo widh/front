@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "pre-commit": "yarn upgrade && git add yarn.lock",
+    "pre-commit": "yarn upgrade --non-interactive --no-progress --silent && git add yarn.lock",
     "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
   }
 }
