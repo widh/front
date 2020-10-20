@@ -7,8 +7,9 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "local": "yarn vercel dev",
-    "upload": "yarn vercel deploy --prod"
+    "local": "vercel dev",
+    "upload": "vercel deploy",
+    "deploy": "vercel deploy --prod"
   },
   "engines": {
     "npm": "USE YARN INSTEAD OF NPM"
