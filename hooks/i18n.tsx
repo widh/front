@@ -81,7 +81,7 @@ type I18nDispatch = Dispatch<I18nAction>;
 const LocaleDispatchContext = createContext<I18nDispatch | undefined>(undefined);
 
 interface Props { children: React.ReactElement | React.ReactElement[] }
-export const I18nEnabled: React.SFC<Props> = ({ children }: Props) => {
+export const I18nEnabled: React.FC<Props> = ({ children }: Props) => {
   const [state, dispatch] = useReducer(i18nReducer, initialLocaleContext);
   return (
     <LocaleDispatchContext.Provider value={dispatch}>
@@ -92,25 +92,40 @@ export const I18nEnabled: React.SFC<Props> = ({ children }: Props) => {
   );
 };
 
+type LocaleFormatDict = {
+  [key in I18nLocale]: FormatDict;
+};
+type TranslationDict = LocaleFormatDict | FormatDict;
+
 export const useI18n = (dict: object) => {
   const state = useContext(LocaleContext);
   const dispatch = useContext(LocaleDispatchContext);
 
   // Translator
-  const t = (item: string, adaptiveDict?: FormatDict): string => {
+  const t = (item: string, adaptiveDict?: TranslationDict): string => {
     let translated = item;
     if (dict !== null && Object.prototype.hasOwnProperty.call(dict, state.locale)) {
       if (Object.prototype.hasOwnProperty.call(dict[state.locale], item)) {
         translated = dict[state.locale][item];
         if (adaptiveDict) {
-          translated = format(translated, adaptiveDict);
+          if (adaptiveDict[state.locale]) {
+            // LocaleFormatDict
+            translated = format(translated, adaptiveDict[state.locale]);
+          } else {
+            // FormatDict
+            translated = format(translated, adaptiveDict as FormatDict);
+          }
         }
       } else {
         /* eslint-disable no-console */
         console.warn(`No appropriate translation for "${item}"!`);
       }
     } else if (adaptiveDict) {
-      translated = format(translated, adaptiveDict);
+      if (adaptiveDict[state.locale]) {
+        translated = format(translated, adaptiveDict[state.locale]);
+      } else {
+        translated = format(translated, adaptiveDict as FormatDict);
+      }
     }
     return translated;
   };

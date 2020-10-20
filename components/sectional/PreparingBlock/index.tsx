@@ -8,7 +8,7 @@ interface Props {
   className?: string | string[]
 };
 
-const PreparingBlock: React.SFC<Props> = (props: Props) => {
+const PreparingBlock: React.FC<Props> = (props: Props) => {
   const { className } = props;
   const { t } = useI18n(dict);
 

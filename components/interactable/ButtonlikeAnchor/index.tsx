@@ -17,7 +17,7 @@ interface Props {
 };
 
 /* React Components */
-const ButtonlikeAnchor: React.SFC<Props> = (props: Props) => {
+const ButtonlikeAnchor: React.FC<Props> = (props: Props) => {
   const {
     iconHref, iconLabel, linkLabel, linkHref, disabled, invertOnDark, silhouetteOnUnactivated,
   } = props;

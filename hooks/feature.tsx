@@ -27,7 +27,7 @@ type FCDispatch = Dispatch<FCAction>;
 const FCDispatchContext = createContext<FCDispatch | undefined>(undefined);
 
 interface Props { children: React.ReactElement | React.ReactElement[] }
-export const FeatureChecked: React.SFC<Props> = ({ children }: Props) => {
+export const FeatureChecked: React.FC<Props> = ({ children }: Props) => {
   const [state, dispatch] = useReducer(fcReducer, initialFeatureCheckContext);
   return (
     <FCDispatchContext.Provider value={dispatch}>

@@ -5,7 +5,7 @@ import { useI18n } from 'hooks/i18n';
 import $ from './style.scss';
 import dict from './i18n.d.yml';
 
-const AsideLinks: React.SFC = () => {
+const AsideLinks: React.FC = () => {
   const { t } = useI18n(dict);
 
   return (

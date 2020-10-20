@@ -23,7 +23,7 @@ interface Props {
   children?: React.ReactElement | React.ReactElement[]
 };
 
-const Wrapper: React.SFC<Props> = (props: Props) => {
+const Wrapper: React.FC<Props> = (props: Props) => {
   const {
     children, title, isMain, description, thumbnailURL, useFavicoff, className, requiredFeatures,
     allowCrawling,

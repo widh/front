@@ -32,7 +32,7 @@ type ThemeDispatch = Dispatch<ThemeAction>;
 const ThemeDispatchContext = createContext<ThemeDispatch | undefined>(undefined);
 
 interface Props { children: React.ReactElement | React.ReactElement[] }
-export const ThemeEnabled: React.SFC<Props> = ({ children }: Props) => {
+export const ThemeEnabled: React.FC<Props> = ({ children }: Props) => {
   const [state, dispatch] = useReducer(themeReducer, initialThemeContext);
   return (
     <ThemeDispatchContext.Provider value={dispatch}>
