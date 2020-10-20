@@ -56,8 +56,8 @@ const Wrapper: React.FC<Props> = (props: Props) => {
   const fallbackDescription = description || t('김지오의 홈페이지입니다.');
 
   const dispColor = getTheme() === 'dark' ? '#2b2b2b' : '#ffffff';
-  const dispTitle = isMain ? t('반가워요!') : t('[[]] ᅍ', [fallbackTitle]);
-  const metaTitle = isMain ? t('반가워요! - ㅈㅇ') : fallbackTitle;
+  const dispTitle = isMain ? t('반갑습니다!') : t('[[]] ᅍ', [fallbackTitle]);
+  const metaTitle = isMain ? t('김지오 - 반갑습니다!') : fallbackTitle;
   const metaDescription = fallbackDescription;
   const metaURL = `${domain}${pathname}`;
   const metaImage = thumbnailURL;
