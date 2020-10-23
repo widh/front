@@ -1,7 +1,7 @@
 import React, {
   createContext, useReducer, Dispatch,
 } from 'react';
-import { Feature, FeatureCheckResultAdvanced } from './features';
+import { Feature, FeatureCheckResultAdvanced } from 'features';
 
 interface FeatureRecordStruct {
   checked: FeatureCheckResultAdvanced[]

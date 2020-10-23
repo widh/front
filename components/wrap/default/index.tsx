@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useI18n } from 'hooks/i18n';
 import { useTheme } from 'hooks/theme';
 import { useFeature } from 'hooks/feature';
-import { Feature, InternetExplorer, CSSVariable } from 'hooks/features';
+import { Feature, InternetExplorer, CSSVariable } from 'features';
 
 import './style.scss';
 import dict from './i18n.d.yml';
