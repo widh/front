@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import useI18n from 'hooks/i18n';
 import Wrapper from 'wrap/default';
-import PreparingBlock from 'sectional/PreparingBlock';
 import FunctionalFooter from 'sectional/FunctionalFooter';
 import ModarkbulSwitch from 'interactable/ModarkbulSwitch';
 import AsideLinks from 'page-specific/AsideLinks';
@@ -33,8 +32,7 @@ const Index: React.FC = () => {
       </header>
       <main>
         <AsideLinks />
-        <PreparingBlock className={$.preparingBlock} />
-        {/* <Resume /> */}
+        <Resume className={$.realContent} />
       </main>
       <FunctionalFooter />
     </Wrapper>
