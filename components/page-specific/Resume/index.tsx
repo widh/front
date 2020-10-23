@@ -1,70 +1,52 @@
 import React from 'react';
-import CarouselGallery from 'interactable/CarouselGallery';
 import { useI18n } from 'hooks/i18n';
+import CarouselGallery from 'interactable/CarouselGallery';
+import BasicSection from './BasicSection';
+import EducationSection from './EducationSection';
+import ExperienceSection from './ExperienceSection';
+import ProjectSection from './ProjectSection';
+import ResearchSection from './ResearchSection';
+import SkillSection from './SkillSection';
 
 import $ from './style.scss';
 import dict from './i18n.d.yml';
 
-const Resume: React.FC = () => {
+interface Props {
+  className?: string;
+};
+
+const Resume: React.FC<Props> = (props: Props) => {
+  const { className } = props;
   const { t } = useI18n(dict);
 
-  const albumList = null;
+  const albumList = [];
+
+  const articleClass = [$.resumeContainer];
+  if (className) articleClass.push(className);
 
   return (
-    <article className={$.resumeContainer}>
-      <section className={$.carouselGallery}>
-        <CarouselGallery />
+    <article className={articleClass.join(' ')}>
+      <section className={$.gallerySection}>
+        <CarouselGallery imgList={albumList} />
       </section>
-      <section>
-        <blockquote>Be eigenius!</blockquote>
-        <div className={$.nameCard}>
-          <span className={$.namePanel}>{t('김지오')}</span>
-          <span className={$.mailPanel}>
-            jio
-            <i className={$.mailBlur1} />
-            <i className={$.mailBlur2} />
-            w
-            <i className={$.mailBlur3} />
-            h.org
-          </span>
-        </div>
-      </section>
-      <h2>{t('소개')}</h2>
-      <section>
-        <h3>Education</h3>
-        <div className={$.educationBlockContainer}>
-          <div className={$.educationBlockHeading}>
-            <div className={$.educationEmblemContainer}>
-              <img src="./images/postech-emblem.png" alt={t('POSTECH 엠블럼')} />
-            </div>
-            <span>{t('POSTECH (포항공과대학교)')}</span>
-          </div>
-          <div className={$.educationBlockBody}>
-            <div className={$.educationBlockDetail}>
-              <div className={$.educationDegree}>
-                <span>{t('Undergraduate Student')}</span>
-              </div>
-              <div className={$.educationLocation}>
-                <span>{t('Pohang, Republic of Korea')}</span>
-              </div>
-              <div className={$.educationPeriod}>
-                <span>{t('Feb 2016 - Feb 2020')}</span>
-              </div>
-            </div>
-            <ul className={$.educationBlockItems}>
-              <li><span>Majored in Creative IT Engineering</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h3>{t('렌더링 시각')}</h3>
+      <BasicSection className={$.basicSection} />
+      <EducationSection className={$.educationSection} />
+      <SkillSection className={$.skillSection} />
+      <ProjectSection className={$.projectSection} />
+      <ResearchSection className={$.researchSection} />
+      <ExperienceSection className={$.experienceSection} />
+      <section className={$.timestampSection}>
+        <h3>{t('출력 시각')}</h3>
         <div className={$.renderTimeContainer}>
-          {t('이 문서의 내용은 [[]] 기준으로 렌더링된 것입니다.', [(new Date()).toLocaleString()])}
+          {t('본 문서의 출력 시각은 [[]] 입니다.', [(new Date()).toLocaleString()])}
         </div>
       </section>
     </article>
   );
+};
+
+Resume.defaultProps = {
+  className: null,
 };
 
 export default Resume;

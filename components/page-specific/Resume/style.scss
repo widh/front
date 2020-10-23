@@ -1,3 +1,26 @@
 .resumeContainer {
-  flex-grow: 1;
+  background-color: skyblue;
+  border-radius: $s-radius-large;
+  display: grid;
+  gap: 15px;
+  align-items: stretch;
+  align-content: stretch;
+  justify-items: stretch;
+  justify-content: stretch;
+
+  //https://studiomeal.com/archives/533
+
+  @include onWideView {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  & > section {
+    background-color: olivedrab;
+    border-radius: $s-radius-large;
+    padding: 5px;
+  }
+
+  .gallerySection {
+    grid-column: auto / span 2;
+  }
 }
