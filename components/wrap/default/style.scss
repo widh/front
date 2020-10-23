@@ -48,23 +48,23 @@ body {
 
   @include onUltraWideView {
     --s-pad-hori: 200px;
-    --s-view: 'ultra-wide';
+    --s-view: 'UltraWide';
   }
 
   @include onWideView {
-    --s-view: 'wide';
+    --s-view: 'Wide';
   }
 
   @include onCompactView {
     --s-pad-hori: 30px;
     --s-pad-vert: 60px;
-    --s-view: 'compact';
+    --s-view: 'Compact';
   }
 
   @include onUltraCompactView {
     --s-pad-hori: 20px;
     --s-pad-vert: 40px;
-    --s-view:'ultra-compact';
+    --s-view:'UltraCompact';
   }
 
   a {
