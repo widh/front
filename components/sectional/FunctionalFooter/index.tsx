@@ -33,7 +33,7 @@ const FunctionalFooter: React.FC<Props> = (props: Props) => {
     <footer className={integratedClassName}>
       <section className={$.copyrightSection}>
         <span className={$.copyrightText}>
-          {`© 2020 ${t('지오')}.`}
+          {`© 2021 ${t('지오')}.`}
         </span>
       </section>
       {
