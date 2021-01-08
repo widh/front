@@ -38,7 +38,7 @@ const AsideLinks: React.FC = () => {
         <li>
           <ButtonlikeAnchor
             iconHref="/images/instagram.png"
-            linkHref="https://www.instagram.com/with_jio"
+            linkHref="https://www.instagram.com/jiogim_official"
             linkLabel={t('Instagram')}
           />
         </li>
@@ -52,7 +52,7 @@ const AsideLinks: React.FC = () => {
         <li>
           <ButtonlikeAnchor
             iconHref="/images/facebook.svg"
-            linkHref="https://fb.me/wldh.aa"
+            linkHref="https://www.facebook.com/wldh.aa"
             linkLabel={t('Facebook')}
           />
         </li>
